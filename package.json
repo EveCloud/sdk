@@ -1,0 +1,30 @@
+{
+  "name": "@evecloud/api-sdk",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "private": true,
+  "homepage": "https://github.com/evecloud/sdk",
+  "bugs": {
+    "url": "https://github.com/evecloud/sdk/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/evecloud/sdk"
+  },
+  "engines": {
+    "node": ">= 14.17.4"
+  },
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "author": "EveCloud Ltd",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "jquery": "^3.6.0"
+  },
+  "devDependencies": {
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2"
+  }
+}
