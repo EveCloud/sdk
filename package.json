@@ -1,8 +1,10 @@
 {
-  "name": "@evecloud/api-sdk",
+  "name": "@evecloud/sdk",
+  "description": "A library for interacting with the EveCloud API",
   "version": "1.0.0",
   "main": "src/index.js",
-  "private": true,
+  "unpkg": "./dist/bundle.js",
+  "browser": "./dist/bundle.js",
   "homepage": "https://github.com/evecloud/sdk",
   "bugs": {
     "url": "https://github.com/evecloud/sdk/issues"
@@ -15,8 +17,14 @@
     "node": ">= 14.17.4"
   },
   "scripts": {
-    "test": "node test/test.js"
+    "test": "node test/test.js",
+    "build": "npx webpack"
   },
+  "files": [
+    "src/*",
+    "package.json",
+    "README.md"
+  ],
   "author": "EveCloud Ltd",
   "license": "Apache-2.0",
   "dependencies": {

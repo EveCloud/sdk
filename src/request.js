@@ -1,7 +1,6 @@
 const Axios = require('axios').default
 
 const request = Axios.create({
-
     baseURL: 'http://localhost:8080/v1',
     headers: {
         'Content-Type': 'application/json',
