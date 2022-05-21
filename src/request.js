@@ -24,7 +24,7 @@ const setToken = (token) => {
 
 const APIError = (error) => {
     if (error.response.status === 403) {
-        return error.response.headers
+        return error
     }
     if (error.code === "ECONNREFUSED") {
         return "Internal Server Error"
