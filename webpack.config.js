@@ -5,7 +5,7 @@ module.exports = {
   mode: 'production',
   entry: './src/index.js',
   output: {
-    filename: '../Manager/assets/js/evecloud.min.js',
+    filename: './dist/bundle.js',
     path: path.resolve(__dirname),
     libraryTarget: 'umd',
   },
