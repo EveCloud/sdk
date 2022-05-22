@@ -1,4 +1,5 @@
 module.exports = {
+    Request: require('./request').request,
     setToken: require("./request").setToken,
     Account: require("./account/account"),
     Invoices: require("./account/invoices"),
