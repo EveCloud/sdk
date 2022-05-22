@@ -27,7 +27,7 @@ async function disableTwoFactor() {
         await request.delete(`/account/two-factor`).then(response => {
             resolve(response.data)
         }).catch(error => {
-            APIError(error)
+            reject(APIError(error))
         })
     })
 }
