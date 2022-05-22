@@ -7,4 +7,6 @@ module.exports = {
     Payments: require("./account/payments"),
     Tokens: require("./account/tokens"),
     TwoFactor: require("./account/twofactor"),
+    Events: require("./account/events"),
+    Logins: require("./account/logins"),
 }
