@@ -22,6 +22,7 @@
     "build": "npx webpack"
   },
   "files": [
+    "dist",
     "src/*",
     "package.json",
     "README.md"
