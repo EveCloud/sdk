@@ -5,7 +5,7 @@ async function getTFAToken() {
         await request.post(`/account/two-factor`).then(response => {
             resolve(response.data)
         }).catch(error => {
-            APIError(error)
+            reject(APIError(error))
         })
     })
 }
@@ -17,7 +17,7 @@ async function confirmTwoFactor(code) {
         }).then(response => {
             resolve(response.data)
         }).catch(error => {
-            APIError(error)
+            reject(APIError(error))
         })
     })
 }

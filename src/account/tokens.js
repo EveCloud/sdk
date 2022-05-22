@@ -5,7 +5,7 @@ async function getAccountTokens() {
             await request.get(`/account/tokens`).then(response => {
                 resolve(response.data)
             }).catch(error => {
-                APIError(error)
+                reject(APIError(error))
             })
         })
     }
@@ -16,7 +16,7 @@ async function getAccountTokens() {
             await request.post(`/account/tokens`, data).then(response => {
                 resolve(response.data)
             }).catch(error => {
-                APIError(error)
+                reject(APIError(error))
             })
         })
 }

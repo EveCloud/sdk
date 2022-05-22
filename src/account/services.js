@@ -5,7 +5,7 @@ async function getAccountServices() {
             await request.get(`/account/services`).then(response => {
                 resolve(response.data)
             }).catch(error => {
-                APIError(error)
+                reject(APIError(error))
             })
         })
 }
