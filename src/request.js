@@ -11,7 +11,6 @@ const request = Axios.create({
 })
 
 const setToken = (token) => {
-    console.log(token)
     return request.interceptors.request.use((config) => {
         return {
             ...config,
