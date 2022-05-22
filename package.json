@@ -1,7 +1,7 @@
 {
   "name": "@evecloud/sdk",
   "description": "A library for interacting with the EveCloud API",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "src/index.js",
   "unpkg": "./dist/bundle.js",
   "browser": "./dist/bundle.js",
