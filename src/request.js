@@ -29,7 +29,7 @@ const APIError = (error) => {
     if (error.code === "ECONNREFUSED") {
         return "Internal Server Error"
     }
-    if (error.response) {
+    if (error.response.data.message) {
         return error.response.data.message
     }
     if (error.code === "ECONNABORTED") {
@@ -38,6 +38,10 @@ const APIError = (error) => {
     if (error.code === "ETIMEDOUT"){
         return "Unable to connect to the server"
     }
+    if (error.response.status === 502) {
+        return "Bad Gateway"
+    }
+    return "Internal Server Error"
 };
 
 module.exports = {
