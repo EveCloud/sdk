@@ -20,7 +20,29 @@ async function updateAccountInfo(data) {
     })
 }
 
+async function getAccountPreferences() {
+    return new Promise(async (resolve, reject) => {
+        await request.get(`/account/preferences`).then(response => {
+            resolve(response.data)
+        }).catch(error => {
+            reject(APIError(error))
+        })
+    })
+}
+
+async function updateAccountPreferences(data) {
+    return new Promise(async (resolve, reject) => {
+        await request.put(`/account/preferences`, data).then(response => {
+            resolve(response.data)
+        }).catch(error => {
+            reject(APIError(error))
+        })
+    })
+}
+
 module.exports = {
     getAccountInfo,
-    updateAccountInfo
+    updateAccountInfo,
+    getAccountPreferences,
+    updateAccountPreferences
 }
