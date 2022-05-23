@@ -10,6 +10,16 @@ async function getAccountTokens() {
     })
 }
 
+async function getAccountToken(id) {
+    return new Promise(async (resolve, reject) => {
+        await request.get(`/account/tokens/` + id).then(response => {
+            resolve(response.data)
+        }).catch(error => {
+            reject(APIError(error))
+        })
+    })
+}
+
 
 async function createAccountToken(label) {
     return new Promise(async (resolve, reject) => {
@@ -50,6 +60,7 @@ async function deleteAccountToken(id) {
 
 module.exports = {
     getAccountTokens,
+    getAccountToken,
     createAccountToken,
     updateAccountToken,
     deleteAccountToken
