@@ -48,7 +48,7 @@ async function updateAccountToken(id, label) {
 
 async function deleteAccountToken(id) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/account/tokens`, {
+        await request.delete(`/account/tokens`, {
             id: id
         }).then(response => {
             resolve(response.data)
