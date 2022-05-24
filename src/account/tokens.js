@@ -5,7 +5,7 @@ async function getAccountTokens(params) {
         await request.get(`/account/tokens`, {
             params: params || {}
         }).then(response => {
-            resolve(response.data)
+            resolve(response.data.data)
         }).catch(error => {
             reject(APIError(error))
         })

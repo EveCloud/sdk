@@ -5,7 +5,7 @@ async function getAccountEvents(params) {
         await request.get(`/account/events`, {
             params: params || {}
         }).then(response => {
-            resolve(response.data)
+            resolve(response.data.data)
         }).catch(error => {
             reject(APIError(error))
         })
