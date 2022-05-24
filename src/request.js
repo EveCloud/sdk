@@ -23,14 +23,8 @@ const setToken = (token) => {
 };
 
 const APIError = (error) => {
-    if (error.response.status === 403) {
-        return "Unauthorized"
-    }
     if (error.code === "ECONNREFUSED") {
         return "Internal Server Error"
-    }
-    if (error.response.data.message) {
-        return error.response.data.message
     }
     if (error.code === "ECONNABORTED") {
         return "The request has been aborted"
@@ -40,6 +34,12 @@ const APIError = (error) => {
     }
     if (error.response.status === 502) {
         return "Bad Gateway"
+    }
+    if (error.response.status === 403) {
+        return "Unauthorized"
+    }
+    if (error.response.data.message) {
+        return error.response.data.message
     }
     return "Internal Server Error"
 };
