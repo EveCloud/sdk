@@ -1,8 +1,10 @@
 const { request, APIError } = require('../request');
 
-async function getAccountTokens() {
+async function getAccountTokens(params) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/account/tokens`).then(response => {
+        await request.get(`/account/tokens`, {
+            params: params || {}
+        }).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))

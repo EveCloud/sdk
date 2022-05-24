@@ -1,8 +1,10 @@
 const { request, APIError } = require('../request');
 
-async function getAccountEvents() {
+async function getAccountEvents(params) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/account/events`).then(response => {
+        await request.get(`/account/events`, {
+            params: params || {}
+        }).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
