@@ -6,7 +6,7 @@ const request = Axios.create({
         'Content-Type': 'application/json',
         'Accept': 'application/json',
     },
-    timeout: '5000',
+    timeout: '10000',
     timeoutErrorMessage: 'Internal Server Error',
 })
 
