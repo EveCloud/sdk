@@ -16,5 +16,8 @@ module.exports = {
 
     // Containers
     Containers: require("./containers/containers"),
-    Info: require("./containers/info"),
+    ContainerInfo: require("./containers/info"),
+
+    // Others
+    Support: require("./support/support"),
 }
