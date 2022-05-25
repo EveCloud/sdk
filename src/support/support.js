@@ -40,7 +40,7 @@ async function getSupportTicketReplies(id, params) {
         await request.get(`/support/tickets/` + id + `/replies`, {
             params: params || {}
         }).then(response => {
-                resolve(response.data)
+                resolve(response.data.data)
             }).catch(error => {
                 reject(APIError(error))
             })
