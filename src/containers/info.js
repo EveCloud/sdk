@@ -10,6 +10,18 @@ async function getContainerResources(id) {
     })
 }
 
+async function getContainerWebSocket(id) {
+    return new Promise(async (resolve, reject) => {
+        await request.get(`/containers/${id}/websocket`).then(response => {
+            resolve(response.data)
+        }).catch(error => {
+            reject(APIError(error))
+        })
+    })
+}
+
+
 module.exports = {
-    getContainerResources
+    getContainerResources,
+    getContainerWebSocket
 }
