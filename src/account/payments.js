@@ -22,7 +22,20 @@ async function makePayPalPayment(data) {
     })
 }
 
+async function redeemGiftCode(code) {
+    return new Promise(async (resolve, reject) => {
+        await request.post(`/payments/gift-code`, {
+            code: code
+        }).then(response => {
+            resolve(response.data)
+        }).catch(error => {
+            reject(APIError(error))
+        })
+    })
+}
+
 module.exports = {
     makePayPalPayment,
-    getAccountPayments
+    getAccountPayments,
+    redeemGiftCode
 }
