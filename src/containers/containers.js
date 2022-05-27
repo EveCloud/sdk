@@ -22,7 +22,34 @@ async function getContainer(id) {
     })
 }
 
+async function createContainer(label, image, plan, region) {
+    return new Promise(async (resolve, reject) => {
+        await request.post(`/containers/`, {
+            label: label,
+            image: image,
+            plan: plan,
+            region: region
+        }).then(response => {
+            resolve(response.data)
+        }).catch(error => {
+            reject(APIError(error))
+        })
+    })
+}
+
+async function deleteContainer(id) {
+    return new Promise(async (resolve, reject) => {
+        await request.delete(`/containers/`).then(response => {
+            resolve(response.data)
+        }).catch(error => {
+            reject(APIError(error))
+        })
+    })
+}
+
 module.exports = {
     getContainers,
-    getContainer
+    getContainer,
+    createContainer,
+    deleteContainer
 }
