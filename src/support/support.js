@@ -1,6 +1,6 @@
 const { request, APIError } = require('../request');
 
-async function getSupportTickets(params) {
+async function getTickets(params) {
     return new Promise(async (resolve, reject) => {
         await request.get(`/support/tickets`, {
             params: params || {}
@@ -12,7 +12,7 @@ async function getSupportTickets(params) {
     })
 }
 
-async function getSupportTicket(id) {
+async function getTicket(id) {
     return new Promise(async (resolve, reject) => {
         await request.get(`/support/tickets/` + id).then(response => {
             resolve(response.data)
@@ -22,7 +22,7 @@ async function getSupportTicket(id) {
     })
 }
 
-async function createSupportTicket(summary, message) {
+async function createTicket(summary, message) {
     return new Promise(async (resolve, reject) => {
         await request.post(`/support/tickets`, {
             summary: summary,
@@ -35,7 +35,7 @@ async function createSupportTicket(summary, message) {
     })
 }
 
-async function getSupportTicketReplies(id, params) {
+async function getTicketReplies(id, params) {
     return new Promise(async (resolve, reject) => {
         await request.get(`/support/tickets/` + id + `/replies`, {
             params: params || {}
@@ -47,7 +47,7 @@ async function getSupportTicketReplies(id, params) {
     })
 }
 
-async function createSupportTicketReply(id, message) {
+async function createTicketReply(id, message) {
     return new Promise(async (resolve, reject) => {
         await request.post(`/support/tickets/` + id + `/replies`, {
             message: message
@@ -59,7 +59,7 @@ async function createSupportTicketReply(id, message) {
     })
 }
 
-async function closeSupportTicket(id) {
+async function closeTicket(id) {
     return new Promise(async (resolve, reject) => {
         await request.post(`/support/tickets/` + id + `/close`).then(response => {
             resolve(response.data)
@@ -70,10 +70,10 @@ async function closeSupportTicket(id) {
 }
 
 module.exports = {
-    getSupportTickets,
-    getSupportTicket,
-    createSupportTicket,
-    getSupportTicketReplies,
-    createSupportTicketReply,
-    closeSupportTicket
+    getTickets,
+    getTicket,
+    createTicket,
+    getTicketReplies,
+    createTicketReply,
+    closeTicket
 }

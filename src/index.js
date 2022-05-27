@@ -17,6 +17,10 @@ module.exports = {
     // Containers
     Containers: require("./containers/containers"),
     ContainerInfo: require("./containers/info"),
+    ContainerConfig: require("./containers/config"),
+    ContainerActions: require("./containers/actions"),
+    ContainerBackups: require("./containers/backups"),
+    ContainerFiles: require("./containers/files"),
 
     // Others
     Support: require("./support/support"),
