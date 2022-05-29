@@ -2,7 +2,7 @@ const { request, APIError } = require('../request');
 
 async function getContainers(params) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/containers`, {
+        await request.get(`/v1/containers`, {
             params: params || {}
         }).then(response => {
             resolve(response.data.data)
@@ -14,7 +14,7 @@ async function getContainers(params) {
 
 async function getContainer(id) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/containers/` + id).then(response => {
+        await request.get(`/v1/containers/` + id).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -24,7 +24,7 @@ async function getContainer(id) {
 
 async function createContainer(label, image, plan, region) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/containers/`, {
+        await request.post(`/v1/containers/`, {
             label: label,
             image: image,
             plan: plan,
@@ -39,7 +39,7 @@ async function createContainer(label, image, plan, region) {
 
 async function deleteContainer(id) {
     return new Promise(async (resolve, reject) => {
-        await request.delete(`/containers/`).then(response => {
+        await request.delete(`/v1/containers/`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -49,7 +49,7 @@ async function deleteContainer(id) {
 
 async function getImages(params) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/containers/images`, {
+        await request.get(`/v1/containers/images`, {
             params: params || {}
         }).then(response => {
             resolve(response.data.data)

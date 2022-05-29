@@ -22,7 +22,9 @@ module.exports = {
     ContainerBackups: require("./containers/backups"),
     ContainerFiles: require("./containers/files"),
     ContainerImages: require("./containers/images"),
-    
+
     // Others
     Support: require("./support/support"),
+    Regions: require("./utils/regions"),
+    Plans: require("./utils/plans"),
 }

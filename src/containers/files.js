@@ -2,7 +2,7 @@ const { request, APIError } = require('../request');
 
 async function getFileList(id, dir) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/containers/${id}/files/list`, {
+        await request.get(`/v1/containers/${id}/files/list`, {
             params: {
                 directory: dir || '/'
             }
@@ -16,7 +16,7 @@ async function getFileList(id, dir) {
 
 async function renameFile(id, dir, file, name) {
     return new Promise(async (resolve, reject) => {
-        await request.put(`/containers/${id}/files/rename`, {
+        await request.put(`/v1/containers/${id}/files/rename`, {
             params: {
                 directory: dir || '/',
             },
@@ -32,7 +32,7 @@ async function renameFile(id, dir, file, name) {
 
 async function writeFile(id, dir, file, data) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/containers/${id}/files/write`, {
+        await request.post(`/v1/containers/${id}/files/write`, {
             params: {
                 directory: dir || '/'
             },
@@ -49,7 +49,7 @@ async function writeFile(id, dir, file, data) {
 // FOR DIR UPLOAD https://i.imgur.com/kv17w6o.png
 async function getFileUploadLink(id) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/containers/${id}/files/upload`).then(response => {
+        await request.get(`/v1/containers/${id}/files/upload`).then(response => {
             resolve(response.data.url)
         }).catch(error => {
             reject(APIError(error))
@@ -59,7 +59,7 @@ async function getFileUploadLink(id) {
 
 async function getFileDownloadLink(id, dir, file) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/containers/${id}/files/download`, {
+        await request.get(`/v1/containers/${id}/files/download`, {
             params: {
                 directory: dir || '/',
                 file: file
@@ -74,7 +74,7 @@ async function getFileDownloadLink(id, dir, file) {
 
 async function getFileContent(id, dir, file) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/containers/${id}/files/contents`, {
+        await request.get(`/v1/containers/${id}/files/contents`, {
             params: {
                 directory: dir || '/',
                 file: file
@@ -89,7 +89,7 @@ async function getFileContent(id, dir, file) {
 
 async function deleteFiles(id, dir, files) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/containers/${id}/files/delete`, {
+        await request.post(`/v1/containers/${id}/files/delete`, {
             params: {
                 directory: dir || '/'
             },
@@ -104,7 +104,7 @@ async function deleteFiles(id, dir, files) {
 
 async function decompressFile(id, dir, file) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/containers/${id}/files/decompress`, {
+        await request.post(`/v1/containers/${id}/files/decompress`, {
             params: {
                 directory: dir || '/'
             },
@@ -119,7 +119,7 @@ async function decompressFile(id, dir, file) {
 
 async function compressFiles(id, dir, files) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/containers/${id}/files/compress`, {
+        await request.post(`/v1/containers/${id}/files/compress`, {
             params: {
                 directory: dir || '/'
             },
@@ -134,7 +134,7 @@ async function compressFiles(id, dir, files) {
 
 async function createFolder(id, dir, folder) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/containers/${id}/files/create-folder`, {
+        await request.post(`/v1/containers/${id}/files/create-folder`, {
             params: {
                 directory: dir || '/'
             },
@@ -149,7 +149,7 @@ async function createFolder(id, dir, folder) {
 
 async function copyFile(id, dir, file) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/containers/${id}/files/copy`, {
+        await request.post(`/v1/containers/${id}/files/copy`, {
             params: {
                 directory: dir || '/'
             },
@@ -164,7 +164,7 @@ async function copyFile(id, dir, file) {
 
 async function chmodFile(id, dir, file, perm) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/containers/${id}/files/chmod`, {
+        await request.post(`/v1/containers/${id}/files/chmod`, {
             params: {
                 directory: dir || '/'
             },

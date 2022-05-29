@@ -2,7 +2,7 @@ const { request, APIError } = require('../request');
 
 async function getConfig(id) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/containers/${id}/config`).then(response => {
+        await request.get(`/v1/containers/${id}/config`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -12,7 +12,7 @@ async function getConfig(id) {
 
 async function updateConfig(id, key, value) {
     return new Promise(async (resolve, reject) => {
-        await request.put(`/containers/${id}/config`, {
+        await request.put(`/v1/containers/${id}/config`, {
             key: key,
             value: value
         }).then(response => {

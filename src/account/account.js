@@ -2,7 +2,7 @@ const { request, APIError } = require('../request');
 
 async function getAccountInfo() {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/account`).then(response => {
+        await request.get(`/v1/account`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -12,7 +12,7 @@ async function getAccountInfo() {
 
 async function updateAccountInfo(data) {
     return new Promise(async (resolve, reject) => {
-        await request.put(`/account`, data).then(response => {
+        await request.put(`/v1/account`, data).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -22,7 +22,7 @@ async function updateAccountInfo(data) {
 
 async function getAccountPreferences() {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/account/preferences`).then(response => {
+        await request.get(`/v1/account/preferences`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -32,7 +32,7 @@ async function getAccountPreferences() {
 
 async function updateAccountPreferences(data) {
     return new Promise(async (resolve, reject) => {
-        await request.put(`/account/preferences`, data).then(response => {
+        await request.put(`/v1/account/preferences`, data).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))

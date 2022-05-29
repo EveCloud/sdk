@@ -2,7 +2,7 @@ const { request, APIError } = require('../request');
 
 async function getAccountTokens(params) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/account/tokens`, {
+        await request.get(`/v1/account/tokens`, {
             params: params || {}
         }).then(response => {
             resolve(response.data.data)
@@ -14,7 +14,7 @@ async function getAccountTokens(params) {
 
 async function getAccountToken(id) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/account/tokens/` + id).then(response => {
+        await request.get(`/v1/account/tokens/` + id).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -25,7 +25,7 @@ async function getAccountToken(id) {
 
 async function createAccountToken(label) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/account/tokens`, {
+        await request.post(`/v1/account/tokens`, {
             label: label
         }).then(response => {
             resolve(response.data)
@@ -37,7 +37,7 @@ async function createAccountToken(label) {
 
 async function updateAccountToken(id, label) {
     return new Promise(async (resolve, reject) => {
-        await request.put(`/account/tokens`, {
+        await request.put(`/v1/account/tokens`, {
             id: id,
             label: label
         }).then(response => {
@@ -50,7 +50,7 @@ async function updateAccountToken(id, label) {
 
 async function deleteAccountToken(id) {
     return new Promise(async (resolve, reject) => {
-        await request.delete(`/account/tokens/` + id).then(response => {
+        await request.delete(`/v1/account/tokens/` + id).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))

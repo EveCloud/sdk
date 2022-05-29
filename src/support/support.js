@@ -2,7 +2,7 @@ const { request, APIError } = require('../request');
 
 async function getTickets(params) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/support/tickets`, {
+        await request.get(`/v1/support/tickets`, {
             params: params || {}
         }).then(response => {
             resolve(response.data.data)
@@ -14,7 +14,7 @@ async function getTickets(params) {
 
 async function getTicket(id) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/support/tickets/` + id).then(response => {
+        await request.get(`/v1/support/tickets/` + id).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -24,7 +24,7 @@ async function getTicket(id) {
 
 async function createTicket(summary, message) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/support/tickets`, {
+        await request.post(`/v1/support/tickets`, {
             summary: summary,
             message: message
         }).then(response => {
@@ -37,7 +37,7 @@ async function createTicket(summary, message) {
 
 async function getTicketReplies(id, params) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/support/tickets/` + id + `/replies`, {
+        await request.get(`/v1/support/tickets/` + id + `/replies`, {
             params: params || {}
         }).then(response => {
                 resolve(response.data.data)
@@ -49,7 +49,7 @@ async function getTicketReplies(id, params) {
 
 async function createTicketReply(id, message) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/support/tickets/` + id + `/replies`, {
+        await request.post(`/v1/support/tickets/` + id + `/replies`, {
             message: message
         }).then(response => {
                 resolve(response.data)
@@ -61,7 +61,7 @@ async function createTicketReply(id, message) {
 
 async function closeTicket(id) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/support/tickets/` + id + `/close`).then(response => {
+        await request.post(`/v1/support/tickets/` + id + `/close`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))

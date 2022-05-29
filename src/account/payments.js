@@ -2,7 +2,7 @@ const { request, APIError } = require('../request');
 
 async function getAccountPayments(params) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/payments`, {
+        await request.get(`/v1/payments`, {
             params: params || {}
         }).then(response => {
             resolve(response.data.data)
@@ -14,7 +14,7 @@ async function getAccountPayments(params) {
 
 async function makePayPalPayment(data) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/payments/paypal`, data).then(response => {
+        await request.post(`/v1/payments/paypal`, data).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -24,7 +24,7 @@ async function makePayPalPayment(data) {
 
 async function redeemGiftCode(code) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/payments/gift-code`, {
+        await request.post(`/v1/payments/gift-code`, {
             code: code
         }).then(response => {
             resolve(response.data)

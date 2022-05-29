@@ -2,7 +2,7 @@ const { request, APIError } = require('../request');
 
 async function getTFAToken() {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/account/two-factor`).then(response => {
+        await request.post(`/v1/account/two-factor`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -12,7 +12,7 @@ async function getTFAToken() {
 
 async function confirmTwoFactor(code) {
     return new Promise(async (resolve, reject) => {
-        await request.put(`/account/two-factor`, {
+        await request.put(`/v1/account/two-factor`, {
             tfa_code: code
         }).then(response => {
             resolve(response.data)
@@ -24,7 +24,7 @@ async function confirmTwoFactor(code) {
 
 async function disableTwoFactor() {
     return new Promise(async (resolve, reject) => {
-        await request.delete(`/account/two-factor`).then(response => {
+        await request.delete(`/v1/account/two-factor`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
