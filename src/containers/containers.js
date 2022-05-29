@@ -47,9 +47,22 @@ async function deleteContainer(id) {
     })
 }
 
+async function getImages(params) {
+    return new Promise(async (resolve, reject) => {
+        await request.get(`/containers/images`, {
+            params: params || {}
+        }).then(response => {
+            resolve(response.data.data)
+        }).catch(error => {
+            reject(APIError(error))
+        })
+    })
+}
+
 module.exports = {
     getContainers,
     getContainer,
     createContainer,
-    deleteContainer
+    deleteContainer,
+    getImages
 }
