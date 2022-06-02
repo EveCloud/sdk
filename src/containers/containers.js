@@ -22,13 +22,15 @@ async function getContainer(id) {
     })
 }
 
-async function createContainer(label, image, plan, region) {
+async function createContainer(label, tags, image, plan, region, git) {
     return new Promise(async (resolve, reject) => {
         await request.post(`/v1/containers/`, {
             label: label,
             image: image,
             plan: plan,
-            region: region
+            region: region,
+            tags: tags || [],
+            git: git || null
         }).then(response => {
             resolve(response.data)
         }).catch(error => {

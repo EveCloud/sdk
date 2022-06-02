@@ -24,7 +24,5 @@ module.exports = {
     ContainerImages: require("./containers/images"),
 
     // Others
-    Support: require("./support/support"),
-    Regions: require("./utils/regions"),
-    Plans: require("./utils/plans"),
+    Support: require("./support/support")
 }
