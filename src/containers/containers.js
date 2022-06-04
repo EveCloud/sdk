@@ -41,7 +41,7 @@ async function createContainer(label, tags, image, plan, region, git) {
 
 async function deleteContainer(id) {
     return new Promise(async (resolve, reject) => {
-        await request.delete(`/v1/containers/`).then(response => {
+        await request.delete(`/v1/containers/` + id).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
