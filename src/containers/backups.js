@@ -37,7 +37,7 @@ async function createBackup(id, name) {
 
 async function downloadBackup(id, uuid) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/containers/${id}/backups/${uuid}/download`).then(response => {
+        await request.get(`/v1/containers/${id}/backups/${uuid}/download`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
