@@ -24,7 +24,7 @@ async function getEventData(ID) {
 
 async function markEventSeen(ID) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/account/events/` + ID + '/seen').then(response => {
+        await request.post(`/v1/account/events/` + ID + '/seen').then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -34,7 +34,7 @@ async function markEventSeen(ID) {
 
 async function markEventRead(ID) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/account/events/` + ID + '/read').then(response => {
+        await request.post(`/v1/account/events/` + ID + '/read').then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
