@@ -22,6 +22,7 @@ module.exports = {
     ContainerBackups: require("./containers/backups"),
     ContainerFiles: require("./containers/files"),
     ContainerImages: require("./containers/images"),
+    ContainerTags: require("./containers/tags"),
 
     // Others
     Support: require("./support/support")

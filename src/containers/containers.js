@@ -50,6 +50,18 @@ async function deleteContainer(id) {
     })
 }
 
+async function updateContainer(id, label) {
+    return new Promise(async (resolve, reject) => {
+        await request.put(`/v1/containers/` + id, {
+            label: label
+        }).then(response => {
+            resolve(response.data)
+        }).catch(error => {
+            reject(APIError(error))
+        })
+    })
+}
+
 async function getImages(params) {
     return new Promise(async (resolve, reject) => {
         await request.get(`/v1/containers/images`, {
@@ -67,5 +79,6 @@ module.exports = {
     getContainer,
     createContainer,
     deleteContainer,
+    updateContainer,
     getImages
 }
