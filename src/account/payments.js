@@ -10,21 +10,9 @@ async function getAccountPaymentMethods() {
     })
 }
 
-async function makePayPalPayment(data) {
+async function addPaymentMethod() {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/payments/paypal`, data).then(response => {
-            resolve(response.data)
-        }).catch(error => {
-            reject(APIError(error))
-        })
-    })
-}
-
-async function redeemGiftCode(code) {
-    return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/payments/gift-code`, {
-            code: code
-        }).then(response => {
+        await request.post(`/v1/account/payment-methods`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -34,4 +22,5 @@ async function redeemGiftCode(code) {
 
 module.exports = {
     getAccountPaymentMethods,
+    addPaymentMethod,
 }
