@@ -1,11 +1,9 @@
 const { request, APIError } = require('../request');
 
-async function getAccountPayments(params) {
+async function getAccountPaymentMethods() {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/payments`, {
-            params: params || {}
-        }).then(response => {
-            resolve(response.data.data)
+        await request.get(`/v1/account/payment-methods`).then(response => {
+            resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
         })
@@ -35,7 +33,5 @@ async function redeemGiftCode(code) {
 }
 
 module.exports = {
-    makePayPalPayment,
-    getAccountPayments,
-    redeemGiftCode
+    getAccountPaymentMethods,
 }
