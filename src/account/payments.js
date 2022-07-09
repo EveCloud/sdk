@@ -20,7 +20,18 @@ async function addPaymentMethod() {
     })
 }
 
+async function getStripe() {
+    return new Promise(async (resolve, reject) => {
+        await request.get(`/v1/payments/stripe/public-key`).then(response => {
+            resolve(response.data)
+        }).catch(error => {
+            reject(APIError(error))
+        })
+    })
+}
+
 module.exports = {
     getAccountPaymentMethods,
     addPaymentMethod,
+    getStripe
 }
