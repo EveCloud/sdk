@@ -1,13 +1,14 @@
 const { request, APIError } = require('../request')
 
 /**
- * Start Project
- * @param {String} id 
- * @returns {Promise}
+ * Start Project 
+ * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Projects.Reinstall
+ * @param {String} projectID Project ID
+ * @returns {Promise<String>} Message
  */
-async function start(id) {
+async function start(projectID) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/projects/${id}/boot`).then(response => {
+        await request.post(`/v1/projects/${projectID}/boot`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -17,12 +18,13 @@ async function start(id) {
 
 /**
  * Shutdown Project
- * @param {String} id 
- * @returns {Promise}
+ * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Projects.Shutdown
+ * @param {String} projectID Project ID
+ * @returns {Promise<String>} Message
  */
-async function shutdown(id) {
+async function shutdown(projectID) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/projects/${id}/shutdown`).then(response => {
+        await request.post(`/v1/projects/${projectID}/shutdown`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -32,12 +34,13 @@ async function shutdown(id) {
 
 /**
  * Restart Project
- * @param {String} id 
- * @returns {Promise}
+ * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Projects.Restart
+ * @param {String} projectID Project ID
+ * @returns {Promise<String>} Message
  */
-async function restart(id) {
+async function restart(projectID) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/projects/${id}/restart`).then(response => {
+        await request.post(`/v1/projects/${projectID}/restart`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -47,12 +50,13 @@ async function restart(id) {
 
 /**
  * Reinstall Project
- * @param {String} id 
- * @returns {Promise}
+ * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Projects.Reinstall
+ * @param {String} projectID Project ID
+ * @returns {Promise<String>} Message
  */
-async function reinstall(id) {
+async function reinstall(projectID) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/projects/${id}/reinstall`).then(response => {
+        await request.post(`/v1/projects/${projectID}/reinstall`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))

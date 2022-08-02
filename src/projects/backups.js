@@ -2,13 +2,14 @@ const { request, APIError } = require('../request')
 
 /**
  * Get project backups
- * @param {String} id 
- * @param {Object} params 
- * @returns {Promise}
+ * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Projects.Backups
+ * @param {String} projectID Project ID
+ * @param {Object} params Pagination parameters
+ * @returns {Promise<Object>} Backup List object
  */
-async function getBackups(id, params) {
+async function getBackups(projectID, params) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/projects/${id}/backups`, {
+        await request.get(`/v1/projects/${projectID}/backups`, {
             params: params || {}
         }).then(response => {
             resolve(response.data.data)
@@ -20,13 +21,14 @@ async function getBackups(id, params) {
 
 /**
  * Get backup
- * @param {String} id 
- * @param {String} uuid 
- * @returns {Promise}
+ * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Projects.BackupView
+ * @param {String} projectID Project ID
+ * @param {String} uuid Backup UUID
+ * @returns {Promise<Object>} Backup object
  */
-async function getBackup(id, uuid) {
+async function getBackup(projectID, uuid) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/projects/${id}/backups/${uuid}`).then(response => {
+        await request.get(`/v1/projects/${projectID}/backups/${uuid}`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -36,13 +38,14 @@ async function getBackup(id, uuid) {
 
 /**
  * Create backup
- * @param {String} id 
- * @param {String} label
- * @returns {Promise}
+ * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Projects.BackupCreate
+ * @param {String} projectID Project ID
+ * @param {String} label Backup label
+ * @returns {Promise<String>} Message
  */
-async function createBackup(id, name) {
+async function createBackup(projectID, name) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/projects/${id}/backups`, {
+        await request.post(`/v1/projects/${projectID}/backups`, {
             name: name
         }).then(response => {
             resolve(response.data)
@@ -54,13 +57,14 @@ async function createBackup(id, name) {
 
 /**
  * Download backup
- * @param {String} id 
- * @param {String} uuid 
- * @returns {Promise}
+ * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Projects.BackupDownload
+ * @param {String} projectID Project ID
+ * @param {String} uuid Backup UUID
+ * @returns {Promise<String>} Download URL
  */
-async function downloadBackup(id, uuid) {
+async function downloadBackup(projectID, uuid) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/projects/${id}/backups/${uuid}/download`).then(response => {
+        await request.get(`/v1/projects/${projectID}/backups/${uuid}/download`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -70,13 +74,14 @@ async function downloadBackup(id, uuid) {
 
 /**
  * Delete backup
- * @param {String} id 
- * @param {String} uuid 
- * @returns {Promise}
+ * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Projects.BackupDelete
+ * @param {String} projectID Project ID
+ * @param {String} uuid Backup UUID
+ * @returns {Promise<String>} Message
  */
-async function deleteBackup(id, uuid) {
+async function deleteBackup(projectID, uuid) {
     return new Promise(async (resolve, reject) => {
-        await request.delete(`/v1/projects/${id}/backups/${uuid}`).then(response => {
+        await request.delete(`/v1/projects/${projectID}/backups/${uuid}`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
