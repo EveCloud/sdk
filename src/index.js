@@ -13,7 +13,7 @@ module.exports = {
     Logins: require("./account/logins"),
 
     // Projects
-    Projects: require("./projects/containers"),
+    Projects: require("./projects/projects"),
     ProjectInfo: require("./projects/info"),
     ProjectConfig: require("./projects/config"),
     ProjectActions: require("./projects/actions"),

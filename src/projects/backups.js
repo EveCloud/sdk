@@ -2,7 +2,7 @@ const { request, APIError } = require('../request')
 
 /**
  * Get project backups
- * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Projects.Backups
+ * @link https://docs.evecloud.xyz/api/#tag/Project/operation/Projects.Backups
  * @param {String} projectID Project ID
  * @param {Object} params Pagination parameters
  * @returns {Promise<Object>} Backup List object
@@ -21,7 +21,7 @@ async function getBackups(projectID, params) {
 
 /**
  * Get backup
- * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Projects.BackupView
+ * @link https://docs.evecloud.xyz/api/#tag/Project/operation/Projects.BackupView
  * @param {String} projectID Project ID
  * @param {String} uuid Backup UUID
  * @returns {Promise<Object>} Backup object
@@ -38,7 +38,7 @@ async function getBackup(projectID, uuid) {
 
 /**
  * Create backup
- * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Projects.BackupCreate
+ * @link https://docs.evecloud.xyz/api/#tag/Project/operation/Projects.BackupCreate
  * @param {String} projectID Project ID
  * @param {String} label Backup label
  * @returns {Promise<String>} Message
@@ -57,7 +57,7 @@ async function createBackup(projectID, name) {
 
 /**
  * Download backup
- * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Projects.BackupDownload
+ * @link https://docs.evecloud.xyz/api/#tag/Project/operation/Projects.BackupDownload
  * @param {String} projectID Project ID
  * @param {String} uuid Backup UUID
  * @returns {Promise<String>} Download URL
@@ -74,7 +74,7 @@ async function downloadBackup(projectID, uuid) {
 
 /**
  * Delete backup
- * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Projects.BackupDelete
+ * @link https://docs.evecloud.xyz/api/#tag/Project/operation/Projects.BackupDelete
  * @param {String} projectID Project ID
  * @param {String} uuid Backup UUID
  * @returns {Promise<String>} Message

@@ -2,7 +2,7 @@ const { request, APIError } = require('../request')
 
 /**
  * Get project resources
- * @link https://docs.evecloud.xyz/api/#tag/Projects/operation/Projects.Resources
+ * @link https://docs.evecloud.xyz/api/#tag/Project/operation/Projects.Resources
  * @param {String} id The ID of the project. 
  * @returns {Promise<Object>} The project Resource Usage.
  */
@@ -18,7 +18,7 @@ async function getResources(id) {
 
 /**
  * Get project websocket
- * @link https://docs.evecloud.xyz/api/#tag/Projects/operation/Projects.Websocket
+ * @link https://docs.evecloud.xyz/api/#tag/Project/operation/Projects.Websocket
  * @param {String} id The ID of the project.
  * @returns {Promise<Object>} The project websocket
  * @summary

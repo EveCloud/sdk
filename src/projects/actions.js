@@ -2,7 +2,7 @@ const { request, APIError } = require('../request')
 
 /**
  * Start Project 
- * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Projects.Reinstall
+ * @link https://docs.evecloud.xyz/api/#tag/Project/operation/Projects.Reinstall
  * @param {String} projectID Project ID
  * @returns {Promise<String>} Message
  */
@@ -18,7 +18,7 @@ async function start(projectID) {
 
 /**
  * Shutdown Project
- * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Projects.Shutdown
+ * @link https://docs.evecloud.xyz/api/#tag/Project/operation/Projects.Shutdown
  * @param {String} projectID Project ID
  * @returns {Promise<String>} Message
  */
@@ -34,7 +34,7 @@ async function shutdown(projectID) {
 
 /**
  * Restart Project
- * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Projects.Restart
+ * @link https://docs.evecloud.xyz/api/#tag/Project/operation/Projects.Restart
  * @param {String} projectID Project ID
  * @returns {Promise<String>} Message
  */
@@ -50,7 +50,7 @@ async function restart(projectID) {
 
 /**
  * Reinstall Project
- * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Projects.Reinstall
+ * @link https://docs.evecloud.xyz/api/#tag/Project/operation/Projects.Reinstall
  * @param {String} projectID Project ID
  * @returns {Promise<String>} Message
  */

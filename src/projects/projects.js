@@ -2,7 +2,7 @@ const { request, APIError } = require('../request')
 
 /**
  * Get account projects
- * @link https://docs.evecloud.xyz/api/#tag/Projects/operation/Projects.Projects_Get
+ * @link https://docs.evecloud.xyz/api/#tag/Project/operation/Projects.Projects_Get
  * @param {Object} params Pagination params
  * @returns {Promise<Object>} Project List Object
  */
@@ -20,7 +20,7 @@ async function getProjects(params) {
 
 /**
  * Get account project
- * @link https://docs.evecloud.xyz/api/#tag/Projects/operation/Projects.Projects_View
+ * @link https://docs.evecloud.xyz/api/#tag/Project/operation/Projects.Projects_View
  * @param {String} id Project ID
  * @returns {Promise<Object>} Project object
  */
@@ -36,7 +36,7 @@ async function getProject(id) {
 
 /**
  * Create project
- * @link https://docs.evecloud.xyz/api/#tag/Projects/operation/Projects.Projects_Create
+ * @link https://docs.evecloud.xyz/api/#tag/Project/operation/Projects.Projects_Create
  * @param {String} label Project label
  * @param {Number} memory Project memory
  * @param {Number} storage Project storage
@@ -66,7 +66,7 @@ async function createProject(label, memory, storage, image, region, git, domain)
 
 /**
  * Delete project
- * @link https://docs.evecloud.xyz/api/#tag/Projects/operation/Projects.Projects_Delete
+ * @link https://docs.evecloud.xyz/api/#tag/Project/operation/Projects.Projects_Delete
  * @param {String} id Project ID
  * @returns {Promise<String>} Message
  */
@@ -82,7 +82,7 @@ async function deleteProject(id) {
 
 /**
  * Update project
- * @link https://docs.evecloud.xyz/api/#tag/Projects/operation/Projects.Projects_View
+ * @link https://docs.evecloud.xyz/api/#tag/Project/operation/Projects.Projects_Update
  * @param {String} id Project ID
  * @param {Object} data Project data to update
  * @returns {Promise<String>} Message
@@ -101,16 +101,32 @@ async function updateProject(id, data) {
 
 /**
  * Get avaliable images for projects
- * @link https://docs.evecloud.xyz/api/#tag/Projects/operation/Projects.Images
+ * @link https://docs.evecloud.xyz/api/#tag/Images/operation/Images
  * @param {String} params Pagination params
  * @returns {Promise<Object>} Image List Object
  */
 async function getImages(params) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/projects/images`, {
+        await request.get(`/images`, {
             params: params || {}
         }).then(response => {
             resolve(response.data.data)
+        }).catch(error => {
+            reject(APIError(error))
+        })
+    })
+}
+
+/**
+ * Get details of an image
+ * @link https://docs.evecloud.xyz/api/#tag/Images/operation/Image
+ * @param {String} id Image ID
+ * @returns {Promise<Object>} Image Object
+ */
+ async function getImages(id) {
+    return new Promise(async (resolve, reject) => {
+        await request.get(`/images/${id}`).then(response => {
+            resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
         })

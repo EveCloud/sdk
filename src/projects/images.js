@@ -2,6 +2,7 @@ const { request, APIError } = require('../request')
 
 /**
  * Get avaliable images version for project
+ * @link https://docs.evecloud.xyz/api/#tag/Project/operation/Projects.ImagesList
  * @param {String} id The ID of the project.
  * @returns {Promise<String>} Message.
  */
@@ -17,6 +18,7 @@ async function getImages(id) {
 
 /**
  * Update project image
+ * @link https://docs.evecloud.xyz/api/#tag/Project/operation/Projects.ImagesUpdate
  * @param {String} id The ID of the project.
  * @param {Number} image The ID of the image.
  * @returns {Promise<String>} Message.

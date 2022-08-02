@@ -2,6 +2,7 @@ const { request, APIError } = require('../request')
 
 /**
  * Get a list of files in a directory.
+ * @link https://docs.evecloud.xyz/api#tag/Project-FileManager/operation/Projects.FilesList
  * @param {String} id The ID of the project.
  * @param {String} dir The directory to list. Defaults to the root directory.
  * @returns {Promise<Object>} A list of files.
@@ -22,6 +23,7 @@ async function getFileList(id, dir) {
 
 /**
  * Rename a file.
+ * @link https://docs.evecloud.xyz/api#tag/Project-FileManager/operation/Projects.FilesRename
  * @param {String} id The ID of the project. 
  * @param {String} dir The directory the file is in. Defaults to the root directory.
  * @param {String} file The file to rename.
@@ -46,6 +48,7 @@ async function renameFile(id, dir, file, name) {
 
 /**
  * Write to a file.
+ * @link https://docs.evecloud.xyz/api#tag/Project-FileManager/operation/Projects.FilesWrite
  * @param {String} id The ID of the project. 
  * @param {String} dir The directory the file is in. Defaults to the root directory.
  * @param {String} file The file to write to.
@@ -68,9 +71,10 @@ async function writeFile(id, dir, file, data) {
     })
 }
 
-// FOR DIR UPLOAD https://i.imgur.com/kv17w6o.png
 /**
  * Get file upload link.
+ * @link https://docs.evecloud.xyz/api#tag/Project-FileManager/operation/Projects.FilesUpload
+ * @sumary for directory see https://i.imgur.com/kv17w6o.png
  * @param {String} id The ID of the project. 
  * @return {Promise<String>} Url.
  */
@@ -86,6 +90,7 @@ async function getFileUploadLink(id) {
 
 /**
  * Get file download link.
+ * @link https://docs.evecloud.xyz/api#tag/Project-FileManager/operation/Projects.FilesDownload
  * @param {String} id The ID of the project.
  * @param {String} dir The directory the file is in. Defaults to the root directory.
  * @param {String} file The file to download.
@@ -108,6 +113,7 @@ async function getFileDownloadLink(id, dir, file) {
 
 /**
  * Get file contents.
+ * @link https://docs.evecloud.xyz/api#tag/Project-FileManager/operation/Projects.FilesContents
  * @param {String} id The ID of the project. 
  * @param {String} dir The directory the file is in. Defaults to the root directory.
  * @param {String} file The file to get the contents of.
@@ -130,6 +136,7 @@ async function getFileContent(id, dir, file) {
 
 /**
  * Delete files.
+ * @link https://docs.evecloud.xyz/api#tag/Project-FileManager/operation/Projects.FilesDelete
  * @param {String} id The ID of the project. 
  * @param {String} dir The directory the file is in. Defaults to the root directory. 
  * @param {Array} files The files to delete. 
@@ -152,6 +159,7 @@ async function deleteFiles(id, dir, files) {
 
 /**
  * Decompress a file.
+ * @link https://docs.evecloud.xyz/api#tag/Project-FileManager/operation/Projects.FilesDecompress
  * @param {String} id The ID of the project. 
  * @param {String} dir The directory the file is in. Defaults to the root directory.
  * @param {String} file The file to decompress.
@@ -174,6 +182,7 @@ async function decompressFile(id, dir, file) {
 
 /**
  * Compress files.
+ * @link https://docs.evecloud.xyz/api#tag/Project-FileManager/operation/Projects.FilesCompress
  * @param {String} id The ID of the project. 
  * @param {String} dir The directory the file is in. Defaults to the root directory.
  * @param {String} files The files to compress.
@@ -196,6 +205,7 @@ async function compressFiles(id, dir, files) {
 
 /**
  * Create a directory.
+ * @link https://docs.evecloud.xyz/api#tag/Project-FileManager/operation/Projects.FilesCreateFolder
  * @param {String} id The ID of the project.
  * @param {String} dir The directory to create. Defaults to the root directory.
  * @param {String} folder The name of the folder to create.
@@ -218,6 +228,7 @@ async function createFolder(id, dir, folder) {
 
 /**
  * Copy file.
+ * @link https://docs.evecloud.xyz/api#tag/Project-FileManager/operation/Projects.FilesCopy
  * @param {String} id The ID of the project. 
  * @param {String} dir The directory the file is in. Defaults to the root directory.
  * @param {String} file The file to copy.
@@ -240,6 +251,7 @@ async function copyFile(id, dir, file) {
 
 /**
  * Change file permissions.
+ * @link https://docs.evecloud.xyz/api#tag/Project-FileManager/operation/Projects.FilesChmod
  * @param {String} id The ID of the project.
  * @param {String} dir The directory the file is in. Defaults to the root directory.
  * @param {String} file The file to change the permissions of.

@@ -2,12 +2,13 @@ const { request, APIError } = require('../request')
 
 /**
  * Get Project Envoirment Variables
- * @param {String} id 
- * @returns {Promise}
+ * @link https://docs.evecloud.xyz/api/#tag/Project/operation/Projects.ConfigGet
+ * @param {String} projectID Project ID
+ * @returns {Promise<Object>} Config object
  */
-async function getConfig(id) {
+async function getConfig(projectID) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/projects/${id}/config`).then(response => {
+        await request.get(`/v1/projects/${projectID}/config`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -17,12 +18,13 @@ async function getConfig(id) {
 
 /**
  * Update Project Envoirment Variables
- * @param {String} id 
- * @param {String} key 
- * @param {String} value 
- * @returns 
+ * @link https://docs.evecloud.xyz/api/#tag/Project/operation/Projects.ConfigUpdate
+ * @param {String} projectID Project ID
+ * @param {String} key Environment variable key
+ * @param {String} value Environment variable value
+ * @returns {Promise<String>} Message
  */
-async function updateConfig(id, key, value) {
+async function updateConfig(projectID, key, value) {
     return new Promise(async (resolve, reject) => {
         await request.put(`/v1/projects/${id}/config`, {
             key: key,
