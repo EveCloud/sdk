@@ -1,6 +1,12 @@
-const { request, APIError } = require('../request');
+const { request, APIError } = require('../request')
 
-async function getAccountTokens(params) {
+/**
+ * Get the current user's account tokens  
+ * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Account.Account_Tokens  
+ * @param {Object} params Pagination parameters
+ * @returns {Promise<Object>} Token List object
+ */
+async function getTokens(params) {
     return new Promise(async (resolve, reject) => {
         await request.get(`/v1/account/tokens`, {
             params: params || {}
@@ -12,7 +18,13 @@ async function getAccountTokens(params) {
     })
 }
 
-async function getAccountToken(id) {
+/**
+ * Get account token
+ * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Account.Account_Token
+ * @param {String} id Token ID
+ * @returns {Promise<Object>} Token object
+ */
+async function getToken(id) {
     return new Promise(async (resolve, reject) => {
         await request.get(`/v1/account/tokens/` + id).then(response => {
             resolve(response.data)
@@ -23,7 +35,13 @@ async function getAccountToken(id) {
 }
 
 
-async function createAccountToken(label) {
+/**
+ * Create account token
+ * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Account.Account_Token_Create
+ * @param {String} label Token label
+ * @returns {Promise<Object>} Token object
+ */
+async function createToken(label) {
     return new Promise(async (resolve, reject) => {
         await request.post(`/v1/account/tokens`, {
             label: label
@@ -35,7 +53,14 @@ async function createAccountToken(label) {
     })
 }
 
-async function updateAccountToken(id, label) {
+/**
+ * Update account token
+ * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Account.Account_Token_Update
+ * @param {String} id Token ID
+ * @param {String} label New token label
+ * @returns {Promise<String>} Message
+ */
+async function updateToken(id, label) {
     return new Promise(async (resolve, reject) => {
         await request.put(`/v1/account/tokens`, {
             id: id,
@@ -48,7 +73,13 @@ async function updateAccountToken(id, label) {
     })
 }
 
-async function deleteAccountToken(id) {
+/**
+ * Delete account token
+ * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Account.Account_Token_Delete
+ * @param {String} id Token ID
+ * @returns {Promise<String>} Message
+ */
+async function deleteToken(id) {
     return new Promise(async (resolve, reject) => {
         await request.delete(`/v1/account/tokens/` + id).then(response => {
             resolve(response.data)
@@ -59,9 +90,9 @@ async function deleteAccountToken(id) {
 }
 
 module.exports = {
-    getAccountTokens,
-    getAccountToken,
-    createAccountToken,
-    updateAccountToken,
-    deleteAccountToken
+    getTokens,
+    getToken,
+    createToken,
+    updateToken,
+    deleteToken
 }

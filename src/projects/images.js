@@ -1,8 +1,13 @@
-const { request, APIError } = require('../request');
+const { request, APIError } = require('../request')
 
+/**
+ * Get avaliable images version for project
+ * @param {String} id The ID of the project.
+ * @returns {Promise<String>} Message.
+ */
 async function getImages(id) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/containers/${id}/images`).then(response => {
+        await request.get(`/v1/projects/${id}/images`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -10,9 +15,15 @@ async function getImages(id) {
     })
 }
 
+/**
+ * Update project image
+ * @param {String} id The ID of the project.
+ * @param {Number} image The ID of the image.
+ * @returns {Promise<String>} Message.
+ */
 async function changeImage(id, image) {
     return new Promise(async (resolve, reject) => {
-        await request.put(`/v1/containers/${id}/images`, {
+        await request.put(`/v1/projects/${id}/images`, {
             image: image
         }).then(response => {
             resolve(response.data)

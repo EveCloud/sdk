@@ -1,6 +1,12 @@
-const { request, APIError } = require('../request');
+const { request, APIError } = require('../request')
 
-async function getAccountEvents(params) {
+/**
+ * Get the current user's account events~
+ * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Account.Account_Events_Get
+ * @param {Object} params Pagination parameters
+ * @returns {Promise<Object>} Event List object
+ */
+async function getEvents(params) {
     return new Promise(async (resolve, reject) => {
         await request.get(`/v1/account/events`, {
             params: params || {}
@@ -12,29 +18,15 @@ async function getAccountEvents(params) {
     })
 }
 
-async function getEventData(ID) {
+/**
+ * Get account event 
+ * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Account.Account_Event_Get
+ * @param {String} id Event ID
+ * @returns {Promise<Object>} Event object
+ */
+async function getEventData(id) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/account/events/` + ID).then(response => {
-            resolve(response.data)
-        }).catch(error => {
-            reject(APIError(error))
-        })
-    })
-}
-
-async function markEventSeen(ID) {
-    return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/account/events/` + ID + '/seen').then(response => {
-            resolve(response.data)
-        }).catch(error => {
-            reject(APIError(error))
-        })
-    })
-}
-
-async function markEventRead(ID) {
-    return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/account/events/` + ID + '/read').then(response => {
+        await request.get(`/v1/account/events/` + id).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -43,8 +35,6 @@ async function markEventRead(ID) {
 }
 
 module.exports = {
-    getAccountEvents,
-    getEventData,
-    markEventSeen,
-    markEventRead
+    getEvents,
+    getEventData
 }

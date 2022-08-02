@@ -1,5 +1,9 @@
-const { request, APIError } = require('../request');
+const { request, APIError } = require('../request')
 
+/**
+ * Get the current user's account payment methods
+ * @returns {Promise}
+ */
 async function getPaymentMethods() {
     return new Promise(async (resolve, reject) => {
         await request.get(`/v1/account/payment-methods`).then(response => {
@@ -10,6 +14,11 @@ async function getPaymentMethods() {
     })
 }
 
+/**
+ * Get payment method details
+ * @param {String} id 
+ * @returns {Promise}
+ */
 async function getPaymentMethod(id) {
     return new Promise(async (resolve, reject) => {
         await request.get(`/v1/account/payment-methods/${id}`).then(response => {
@@ -20,6 +29,11 @@ async function getPaymentMethod(id) {
     })
 }
 
+/**
+ * Make Payment Method Default
+ * @param {String} paymentId 
+ * @returns {Promise}
+ */
 async function makePaymentMethodDefault(paymentId) {
     return new Promise(async (resolve, reject) => {
         await request.post(`/v1/account/payment-methods/${paymentId}/make-default`).then(response => {
@@ -30,6 +44,11 @@ async function makePaymentMethodDefault(paymentId) {
     })
 }
 
+/**
+ * Add a new payment method
+ * @private Manager Endpoint only
+ * @returns {Promise}
+ */
 async function addPaymentMethod() {
     return new Promise(async (resolve, reject) => {
         await request.post(`/v1/account/payment-methods`).then(response => {
@@ -40,6 +59,11 @@ async function addPaymentMethod() {
     })
 }
 
+/**
+ * Delete a payment method
+ * @param {String} paymentId 
+ * @returns {Promise}
+ */
 async function deletePaymentMethod(paymentId) {
     return new Promise(async (resolve, reject) => {
         await request.delete(`/v1/account/payment-methods/` + paymentId).then(response => {
@@ -50,6 +74,11 @@ async function deletePaymentMethod(paymentId) {
     })
 }
 
+/**
+ * Get Stripe Public Key
+ * @private Manager Endpoint only
+ * @returns {Promise}
+ */
 async function getStripePublicKey() {
     return new Promise(async (resolve, reject) => {
         await request.get(`/v1/payments/stripe/public-key`).then(response => {

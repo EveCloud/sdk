@@ -1,15 +1,22 @@
 const Axios = require('axios').default
+const pkg = require('../package.json')
 
 const request = Axios.create({
     baseURL: 'https://api.evecloud.xyz',
     headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
+        'User-Agent': 'evecloud.js/v' + pkg.version
     },
     timeout: '10000',
     timeoutErrorMessage: 'Internal Server Error',
 })
 
+/**
+ * Set Authorization header
+ * @param {String} token Access token
+ * @returns {void} 
+ */
 const setToken = (token) => {
     return request.interceptors.request.use((config) => {
         return {
