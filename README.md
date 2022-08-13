@@ -5,7 +5,7 @@ JavaScript client for the [EveCloud API](https://docs.evecloud.xyz/api)
 ## Installation
 
 ```
-$ npm install @evecloud-sdk
+$ npm install evecloud-sdk
 ```
 
 or with a CDN:

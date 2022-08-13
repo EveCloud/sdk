@@ -123,7 +123,7 @@ async function getImages(params) {
  * @param {String} id Image ID
  * @returns {Promise<Object>} Image Object
  */
- async function getImages(id) {
+ async function getImage(id) {
     return new Promise(async (resolve, reject) => {
         await request.get(`/images/${id}`).then(response => {
             resolve(response.data)
@@ -139,5 +139,6 @@ module.exports = {
     createProject,
     deleteProject,
     updateProject,
-    getImages
+    getImages,
+    getImage
 }
