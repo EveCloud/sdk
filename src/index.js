@@ -20,4 +20,5 @@ module.exports = {
     ProjectBackups: require("./projects/backups"),
     ProjectFiles: require("./projects/files"),
     ProjectImages: require("./projects/images"),
+    ProjectUsers: require("./projects/users"),
 }
