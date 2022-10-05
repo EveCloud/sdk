@@ -6,9 +6,9 @@ const { request, APIError } = require('../request')
  * @param {String} id The ID of the project.
  * @returns {Promise<String>} Message.
  */
-async function getImages(id) {
+async function getDockerImage(id) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/projects/${id}/images`).then(response => {
+        await request.get(`/v1/projects/${id}/docker-image`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -23,9 +23,9 @@ async function getImages(id) {
  * @param {Number} image The ID of the image.
  * @returns {Promise<String>} Message.
  */
-async function changeImage(id, image) {
+async function changeDockerImage(id, image) {
     return new Promise(async (resolve, reject) => {
-        await request.put(`/v1/projects/${id}/images`, {
+        await request.put(`/v1/projects/${id}/docker-image`, {
             image: image
         }).then(response => {
             resolve(response.data)
@@ -36,6 +36,6 @@ async function changeImage(id, image) {
 }
 
 module.exports = {
-    getImages,
-    changeImage
+    getDockerImage,
+    changeDockerImage
 }
