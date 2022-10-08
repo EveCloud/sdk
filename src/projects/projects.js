@@ -37,26 +37,12 @@ async function getProject(id) {
 /**
  * Create project
  * @link https://docs.evecloud.xyz/api/#tag/Project/operation/Projects.Projects_Create
- * @param {String} label Project label
- * @param {Number} memory Project memory
- * @param {Number} storage Project storage
- * @param {Number} image Image ID
- * @param {String} region Region ID
- * @param {String} git Git URL (optional)
- * @param {String} domain Domain name (optional)
+ * @param {String} manifest Manifest JSON
  * @returns {Promise<String>} Message
  */
-async function createProject(label, memory, storage, image, region, git, domain) {
+async function createProject(manifest) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/projects/`, {
-            label: label,
-            image: image,
-            memory: memory,
-            storage: storage,
-            region: region,
-            git: git || null,
-            domain: domain || null
-        }).then(response => {
+        await request.post(`/v1/projects/`, manifest).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
