@@ -2,7 +2,6 @@ const { request, APIError } = require('../request')
 
 /**
  * Get account projects
- * @link https://docs.evecloud.xyz/api/#tag/Project/operation/Projects.Projects_Get
  * @param {Object} params Pagination params
  * @returns {Promise<Object>} Project List Object
  */
@@ -20,7 +19,6 @@ async function getProjects(params) {
 
 /**
  * Get account project
- * @link https://docs.evecloud.xyz/api/#tag/Project/operation/Projects.Projects_View
  * @param {String} id Project ID
  * @returns {Promise<Object>} Project object
  */
@@ -36,8 +34,7 @@ async function getProject(id) {
 
 /**
  * Create project
- * @link https://docs.evecloud.xyz/api/#tag/Project/operation/Projects.Projects_Create
- * @param {String} manifest Manifest JSON
+ * @param {String} manifest Manifest Object
  * @returns {Promise<String>} Message
  */
 async function createProject(manifest) {
@@ -52,7 +49,6 @@ async function createProject(manifest) {
 
 /**
  * Delete project
- * @link https://docs.evecloud.xyz/api/#tag/Project/operation/Projects.Projects_Delete
  * @param {String} id Project ID
  * @returns {Promise<String>} Message
  */
@@ -66,65 +62,9 @@ async function deleteProject(id) {
     })
 }
 
-/**
- * Update project
- * @link https://docs.evecloud.xyz/api/#tag/Project/operation/Projects.Projects_Update
- * @param {String} id Project ID
- * @param {Object} data Project data to update
- * @returns {Promise<String>} Message
- */
-async function updateProject(id, data) {
-    return new Promise(async (resolve, reject) => {
-        await request.put(`/v1/projects/` + id, {
-            ...data
-        }).then(response => {
-            resolve(response.data)
-        }).catch(error => {
-            reject(APIError(error))
-        })
-    })
-}
-
-/**
- * Get avaliable images for projects
- * @link https://docs.evecloud.xyz/api/#tag/Images/operation/Images
- * @param {String} params Pagination params
- * @returns {Promise<Object>} Image List Object
- */
-async function getImages(params) {
-    return new Promise(async (resolve, reject) => {
-        await request.get(`/images`, {
-            params: params || {}
-        }).then(response => {
-            resolve(response.data.data)
-        }).catch(error => {
-            reject(APIError(error))
-        })
-    })
-}
-
-/**
- * Get details of an image
- * @link https://docs.evecloud.xyz/api/#tag/Images/operation/Image
- * @param {String} id Image ID
- * @returns {Promise<Object>} Image Object
- */
- async function getImage(id) {
-    return new Promise(async (resolve, reject) => {
-        await request.get(`/images/${id}`).then(response => {
-            resolve(response.data)
-        }).catch(error => {
-            reject(APIError(error))
-        })
-    })
-}
-
 module.exports = {
     getProjects,
     getProject,
     createProject,
-    deleteProject,
-    updateProject,
-    getImages,
-    getImage
+    deleteProject
 }

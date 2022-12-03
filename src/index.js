@@ -15,10 +15,7 @@ module.exports = {
     // Projects
     Projects: require("./projects/projects"),
     ProjectInfo: require("./projects/info"),
-    ProjectConfig: require("./projects/config"),
+    ProjectManifest: require("./projects/manifest"),
     ProjectActions: require("./projects/actions"),
-    ProjectBackups: require("./projects/backups"),
-    ProjectFiles: require("./projects/files"),
-    ProjectImages: require("./projects/images"),
     ProjectUsers: require("./projects/users"),
 }

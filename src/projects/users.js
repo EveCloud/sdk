@@ -2,7 +2,6 @@ const { request, APIError } = require('../request')
 
 /**
  * Get project users
- * @link Not available
  * @param {String} id Project ID
  * @returns {Promise<Object>} Project User List Object
  */
@@ -18,7 +17,6 @@ async function getUsers(id) {
 
 /**
  * Get project user
- * @link Not available
  * @param {String} id Project ID
  * @param {String} user User ID
  * @returns {Promise<Object>} Project User Object
@@ -35,7 +33,6 @@ async function getUser(id, user) {
 
 /**
  * Get scopes available for users
- * @link Not available
  * @param {String} id Project ID
  * @returns {Promise<Array>} Scopes
  */
@@ -51,7 +48,6 @@ async function getScopes(id) {
 
 /**
  * Create user
- * @link Not available
  * @param {String} id Project ID
  * @param {String} email User email
  * @param {Array} scopes User scopes
@@ -72,7 +68,6 @@ async function createUser(id, email, scopes) {
 
 /**
  * Update user
- * @link Not available
  * @param {String} id Project ID
  * @param {String} user User ID
  * @param {Array} scopes User scopes
@@ -92,7 +87,6 @@ async function updateUser(id, user, scopes) {
 
 /**
  * Delete user
- * @link Not available
  * @param {String} id Project ID
  * @param {String} user User ID
  * @returns {Promise<String>} Message

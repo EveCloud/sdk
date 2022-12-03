@@ -2,7 +2,6 @@ const { request, APIError } = require('../request')
 
 /**
  * Start Project 
- * @link https://docs.evecloud.xyz/api/#tag/Project/operation/Projects.Reinstall
  * @param {String} projectID Project ID
  * @returns {Promise<String>} Message
  */
@@ -18,7 +17,6 @@ async function start(projectID) {
 
 /**
  * Shutdown Project
- * @link https://docs.evecloud.xyz/api/#tag/Project/operation/Projects.Shutdown
  * @param {String} projectID Project ID
  * @returns {Promise<String>} Message
  */
@@ -34,7 +32,6 @@ async function shutdown(projectID) {
 
 /**
  * Restart Project
- * @link https://docs.evecloud.xyz/api/#tag/Project/operation/Projects.Restart
  * @param {String} projectID Project ID
  * @returns {Promise<String>} Message
  */
@@ -48,25 +45,8 @@ async function restart(projectID) {
     })
 }
 
-/**
- * Reinstall Project
- * @link https://docs.evecloud.xyz/api/#tag/Project/operation/Projects.Reinstall
- * @param {String} projectID Project ID
- * @returns {Promise<String>} Message
- */
-async function reinstall(projectID) {
-    return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/projects/${projectID}/reinstall`).then(response => {
-            resolve(response.data)
-        }).catch(error => {
-            reject(APIError(error))
-        })
-    })
-}
-
 module.exports = {
     start,
     shutdown,
-    restart,
-    reinstall
+    restart
 }
