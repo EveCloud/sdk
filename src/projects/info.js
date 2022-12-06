@@ -30,7 +30,23 @@ async function getWebSocket(id) {
     })
 }
 
+/**
+ * Get project sftp
+ * @param {String} id The ID of the project.
+ * @returns {Promise<Object>} The project sftp
+ */
+async function getSftp(id) {
+    return new Promise(async (resolve, reject) => {
+        await request.get(`/v1/projects/${id}/sftp`).then(response => {
+            resolve(response.data)
+        }).catch(error => {
+            reject(APIError(error))
+        })
+    })
+}
+
 module.exports = {
     getResources,
-    getWebSocket
+    getWebSocket,
+    getSftp
 }
