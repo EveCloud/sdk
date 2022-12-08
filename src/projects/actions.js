@@ -22,7 +22,7 @@ async function start(projectID) {
  */
 async function stop(projectID) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/projects/${projectID}/~stop`).then(response => {
+        await request.post(`/v1/projects/${projectID}/stop`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
