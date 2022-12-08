@@ -54,7 +54,7 @@ async function restart(projectID) {
 async function execute(projectID, command) {
     return new Promise(async (resolve, reject) => {
         await request.post(`/v1/projects/${projectID}/execute`, {
-            command
+            cmd: command
         }).then(response => {
             resolve(response.data)
         }).catch(error => {
