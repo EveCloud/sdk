@@ -8,7 +8,7 @@ const request = Axios.create({
         'Accept': 'application/json',
         'User-Agent': 'evecloud.js/v' + pkg.version
     },
-    timeout: '10000',
+    timeout: '20000',
     timeoutErrorMessage: 'Internal Server Error',
 })
 
