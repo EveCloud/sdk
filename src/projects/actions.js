@@ -16,13 +16,13 @@ async function start(projectID) {
 }
 
 /**
- * Shutdown Project
+ * Stop Project
  * @param {String} projectID Project ID
  * @returns {Promise<String>} Message
  */
-async function shutdown(projectID) {
+async function stop(projectID) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/projects/${projectID}/shutdown`).then(response => {
+        await request.post(`/v1/projects/${projectID}/~stop`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -65,7 +65,7 @@ async function execute(projectID, command) {
 
 module.exports = {
     start,
-    shutdown,
+    stop,
     restart,
     execute
 }
