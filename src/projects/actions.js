@@ -45,8 +45,27 @@ async function restart(projectID) {
     })
 }
 
+/**
+ * Execute Command
+ * @param {String} projectID Project ID
+ * @param {String} command Command
+ * @returns {Promise<String>} Message
+ */
+async function execute(projectID, command) {
+    return new Promise(async (resolve, reject) => {
+        await request.post(`/v1/projects/${projectID}/execute`, {
+            command
+        }).then(response => {
+            resolve(response.data)
+        }).catch(error => {
+            reject(APIError(error))
+        })
+    })
+}
+
 module.exports = {
     start,
     shutdown,
-    restart
+    restart,
+    execute
 }
