@@ -7,7 +7,7 @@ const { request, APIError } = require('../request')
  */
 async function getEvents(id, params) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/project/${id}/events`, {
+        await request.get(`/v1/projects/${id}/events`, {
             params: params || {}
         }).then(response => {
             resolve(response.data.data)
@@ -25,7 +25,7 @@ async function getEvents(id, params) {
  */
 async function getEventData(id, uuid) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/project/${id}/events/${uuid}`).then(response => {
+        await request.get(`/v1/projects/${id}/events/${uuid}`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
