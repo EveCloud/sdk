@@ -18,4 +18,5 @@ module.exports = {
     ProjectManifest: require("./projects/manifest"),
     ProjectActions: require("./projects/actions"),
     ProjectUsers: require("./projects/users"),
+    ProjectEvents: require("./projects/events"),
 }
