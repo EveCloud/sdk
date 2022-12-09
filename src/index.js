@@ -3,7 +3,6 @@ module.exports = {
     Request: require('./request').request,
     setToken: require("./request").setToken,
     APIError: require("./request").APIError,
-
     // Account
     Account: require("./account/account"),
     Invoices: require("./account/invoices"),
@@ -19,4 +18,6 @@ module.exports = {
     ProjectActions: require("./projects/actions"),
     ProjectUsers: require("./projects/users"),
     ProjectEvents: require("./projects/events"),
+    // Support
+    Support: require("./support/support"),
 }

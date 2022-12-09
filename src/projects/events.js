@@ -1,7 +1,7 @@
 const { request, APIError } = require('../request')
 
 /**
- * Get the current user's account events~
+ * Get the current user's account events
  * @param {Object} params Pagination parameters
  * @returns {Promise<Object>} Event List object
  */
