@@ -31,6 +31,21 @@ async function stop(projectID) {
 }
 
 /**
+ * Kill Project
+ * @param {String} projectID Project ID
+ * @returns {Promise<String>} Message
+ */
+async function kill(projectID) {
+    return new Promise(async (resolve, reject) => {
+        await request.post(`/v1/projects/${projectID}/kill`).then(response => {
+            resolve(response.data)
+        }).catch(error => {
+            reject(APIError(error))
+        })
+    })
+}
+
+/**
  * Restart Project
  * @param {String} projectID Project ID
  * @returns {Promise<String>} Message
@@ -67,5 +82,6 @@ module.exports = {
     start,
     stop,
     restart,
-    execute
+    execute,
+    kill
 }
