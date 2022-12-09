@@ -5,7 +5,7 @@ const { request, APIError } = require('../request')
  * @param {Object} params Pagination parameters
  * @returns {Promise<Object>} Ticket List object
  */
-async function getTickets() {
+async function getTickets(params) {
     return new Promise(async (resolve, reject) => {
         await request.get(`/v1/support/tickets`, {
             params: params || {}
@@ -54,9 +54,10 @@ async function createTicket(summary, message) {
 /**
  * Get replies of a support ticket
  * @param {String} id Ticket ID
+ * @param {Object} params Pagination parameters
  * @returns {Promise<Object>} Reply List object
  */
-async function getReplies(id) {
+async function getReplies(id, params) {
     return new Promise(async (resolve, reject) => {
         await request.get(`/v1/support/tickets/${id}/replies`, {
             params: params || {}
