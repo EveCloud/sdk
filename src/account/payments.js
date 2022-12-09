@@ -2,7 +2,6 @@ const { request, APIError } = require('../request')
 
 /**
  * Get the current user's account payment methods
- * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Account.PaymentMethods
  * @returns {Promise<Object>} Payment Method List object
  */
 async function getPaymentMethods() {
@@ -17,7 +16,6 @@ async function getPaymentMethods() {
 
 /**
  * Get payment method details
- * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Account.PaymentMethodDetails
  * @param {String} paymentID Payment Method ID
  * @returns {Promise<Object>} Payment Method object
  */
@@ -33,7 +31,6 @@ async function getPaymentMethod(paymentID) {
 
 /**
  * Make Payment Method Default
- * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Account.PaymentMethodMakeDefault
  * @param {String} paymentID Payment Method ID
  * @returns {Promise<String>} Message
  */
@@ -49,7 +46,6 @@ async function makePaymentMethodDefault(paymentID) {
 
 /**
  * Add a new payment method
- * @link Not documented
  * @private Manager Endpoint only
  * @returns {Promise<String>} Client Secret
  */
@@ -65,7 +61,6 @@ async function addPaymentMethod() {
 
 /**
  * Delete a payment method
- * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Account.PaymentMethodDelete
  * @param {String} paymentID Payment Method ID
  * @returns {Promise<String>} Message
  */
@@ -81,7 +76,6 @@ async function deletePaymentMethod(paymentID) {
 
 /**
  * Get Stripe Public Key
- * @link Not documented
  * @private Manager Endpoint only
  * @returns {Promise<String>} Stripe Public Key
  */

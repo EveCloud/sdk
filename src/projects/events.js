@@ -5,9 +5,9 @@ const { request, APIError } = require('../request')
  * @param {Object} params Pagination parameters
  * @returns {Promise<Object>} Event List object
  */
-async function getEvents(params) {
+async function getEvents(id, params) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/account/events`, {
+        await request.get(`/v1/project/${id}/events`, {
             params: params || {}
         }).then(response => {
             resolve(response.data.data)
@@ -20,11 +20,12 @@ async function getEvents(params) {
 /**
  * Get account event 
  * @param {String} id Event ID
+ * @param {String} uuid Event UUID
  * @returns {Promise<Object>} Event object
  */
-async function getEventData(id) {
+async function getEventData(id, uuid) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/account/events/` + id).then(response => {
+        await request.get(`/v1/project/${id}/events/${uuid}`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))

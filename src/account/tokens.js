@@ -2,7 +2,6 @@ const { request, APIError } = require('../request')
 
 /**
  * Get the current user's account tokens  
- * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Account.Account_Tokens  
  * @param {Object} params Pagination parameters
  * @returns {Promise<Object>} Token List object
  */
@@ -20,7 +19,6 @@ async function getTokens(params) {
 
 /**
  * Get account token
- * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Account.Account_Token
  * @param {String} id Token ID
  * @returns {Promise<Object>} Token object
  */
@@ -37,7 +35,6 @@ async function getToken(id) {
 
 /**
  * Create account token
- * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Account.Account_Token_Create
  * @param {String} label Token label
  * @returns {Promise<Object>} Token object
  */
@@ -55,7 +52,6 @@ async function createToken(label) {
 
 /**
  * Update account token
- * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Account.Account_Token_Update
  * @param {String} id Token ID
  * @param {String} label New token label
  * @returns {Promise<String>} Message
@@ -75,7 +71,6 @@ async function updateToken(id, label) {
 
 /**
  * Delete account token
- * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Account.Account_Token_Delete
  * @param {String} id Token ID
  * @returns {Promise<String>} Message
  */

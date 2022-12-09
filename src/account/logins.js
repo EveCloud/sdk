@@ -2,7 +2,6 @@ const { request, APIError } = require('../request')
 
 /**
  * Get the current user's account logins
- * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Account.Account_Logins_Get
  * @param {Object} params Pagination parameters
  * @returns {Promise<Object>} Login List object
  */
@@ -20,7 +19,6 @@ async function getLogins(params) {
 
 /**
  * Get account login
- * @link https://docs.evecloud.xyz/api/#tag/Account/operation/Account.Account_Login_Get
  * @param {String} ID Login ID
  * @returns {Promise<Object>} Login object
  */
