@@ -14,13 +14,13 @@ module.exports = {
     Teams: require("./teams/teams"),
     // Projects
     Projects: require("./projects/projects"),
-    ProjectInfo: require("./projects/info"),
     ProjectManifest: require("./projects/manifest"),
     ProjectActions: require("./projects/actions"),
     ProjectUsers: require("./projects/users"),
     ProjectEvents: require("./projects/events"),
     // Services
     Services: require("./services/services"),
+    ServiceInfo: require("./services/info"),
     // Support
     Support: require("./support/support"),
 }
