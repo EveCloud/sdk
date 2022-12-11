@@ -9,8 +9,10 @@ const { request, APIError } = require('../request')
 async function getProjects(teamId, params) {
     return new Promise(async (resolve, reject) => {
         await request.get(`/v1/projects`, {
-            params: params || {},
-            team: teamId || ''
+            params: {
+                team: teamId || '',
+                ...params
+            },
         }).then(response => {
             resolve(response.data.data)
         }).catch(error => {
@@ -28,7 +30,9 @@ async function getProjects(teamId, params) {
 async function getProject(id, teamId) {
     return new Promise(async (resolve, reject) => {
         await request.get(`/v1/projects/` + id, {
-            team: teamId || ''
+            params: {
+                team: teamId || ''
+            }
         }).then(response => {
             resolve(response.data)
         }).catch(error => {
@@ -40,12 +44,15 @@ async function getProject(id, teamId) {
 /**
  * Create project
  * @param {String} data Project Object
+ * @param {String} teamId Team ID
  * @returns {Promise<String>} Message
  */
 async function createProject(data, teamId) {
     return new Promise(async (resolve, reject) => {
         await request.post(`/v1/projects/`, data, {
-            team: teamId || ''
+            params: {
+                team: teamId || ''
+            }
         }).then(response => {
             resolve(response.data)
         }).catch(error => {
@@ -63,7 +70,9 @@ async function createProject(data, teamId) {
 async function deleteProject(id, teamId) {
     return new Promise(async (resolve, reject) => {
         await request.delete(`/v1/projects/` + id, {
-            team: teamId || ''
+            params: {
+                team: teamId || ''
+            }
         }).then(response => {
             resolve(response.data)
         }).catch(error => {
