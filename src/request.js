@@ -2,10 +2,10 @@ const Axios = require('axios').default
 const pkg = require('../package.json')
 
 const request = Axios.create({
-    baseURL: 'https://api.evecloud.xyz',
+    baseURL: 'https://localhost:8080',
     headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json',
+        'Accept': 'application/vnd.evecloud.v1+json',
     },
     timeout: '50000',
     timeoutErrorMessage: 'Internal Server Error',

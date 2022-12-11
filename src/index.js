@@ -10,7 +10,8 @@ module.exports = {
     Tokens: require("./account/tokens"),
     Events: require("./account/events"),
     Logins: require("./account/logins"),
-
+    // Teams
+    Teams: require("./teams/teams"),
     // Projects
     Projects: require("./projects/projects"),
     ProjectInfo: require("./projects/info"),
