@@ -6,9 +6,13 @@ const { request, APIError } = require('../request')
  * @param {String} service The service to get resources for.
  * @returns {Promise<Object>} The project Resource Usage.
  */
-async function getResources(id, service) {
+async function getResources(id, service, teamId) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/projects/${id}/services/${service}/resources`).then(response => {
+        await request.get(`/v1/projects/${id}/services/${service}/resources`, {
+            params: {
+                team: teamId || ''
+            }
+        }).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
