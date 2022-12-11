@@ -3,11 +3,12 @@ const { request, APIError } = require('../request')
 /**
  * Get project resources
  * @param {String} id The ID of the project. 
+ * @param {String} service The service to get resources for.
  * @returns {Promise<Object>} The project Resource Usage.
  */
-async function getResources(id) {
+async function getResources(id, service) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/projects/${id}/resources`).then(response => {
+        await request.get(`/v1/projects/${id}/services/${service}/resources`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -18,11 +19,12 @@ async function getResources(id) {
 /**
  * Get project websocket
  * @param {String} id The ID of the project.
+ * @param {String} service The service to get websocket for.
  * @returns {Promise<Object>} The project websocket
  */
-async function getWebSocket(id) {
+async function getWebSocket(id, service) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/projects/${id}/websocket`).then(response => {
+        await request.get(`/v1/projects/${id}/services/${service}/websocket`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -33,11 +35,12 @@ async function getWebSocket(id) {
 /**
  * Get project sftp
  * @param {String} id The ID of the project.
+ * @param {String} service The service to get sftp for.
  * @returns {Promise<Object>} The project sftp
  */
-async function getSftp(id) {
+async function getSftp(id, service) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/projects/${id}/sftp`).then(response => {
+        await request.get(`/v1/projects/${id}/services/${service}/sftp`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -48,15 +51,16 @@ async function getSftp(id) {
 /**
  * Get project logs
  * @param {String} id The ID of the project.
+ * @param {String} service The service to get logs for.
  * @param {String} since The time in seconds since the logs should be returned.
  * @param {String} until The time in seconds until the logs should be returned.
  * @param {String} timestamps Whether or not to include timestamps in the logs.
  * @param {String} tail The number of lines to return from the end of the log.
  * @returns {Promise<Object>} The project logs
  */
-async function getLogs(id, since, until, timestamps, tail) {
+async function getLogs(id, service, since, until, timestamps, tail) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/projects/${id}/logs`, {
+        await request.get(`/v1/projects/${id}/services/${service}/logs`, {
             params: {
                 since,
                 until,

@@ -19,6 +19,8 @@ module.exports = {
     ProjectActions: require("./projects/actions"),
     ProjectUsers: require("./projects/users"),
     ProjectEvents: require("./projects/events"),
+    // Services
+    Services: require("./services/services"),
     // Support
     Support: require("./support/support"),
 }
