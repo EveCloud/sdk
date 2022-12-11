@@ -6,7 +6,7 @@ const { request, APIError } = require('../request')
  * @param {String} teamId Team ID
  * @returns {Promise<Object>} Project List Object
  */
-async function getProjects(params, teamId) {
+async function getProjects(teamId, params) {
     return new Promise(async (resolve, reject) => {
         await request.get(`/v1/projects`, {
             params: params || {},
