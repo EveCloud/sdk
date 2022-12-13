@@ -47,8 +47,41 @@ async function createTeam(data) {
     })
 }
 
+/**
+ * Update team
+ * @param {String} id Team ID
+ * @param {String} data Team Object
+ * @returns {Promise<String>} Message
+ */
+async function updateTeam(id, data) {
+    return new Promise(async (resolve, reject) => {
+        await request.put(`/v1/teams/${id}`, data).then(response => {
+            resolve(response.data)
+        }).catch(error => {
+            reject(APIError(error))
+        })
+    })
+}
+
+/**
+ * Delete team
+ * @param {String} id Team ID
+ * @returns {Promise<String>} Message
+ */
+async function deleteTeam(id) {
+    return new Promise(async (resolve, reject) => {
+        await request.delete(`/v1/teams/${id}`).then(response => {
+            resolve(response.data)
+        }).catch(error => {
+            reject(APIError(error))
+        })
+    })
+}
+
 module.exports = {
     getTeams,
     getTeam,
-    createTeam
+    createTeam,
+    updateTeam,
+    deleteTeam
 }

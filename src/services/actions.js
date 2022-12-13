@@ -2,12 +2,13 @@ const { request, APIError } = require('../request')
 
 /**
  * Start Project 
- * @param {String} projectID Project ID
+ * @param {String} id Project ID
+ * @param {String} service Service ID
  * @returns {Promise<String>} Message
  */
-async function start(projectID) {
+async function start(id, service) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/projects/${projectID}/boot`).then(response => {
+        await request.post(`/v1/projects/${id}/service/${service}/boot`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -17,12 +18,13 @@ async function start(projectID) {
 
 /**
  * Stop Project
- * @param {String} projectID Project ID
+ * @param {String} id Project ID
+ * @param {String} service Service ID
  * @returns {Promise<String>} Message
  */
-async function stop(projectID) {
+async function stop(id, service) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/projects/${projectID}/stop`).then(response => {
+        await request.post(`/v1/projects/${id}/service/${service}/stop`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -32,12 +34,13 @@ async function stop(projectID) {
 
 /**
  * Kill Project
- * @param {String} projectID Project ID
+ * @param {String} id Project ID
+ * @param {String} service Service ID
  * @returns {Promise<String>} Message
  */
-async function kill(projectID) {
+async function kill(id, service) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/projects/${projectID}/kill`).then(response => {
+        await request.post(`/v1/projects/${id}/service/${service}/kill`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -47,12 +50,13 @@ async function kill(projectID) {
 
 /**
  * Restart Project
- * @param {String} projectID Project ID
+ * @param {String} id Project ID
+ * @param {String} service Service ID
  * @returns {Promise<String>} Message
  */
-async function restart(projectID) {
+async function restart(id, service) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/projects/${projectID}/restart`).then(response => {
+        await request.post(`/v1/projects/${id}/service/${service}/restart`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -62,13 +66,14 @@ async function restart(projectID) {
 
 /**
  * Execute Command
- * @param {String} projectID Project ID
+ * @param {String} id Project ID
+ * @param {String} service Service ID
  * @param {String} command Command
  * @returns {Promise<String>} Message
  */
-async function execute(projectID, command) {
+async function execute(id, service, command) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/projects/${projectID}/exec`, {
+        await request.post(`/v1/projects/${id}/service/${service}/exec`, {
             cmd: command
         }).then(response => {
             resolve(response.data)

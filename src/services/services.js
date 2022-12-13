@@ -3,14 +3,12 @@ const { request, APIError } = require('../request')
 /**
  * Get project services
  * @param {Object} params Pagination params
- * @param {String} teamId Team ID
  * @returns {Promise<Object>} Project List Object
  */
-async function getServices(id, teamId, params) {
+async function getServices(id, params) {
     return new Promise(async (resolve, reject) => {
         await request.get(`/v1/projects/${id}/services`, {
             params: {
-                team: teamId || '',
                 ...params
             },
         }).then(response => {
@@ -25,16 +23,11 @@ async function getServices(id, teamId, params) {
  * Get project service
  * @param {String} id Project ID
  * @param {String} service Service ID
- * @param {String} teamId Team ID
  * @returns {Promise<Object>} Project object
  */
-async function getService(id, service, teamId) {
+async function getService(id, service) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/projects/${id}/services/${service}`, {
-            params: {
-                team: teamId || ''
-            }
-        }).then(response => {
+        await request.get(`/v1/projects/${id}/services/${service}`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -46,16 +39,11 @@ async function getService(id, service, teamId) {
  * Create service
  * @param {String} id Project ID
  * @param {String} data Project Object
- * @param {String} teamId Team ID
  * @returns {Promise<String>} Message
  */
-async function createService(id, data, teamId) {
+async function createService(id, data) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/projects/${id}/services`, data, {
-            params: {
-                team: teamId || ''
-            }
-        }).then(response => {
+        await request.post(`/v1/projects/${id}/services`, data).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -67,16 +55,11 @@ async function createService(id, data, teamId) {
  * Delete service
  * @param {String} id Project ID
  * @param {String} service Service ID
- * @param {String} teamId Team ID
  * @returns {Promise<String>} Message
  */
-async function deleteProject(id, service, teamId) {
+async function deleteProject(id, service) {
     return new Promise(async (resolve, reject) => {
-        await request.delete(`/v1/projects/${id}/service/${service}`, {
-            params: {
-                team: teamId || ''
-            }
-        }).then(response => {
+        await request.delete(`/v1/projects/${id}/service/${service}`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
