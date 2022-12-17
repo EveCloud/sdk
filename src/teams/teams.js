@@ -8,7 +8,10 @@ const { request, APIError } = require('../request')
 async function getTeams(params) {
     return new Promise(async (resolve, reject) => {
         await request.get(`/v1/teams`, {
-            params: params || {}
+            params: {
+                ...params,
+                teamId: null
+            }
         }).then(response => {
             resolve(response.data.data)
         }).catch(error => {
@@ -19,12 +22,11 @@ async function getTeams(params) {
 
 /**
  * Get account team
- * @param {String} id Project ID
  * @returns {Promise<Object>} Team object
  */
-async function getTeam(id) {
+async function getTeam() {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/teams/` + id).then(response => {
+        await request.get(`/v1/teams/`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
