@@ -1,7 +1,7 @@
 const Axios = require('axios').default
 
 const request = Axios.create({
-    baseURL: 'http://localhost:8080',
+    baseURL: 'https://api.evecloud.xyz',
     headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/vnd.evecloud.v1+json',
