@@ -2,6 +2,8 @@ module.exports = {
     // SDK
     Request: require('./request').request,
     setToken: require("./request").setToken,
+    setTeam: require("./request").setTeam,
+    setURL: require("./request").setURL,
     APIError: require("./request").APIError,
     // Account
     Account: require("./account/account"),
