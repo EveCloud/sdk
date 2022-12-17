@@ -15,6 +15,7 @@ module.exports = {
     // Teams
     Teams: require("./teams/teams"),
     TeamPayments: require("./teams/payments"),
+    TeamInvoices: require("./teams/invoices"),
     // Projects
     Projects: require("./projects/projects"),
     ProjectEvents: require("./projects/events"),
