@@ -1,7 +1,7 @@
 const Axios = require('axios').default
 
 const request = Axios.create({
-    baseURL: 'https://api.evecloud.xyz',
+    baseURL: 'http://localhost:8080',
     headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/vnd.evecloud.v1+json',
@@ -44,20 +44,6 @@ const setTeam = (team) => {
     });
 };
 
-/**
- * Set URL
- * @param {String} url URL
- * @returns {void}
- */
-const setURL = (url) => {
-    return request.interceptors.request.use((config) => {
-        return {
-            ...config,
-            baseURL: url,
-        };
-    });
-};
-
 const APIError = (error) => {
     if (error.code === "ECONNREFUSED") {
         return "Internal Server Error"
@@ -84,6 +70,5 @@ module.exports = {
     request,
     setToken,
     APIError,
-    setTeam,
-    setURL
+    setTeam
 }
