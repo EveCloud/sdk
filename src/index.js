@@ -12,15 +12,15 @@ module.exports = {
     Logins: require("./account/logins"),
     // Teams
     Teams: require("./teams/teams"),
+    TeamPayments: require("./teams/payments"),
     // Projects
     Projects: require("./projects/projects"),
-    ProjectManifest: require("./projects/manifest"),
-    ProjectActions: require("./projects/actions"),
-    ProjectUsers: require("./projects/users"),
     ProjectEvents: require("./projects/events"),
     // Services
     Services: require("./services/services"),
     ServiceInfo: require("./services/info"),
     // Support
     Support: require("./support/support"),
+    // Utils
+    Utils: require("./utils/utils")
 }

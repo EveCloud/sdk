@@ -27,6 +27,37 @@ const setToken = (token) => {
     });
 };
 
+/**
+ * Set Team param
+ * @param {String} team Team ID
+ * @returns {void}
+ */
+const setTeam = (team) => {
+    return request.interceptors.request.use((config) => {
+        return {
+            ...config,
+            params: {
+                ...config.params,
+                teamId: team,
+            },
+        };
+    });
+};
+
+/**
+ * Set URL
+ * @param {String} url URL
+ * @returns {void}
+ */
+const setURL = (url) => {
+    return request.interceptors.request.use((config) => {
+        return {
+            ...config,
+            baseURL: url,
+        };
+    });
+};
+
 const APIError = (error) => {
     if (error.code === "ECONNREFUSED") {
         return "Internal Server Error"
@@ -52,5 +83,7 @@ const APIError = (error) => {
 module.exports = {
     request,
     setToken,
-    APIError
+    APIError,
+    setTeam,
+    setURL
 }
