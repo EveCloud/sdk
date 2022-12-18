@@ -28,23 +28,6 @@ const setToken = (token) => {
 };
 
 /**
- * Set Team param
- * @param {String} team Team ID
- * @returns {void}
- */
-const setTeam = (team) => {
-    return request.interceptors.request.use((config) => {
-        return {
-            ...config,
-            params: {
-                ...config.params,
-                teamId: team,
-            },
-        };
-    });
-};
-
-/**
  * Set URL
  * @param {String} url URL
  * @returns {void}
@@ -84,6 +67,5 @@ module.exports = {
     request,
     setToken,
     APIError,
-    setTeam,
     setURL,
 }
