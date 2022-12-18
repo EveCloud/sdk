@@ -21,7 +21,7 @@ async function getMembers(id) {
  * @param {String} user User ID
  * @returns {Promise<Object>} Project User Object
  */
-async function getMembers(id, user) {
+async function getMember(id, user) {
     return new Promise(async (resolve, reject) => {
         await request.get(`/v1/projects/${id}/members/${user}`).then(response => {
             resolve(response.data)
