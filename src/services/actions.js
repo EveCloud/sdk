@@ -8,7 +8,7 @@ const { request, APIError } = require('../request')
  */
 async function start(id, service) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/projects/${id}/service/${service}/boot`).then(response => {
+        await request.post(`/v1/projects/${id}/services/${service}/boot`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -24,7 +24,7 @@ async function start(id, service) {
  */
 async function stop(id, service) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/projects/${id}/service/${service}/stop`).then(response => {
+        await request.post(`/v1/projects/${id}/services/${service}/stop`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -40,7 +40,7 @@ async function stop(id, service) {
  */
 async function kill(id, service) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/projects/${id}/service/${service}/kill`).then(response => {
+        await request.post(`/v1/projects/${id}/services/${service}/kill`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -56,7 +56,7 @@ async function kill(id, service) {
  */
 async function restart(id, service) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/projects/${id}/service/${service}/restart`).then(response => {
+        await request.post(`/v1/projects/${id}/services/${service}/restart`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -73,7 +73,7 @@ async function restart(id, service) {
  */
 async function execute(id, service, command) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/projects/${id}/service/${service}/exec`, {
+        await request.post(`/v1/projects/${id}/services/${service}/exec`, {
             cmd: command
         }).then(response => {
             resolve(response.data)
