@@ -46,10 +46,10 @@ const APIError = (error) => {
         return "Internal Server Error"
     }
     if (error.code === "ECONNABORTED") {
-        return "The request has been aborted"
+        return "The request has been aborted."
     }
     if (error.code === "ETIMEDOUT"){
-        return "Unable to connect to the server"
+        return "Unable to connect to the server."
     }
     if (error.response.status === 502) {
         return "Bad Gateway"

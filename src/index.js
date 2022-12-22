@@ -11,6 +11,7 @@ module.exports = {
     Tokens: require("./account/tokens"),
     Events: require("./account/events"),
     Logins: require("./account/logins"),
+    Integrations: require("./account/integrations"),
     // Projects
     Projects: require("./projects/projects"),
     ProjectEvents: require("./projects/events"),
