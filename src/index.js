@@ -19,9 +19,11 @@ module.exports = {
     // Services
     Services: require("./services/services"),
     ServiceInfo: require("./services/info"),
-    ServiceActions: require("./services/actions"),
-    ServiceConfig: require("./services/config"),
     ServiceEvents: require("./services/events"),
+    // Deployments
+    Deployments: require("./deployments/deployments"),
+    DeploymentLogs: require("./deployments/logs"),
+    DeploymentActions: require("./deployments/actions"),
     // Support
     Support: require("./support/support"),
     // Utils

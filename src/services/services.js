@@ -52,6 +52,22 @@ async function createService(id, data) {
 }
 
 /**
+ * Update service
+ * @param {String} id Project ID
+ * @param {String} data Project Object
+ * @returns {Promise<String>} Message
+ */
+async function updateService(id, data) {
+    return new Promise(async (resolve, reject) => {
+        await request.put(`/v1/projects/${id}/services`, data).then(response => {
+            resolve(response.data)
+        }).catch(error => {
+            reject(APIError(error))
+        })
+    })
+}
+
+/**
  * Delete service
  * @param {String} id Project ID
  * @param {String} service Service ID
@@ -71,5 +87,6 @@ module.exports = {
     getServices,
     getService,
     createService,
+    updateService,
     deleteProject
 }
