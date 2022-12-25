@@ -16,6 +16,7 @@ module.exports = {
     Projects: require("./projects/projects"),
     ProjectEvents: require("./projects/events"),
     ProjectMembers: require("./projects/members"),
+    ProjectEnvironments: require("./projects/environments"),
     // Services
     Services: require("./services/services"),
     ServiceInfo: require("./services/info"),
