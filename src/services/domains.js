@@ -6,6 +6,7 @@ async function getDomains(id, service, environment) {
         await request.get(`/v1/projects/${id}/services/${service}/domains`, {
             params: {
                 environmentId: environment
+            }
         }).then(response => {
             resolve(response.data)
         }).catch(error => {
