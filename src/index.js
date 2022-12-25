@@ -21,6 +21,7 @@ module.exports = {
     Services: require("./services/services"),
     ServiceInfo: require("./services/info"),
     ServiceEvents: require("./services/events"),
+    ServiceDomains: require("./services/domains"),
     // Deployments
     Deployments: require("./deployments/deployments"),
     DeploymentLogs: require("./deployments/logs"),
