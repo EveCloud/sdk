@@ -14,9 +14,13 @@ async function getDeployments(project, service, params) {
     })
 }
 
-async function getDeployment(project, service, deployment) {
+async function getDeployment(project, service, deployment, environment) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/projects/${project}/services/${service}/deployments/${deployment}`).then(response => {
+        await request.get(`/v1/projects/${project}/services/${service}/deployments/${deployment}`, {
+            params: {
+                environmentId: environment
+            }
+        }).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -24,7 +28,7 @@ async function getDeployment(project, service, deployment) {
     })
 }
 
-async function createDeployment(project, service, environment) {
+async function createDeployment(project, service) {
     return new Promise(async (resolve, reject) => {
         await request.get(`/v1/projects/${project}/services/${service}/deploy`).then(response => {
             resolve(response.data)
