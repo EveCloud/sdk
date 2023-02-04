@@ -16,6 +16,21 @@ async function getStripePublicKey() {
 }
 
 /**
+ * Get Plans
+ * @returns {Promise<String>} Plans
+ */
+async function getPlans() {
+    return new Promise(async (resolve, reject) => {
+        await request.get(`/plans`).then(response => {
+            resolve(response.data)
+        }).catch(error => {
+            reject(APIError(error))
+        })
+    })
+}
+
+
+/**
  * Get Workers
  * @returns {Promise<String>} Workers
  */
@@ -33,7 +48,7 @@ async function getWorkers() {
  * Get Builders
  * @returns {Promise<String>} Builders
  */
-async function getWorkers() {
+async function getBuilders() {
     return new Promise(async (resolve, reject) => {
         await request.get(`/builders`).then(response => {
             resolve(response.data)
@@ -61,5 +76,6 @@ module.exports = {
     getStripePublicKey,
     getWorkers,
     getBuilders,
-    getStats
+    getStats,
+    getPlans
 }
