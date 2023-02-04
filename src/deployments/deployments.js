@@ -16,11 +16,7 @@ async function getDeployments(project, service, params) {
 
 async function getDeployment(project, service, deployment, environment) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/projects/${project}/services/${service}/deployments/${deployment}`, {
-            params: {
-                environmentId: environment
-            }
-        }).then(response => {
+        await request.get(`/v1/projects/${project}/services/${service}/deployments/${deployment}`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
