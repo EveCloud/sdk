@@ -25,7 +25,7 @@ async function verifyTFA(code) {
 
 async function disableTFA(code) {
     return new Promise(async (resolve, reject) => {
-        await request.delete(`/v1/account/two-factor`, {
+        await request.post(`/v1/account/two-factor/disable`, {
             code: code
         }).then(response => {
             resolve(response.data)
