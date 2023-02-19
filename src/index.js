@@ -12,6 +12,7 @@ module.exports = {
     Events: require("./account/events"),
     Logins: require("./account/logins"),
     Integrations: require("./account/integrations"),
+    TwoFactor: require("./account/twoFactor"),
     // Projects
     Projects: require("./projects/projects"),
     ProjectEvents: require("./projects/events"),
