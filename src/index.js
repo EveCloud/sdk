@@ -14,6 +14,7 @@ module.exports = {
     Integrations: require("./account/integrations"),
     TwoFactor: require("./account/twoFactor"),
     Sessions: require("./account/sessions"),
+    UserWorkspace: require("./account/workspace"),
     // Projects
     Projects: require("./projects/projects"),
     ProjectEvents: require("./projects/events"),
