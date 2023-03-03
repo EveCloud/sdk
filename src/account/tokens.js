@@ -38,10 +38,11 @@ async function getToken(id) {
  * @param {String} label Token label
  * @returns {Promise<Object>} Token object
  */
-async function createToken(label) {
+async function createToken(label, expiration) {
     return new Promise(async (resolve, reject) => {
         await request.post(`/v1/account/tokens`, {
-            label: label
+            label: label,
+            expiration: expiration
         }).then(response => {
             resolve(response.data)
         }).catch(error => {

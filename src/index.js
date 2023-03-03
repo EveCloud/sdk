@@ -6,10 +6,7 @@ module.exports = {
     APIError: require("./request").APIError,
     // Account
     Account: require("./account/account"),
-    Invoices: require("./account/invoices"),
-    Payments: require("./account/payments"),
     Tokens: require("./account/tokens"),
-    Events: require("./account/events"),
     Logins: require("./account/logins"),
     Integrations: require("./account/integrations"),
     TwoFactor: require("./account/twoFactor"),
