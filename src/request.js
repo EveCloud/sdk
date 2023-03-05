@@ -55,7 +55,7 @@ const APIError = (error) => {
         return "Bad Gateway"
     }
     if (error.response.status === 403) {
-        return "Unauthorized"
+        return error.response.data.message
     }
     if (error.response.data.message) {
         return error.response.data.message
