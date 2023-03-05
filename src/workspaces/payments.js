@@ -1,12 +1,12 @@
 const { request, APIError } = require('../request')
 
 /**
- * Get the current user's account payment methods
+ * Get the workspace payment methods
  * @returns {Promise<Object>} Payment Method List object
  */
-async function getPaymentMethods() {
+async function getPaymentMethods(id) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/account/payment-methods`).then(response => {
+        await request.get(`/v1/workspaces/${id}/payment-methods`).then(response => {
             resolve(response.data.data)
         }).catch(error => {
             reject(APIError(error))
@@ -19,9 +19,9 @@ async function getPaymentMethods() {
  * @param {String} paymentID Payment Method ID
  * @returns {Promise<Object>} Payment Method object
  */
-async function getPaymentMethod(paymentID) {
+async function getPaymentMethod(id, paymentID) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/account/payment-methods/${paymentID}`).then(response => {
+        await request.get(`/v1/workspaces/${id}/payment-methods/${paymentID}`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -34,9 +34,9 @@ async function getPaymentMethod(paymentID) {
  * @param {String} paymentID Payment Method ID
  * @returns {Promise<String>} Message
  */
-async function makePaymentMethodDefault(paymentID) {
+async function makePaymentMethodDefault(id, paymentID) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/account/payment-methods/${paymentID}/make-default`).then(response => {
+        await request.post(`/v1/workspaces/${id}/payment-methods/${paymentID}/make-default`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -49,9 +49,9 @@ async function makePaymentMethodDefault(paymentID) {
  * @private Manager Endpoint only
  * @returns {Promise<String>} Client Secret
  */
-async function addPaymentMethod() {
+async function addPaymentMethod(id) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/account/payment-methods`).then(response => {
+        await request.post(`/v1/workspaces/${id}/payment-methods`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -64,9 +64,9 @@ async function addPaymentMethod() {
  * @param {String} paymentID Payment Method ID
  * @returns {Promise<String>} Message
  */
-async function deletePaymentMethod(paymentID) {
+async function deletePaymentMethod(id, paymentID) {
     return new Promise(async (resolve, reject) => {
-        await request.delete(`/v1/account/payment-methods/` + paymentID).then(response => {
+        await request.delete(`/v1/workspaces/${id}/payment-methods/` + paymentID).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))

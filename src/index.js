@@ -12,6 +12,8 @@ module.exports = {
     TwoFactor: require("./account/twoFactor"),
     Sessions: require("./account/sessions"),
     UserWorkspace: require("./account/workspace"),
+    // Workspaces
+    WorkspacePayments: require("./workspaces/payments"),
     // Projects
     Projects: require("./projects/projects"),
     ProjectEvents: require("./projects/events"),
