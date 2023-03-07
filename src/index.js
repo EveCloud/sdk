@@ -13,7 +13,7 @@ module.exports = {
     Sessions: require("./account/sessions"),
     UserWorkspace: require("./account/workspace"),
     // Workspaces
-    Workspaces: require("./workspaces/workspace"),
+    Workspace: require("./workspaces/workspaces"),
     WorkspacePayments: require("./workspaces/payments"),
     // Projects
     Projects: require("./projects/projects"),
