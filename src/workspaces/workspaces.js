@@ -53,7 +53,7 @@ async function createWorkspace(data) {
  */
 async function updateWorkspace(id, data) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/workspaces/${id}`, data).then(response => {
+        await request.put(`/v1/workspaces/${id}`, data).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
