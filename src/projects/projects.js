@@ -2,12 +2,18 @@ const { request, APIError } = require('../request')
 
 /**
  * Get account projects
+ * @param {String} workspaceID Workspace ID
  * @param {Object} params Pagination params
  * @returns {Promise<Object>} Project List Object
  */
-async function getProjects(params) {
+async function getProjects(workspaceID, params) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/projects`).then(response => {
+        await request.get(`/v1/projects`, {
+            params: {
+                workspaceID: workspaceID,
+                ...params
+            }
+        }).then(response => {
             resolve(response.data.data)
         }).catch(error => {
             reject(APIError(error))
@@ -18,11 +24,16 @@ async function getProjects(params) {
 /**
  * Get account project
  * @param {String} id Project ID
+ * @param {String} workspaceID Workspace ID
  * @returns {Promise<Object>} Project object
  */
-async function getProject(id) {
+async function getProject(id, workspaceID) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/projects/${id}`).then(response => {
+        await request.get(`/v1/projects/${id}`, {
+            params: {
+                workspaceID: workspaceID
+            }
+        }).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -49,11 +60,16 @@ async function createProject(data) {
  * Update project
  * @param {String} id Project ID
  * @param {String} data Project Object
+ * @param {String} workspaceID Workspace ID
  * @returns {Promise<String>} Message
  */
-async function updateProject(id, data) {
+async function updateProject(id, data, workspaceID) {
     return new Promise(async (resolve, reject) => {
-        await request.put(`/v1/projects/${id}`, data).then(response => {
+        await request.put(`/v1/projects/${id}`, data, {
+            params: {
+                workspaceID: workspaceID
+            }
+        }).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -67,9 +83,13 @@ async function updateProject(id, data) {
  * @param {String} id Project ID
  * @returns {Promise<String>} Message
  */
-async function deleteProject(id) {
+async function deleteProject(id, workspaceID) {
     return new Promise(async (resolve, reject) => {
-        await request.delete(`/v1/projects/${id}`).then(response => {
+        await request.delete(`/v1/projects/${id}`, {
+            params: {
+                workspaceID: workspaceID
+            }
+        }).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
