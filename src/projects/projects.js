@@ -43,12 +43,17 @@ async function getProject(id, workspaceID) {
 
 /**
  * Create project
+ * @param {String} id Workspace ID
  * @param {String} data Project Object
  * @returns {Promise<String>} Message
  */
-async function createProject(data) {
+async function createProject(id, data) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/projects/`, data).then(response => {
+        await request.post(`/v1/projects/`, data, {
+            params: {
+                workspaceID: id
+            }
+        }).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
