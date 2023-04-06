@@ -45,12 +45,26 @@ async function getWorkers() {
 }
 
 /**
+ * Get Builders
+ * @returns {Promise<String>} Builders
+ */
+async function getBuilders() {
+    return new Promise(async (resolve, reject) => {
+        await request.get(`/builders`).then(response => {
+            resolve(response.data)
+        }).catch(error => {
+            reject(APIError(error))
+        })
+    })
+}
+
+/**
  * Get Regions
  * @returns {Promise<String>} Regions
  */
 async function getRegions() {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/builders`).then(response => {
+        await request.get(`/regions`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -76,6 +90,7 @@ module.exports = {
     getStripePublicKey,
     getWorkers,
     getRegions,
+    getBuilders,
     getStats,
     getPlans
 }
