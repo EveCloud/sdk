@@ -45,10 +45,10 @@ async function getWorkers() {
 }
 
 /**
- * Get Builders
- * @returns {Promise<String>} Builders
+ * Get Regions
+ * @returns {Promise<String>} Regions
  */
-async function getBuilders() {
+async function getRegions() {
     return new Promise(async (resolve, reject) => {
         await request.get(`/builders`).then(response => {
             resolve(response.data)
@@ -64,7 +64,7 @@ async function getBuilders() {
  */
 async function getStats() {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/builds`).then(response => {
+        await request.get(`/stats`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -75,7 +75,7 @@ async function getStats() {
 module.exports = {
     getStripePublicKey,
     getWorkers,
-    getBuilders,
+    getRegions,
     getStats,
     getPlans
 }
