@@ -16,6 +16,7 @@ module.exports = {
     Workspace: require("./workspaces/workspaces"),
     WorkspacePayments: require("./workspaces/payments"),
     WorkspaceInvoices: require("./workspaces/invoices"),
+    WorkspaceUsage: require("./workspaces/usage"),
     // Projects
     Projects: require("./projects/projects"),
     ProjectEvents: require("./projects/events"),
