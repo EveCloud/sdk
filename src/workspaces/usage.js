@@ -12,7 +12,7 @@ async function get(id, month, year) {
                 year
             }
         }).then(response => {
-            resolve(response.data.data)
+            resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
         })
