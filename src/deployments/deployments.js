@@ -1,10 +1,11 @@
 const { request, APIError } = require('../request')
 
-async function getDeployments(project, service, params) {
+async function getDeployments(workspace, project, params) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/projects/${project}/services/${service}/deployments`, {
+        await request.get(`/v1/projects/${project}/deployments`, {
             params: {
-                ...params
+                ...params,
+                workspaceID: workspace
             },
         }).then(response => {
             resolve(response.data.data)
