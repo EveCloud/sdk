@@ -22,11 +22,6 @@ module.exports = {
     ProjectEvents: require("./projects/events"),
     ProjectMembers: require("./projects/members"),
     ProjectEnvironments: require("./projects/environments"),
-    // Services
-    Services: require("./services/services"),
-    ServiceInfo: require("./services/info"),
-    ServiceDomains: require("./services/domains"),
-    ServiceVariables: require("./services/variables"),
     // Deployments
     Deployments: require("./deployments/deployments"),
     DeploymentLogs: require("./deployments/logs"),
