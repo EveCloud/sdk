@@ -22,6 +22,7 @@ module.exports = {
     ProjectEvents: require("./projects/events"),
     ProjectMembers: require("./projects/members"),
     ProjectEnvironments: require("./projects/environments"),
+    ProjectBuilds: require("./projects/builds"),
     // Deployments
     Deployments: require("./deployments/deployments"),
     DeploymentLogs: require("./deployments/logs"),
