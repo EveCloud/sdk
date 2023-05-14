@@ -5,7 +5,7 @@ const { request, APIError } = require('../request')
  * @param {String} id Workspace ID
  * @returns {Promise<Object>} Subscription object
  */
-async function getSubscription(id) {
+async function get(id) {
     return new Promise(async (resolve, reject) => {
         await request.get(`/v1/workspaces/${id}/subscription`).then(response => {
             resolve(response.data)
@@ -21,7 +21,7 @@ async function getSubscription(id) {
  * @param {Boolean} confirm Confirm the change
  * @returns {Promise<Object>} Subscription object
  */
-async function updateSubscription(id, confirm) {
+async function update(id, confirm) {
     return new Promise(async (resolve, reject) => {
         await request.put(`/v1/workspaces/${id}/subscription`, {
             confirm
@@ -34,6 +34,6 @@ async function updateSubscription(id, confirm) {
 }
 
 module.exports = {
-    getSubscription,
-    updateSubscription
+    get,
+    update
 }
