@@ -24,7 +24,7 @@ unpkg CDN:
 
 ## Usage
 
-Most endpoints require authentication, either with an Auth Token or Personal Access Token.
+Most endpoints require authentication, either with an Access Token or API Token.
 Once you have your token, authenticating involves adding an Authorization header to each request:
 
 ```js
