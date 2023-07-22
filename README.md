@@ -1,6 +1,6 @@
 # EveCloud JavaScript SDK
 
-JavaScript client for the [EveCloud API](https://docs.evecloud.xyz/api)
+JavaScript client for the [EveCloud API](https://docs.evecloud.xyz/reference/rest-api)
 
 ## Installation
 
