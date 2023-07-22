@@ -4,12 +4,20 @@ JavaScript client for the [EveCloud API](https://docs.evecloud.xyz/api)
 
 ## Installation
 
+### Node.js
+
 ```
 $ npm install evecloud-sdk
 ```
 
-or with a CDN:
+### Browser
 
+EveCloud CDN:
+```js
+<script src="https://cdn.evecloud.xyz/sdk/bundle.js"></script>
+```
+
+unpkg CDN:
 ```js
 <script src="https://unpkg.com/evecloud-sdk@latest/dist/bundle.js"></script>
 ```
