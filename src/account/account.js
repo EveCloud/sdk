@@ -1,8 +1,10 @@
 const { request, APIError } = require('../request')
 
 /**
- * Get the current user's account information
+ * @name getInfo
+ * @description Get the current user's account information
  * @link https://docs.evecloud.xyz/reference/rest-api#tag/Account/operation/Account.Get
+ * @namespace Account
  * @returns {Promise<Object>} User object
  */
 async function getInfo() {
@@ -16,7 +18,8 @@ async function getInfo() {
 }
 
 /**
- * Update the current user's account information
+ * @name updateInfo
+ * @description Update the current user's account information
  * @link https://docs.evecloud.xyz/reference/rest-api#tag/Account/operation/Account.Update
  * @param {Object} data Information to update
  * @returns {Promise<Object>} User object
@@ -32,7 +35,9 @@ async function updateInfo(data) {
 }
 
 /**
- * get the current user's account preferences
+ * @name getPreferences
+ * @description Get the current user's account preferences
+ * @link https://docs.evecloud.xyz/reference/rest-api#tag/Account/operation/Preferences.Get
  * @returns {Promise<Object>} User preferences object
  */
 async function getPreferences() {
@@ -46,7 +51,9 @@ async function getPreferences() {
 }
 
 /**
- * update the current user's account preferences
+ * @name updatePreferences
+ * @description Update the current user's account preferences
+ * @link https://docs.evecloud.xyz/reference/rest-api#tag/Account/operation/Preferences.Update
  * @param {Object} data Information to update
  * @returns {Promise<String>} Message.
  */
