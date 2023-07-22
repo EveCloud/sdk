@@ -1,8 +1,8 @@
 const { request, APIError } = require('../request')
 
-async function build(id, service, deployment, workspaceID, params) {
+async function list(id, service, deployment, workspaceID, params) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/projects/${id}/services/${service}/deployments/${deployment}/logs/build`, {
+        await request.get(`/v1/projects/${id}/services/${service}/deployments/${deployment}/instances`, {
             params: {
                 workspaceID: workspaceID,
                 ...params
@@ -16,5 +16,5 @@ async function build(id, service, deployment, workspaceID, params) {
 }
 
 module.exports = {
-    build
+    list
 }

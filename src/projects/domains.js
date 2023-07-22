@@ -1,12 +1,12 @@
 const { request, APIError } = require('../request')
 
-async function list(id, workspaceID, params) {
+async function list(projectID, workspaceID, params) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/projects/${id}/services`, {
+        await request.get(`/v1/projects/${projectID}/domains`, {
             params: {
                 workspaceID: workspaceID,
                 ...params
-            },
+            }
         }).then(response => {
             resolve(response.data.data)
         }).catch(error => {
@@ -15,9 +15,9 @@ async function list(id, workspaceID, params) {
     })
 }
 
-async function get(id, service, workspaceID) {
+async function get(projectID, workspaceID, domainID) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/projects/${id}/services/${service}`, {
+        await request.get(`/v1/projects/${projectID}/domains/${domainID}`, {
             params: {
                 workspaceID: workspaceID
             }
@@ -29,9 +29,9 @@ async function get(id, service, workspaceID) {
     })
 }
 
-async function redeploy(id, service, workspaceID) {
+async function refresh(projectID, workspaceID, domainID) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/projects/${id}/services/${service}/redeploy`, {
+        await request.get(`/v1/projects/${projectID}/domains/${domainID}/refresh`, {
             params: {
                 workspaceID: workspaceID
             }
@@ -43,13 +43,17 @@ async function redeploy(id, service, workspaceID) {
     })
 }
 
-async function create(id, workspaceID, data) {
+
+async function create(projectID, workspaceID, domain, service) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/projects/${id}/services`, {
+        await request.post(`/v1/projects/${projectID}/domains`, {
             params: {
                 workspaceID: workspaceID
             }
-        },  data).then(response => {
+        }, {
+            domain: domain,
+            service: service
+        }).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -57,13 +61,15 @@ async function create(id, workspaceID, data) {
     })
 }
 
-async function update(id, data, workspaceID) {
+async function update(projectID, workspaceID, domainID, serviceID) {
     return new Promise(async (resolve, reject) => {
-        await request.put(`/v1/projects/${id}/services`, {
+        await request.put(`/v1/projects/${projectID}/domains/${domainID}`, {
             params: {
                 workspaceID: workspaceID
             }
-        }, data).then(response => {
+        }, {
+            service: serviceID
+        }).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -71,9 +77,10 @@ async function update(id, data, workspaceID) {
     })
 }
 
-async function remove(id, service, workspaceID) {
+
+async function remove(projectID, workspaceID, domainID) {
     return new Promise(async (resolve, reject) => {
-        await request.delete(`/v1/projects/${id}/service/${service}`, {
+        await request.delete(`/v1/projects/${projectID}/domains/${domainID}`, {
             params: {
                 workspaceID: workspaceID
             }
@@ -88,8 +95,9 @@ async function remove(id, service, workspaceID) {
 module.exports = {
     list,
     get,
+    refresh,
     create,
     update,
-    redeploy,
-    remove
+    remove,
 }
+

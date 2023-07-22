@@ -1,8 +1,8 @@
 const { request, APIError } = require('../request')
 
-async function list(workspaceID, params) {
+async function list(projectID, workspaceID, params) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/projects`, {
+        await request.get(`/v1/projects/${projectID}/secrets`, {
             params: {
                 workspaceID: workspaceID,
                 ...params
@@ -15,9 +15,9 @@ async function list(workspaceID, params) {
     })
 }
 
-async function get(id, workspaceID) {
+async function get(projectID, workspaceID, secretID) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/projects/${id}`, {
+        await request.get(`/v1/projects/${projectID}/secrets/${secretID}`, {
             params: {
                 workspaceID: workspaceID
             }
@@ -29,12 +29,15 @@ async function get(id, workspaceID) {
     })
 }
 
-async function create(id, data) {
+async function create(projectID, workspaceID, key, value) {
     return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/projects/`, data, {
+        await request.post(`/v1/projects/${projectID}/secrets`, {
             params: {
-                workspaceID: id
+                workspaceID: workspaceID
             }
+        }, {
+            key: key,
+            value: value
         }).then(response => {
             resolve(response.data)
         }).catch(error => {
@@ -43,9 +46,26 @@ async function create(id, data) {
     })
 }
 
-async function update(id, data, workspaceID) {
+async function update(projectID, workspaceID, secretID, value) {
     return new Promise(async (resolve, reject) => {
-        await request.put(`/v1/projects/${id}`, data, {
+        await request.put(`/v1/projects/${projectID}/secrets/${secretID}`, {
+            params: {
+                workspaceID: workspaceID
+            }
+        }, {
+            value: value
+        }).then(response => {
+            resolve(response.data)
+        }).catch(error => {
+            reject(APIError(error))
+        })
+    })
+}
+
+
+async function remove(projectID, workspaceID, secretID) {
+    return new Promise(async (resolve, reject) => {
+        await request.delete(`/v1/projects/${projectID}/secrets/${secretID}`, {
             params: {
                 workspaceID: workspaceID
             }
@@ -61,5 +81,7 @@ module.exports = {
     list,
     get,
     create,
-    update
+    update,
+    remove
 }
+

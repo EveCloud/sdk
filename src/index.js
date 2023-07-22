@@ -6,11 +6,10 @@ module.exports = {
     APIError: require("./request").APIError,
     // Account
     Account: require("./account/account"),
-    Tokens: require("./account/tokens"),
-    Logins: require("./account/logins"),
-    Integrations: require("./account/integrations"),
-    TwoFactor: require("./account/twoFactor"),
-    Sessions: require("./account/sessions"),
+    AccountTokens: require("./account/tokens"),
+    AccountSecurity: require("./account/security"),
+    AccountIntegrations: require("./account/integrations"),
+    AccountTwoFactor: require("./account/twoFactor"),
     UserWorkspace: require("./account/workspace"),
     // Workspaces
     Workspace: require("./workspaces/workspaces"),
@@ -21,16 +20,12 @@ module.exports = {
     WorkspaceMembers: require("./workspaces/members"),
     // Projects
     Projects: require("./projects/projects"),
-    ProjectEvents: require("./projects/events"),
-    ProjectMembers: require("./projects/members"),
-    ProjectEnvironments: require("./projects/environments"),
-    ProjectBuilds: require("./projects/builds"),
+    ProjectDomains: require("./projects/domains"),
+    ProjectSecrets: require("./projects/secrets"),
     // Deployments
     Deployments: require("./deployments/deployments"),
     DeploymentLogs: require("./deployments/logs"),
-    DeploymentActions: require("./deployments/actions"),
-    // Support
-    Support: require("./support/support"),
+    DeploymentInstances: require("./deployments/instances"),
     // Utils
     Utils: require("./utils/utils")
 }

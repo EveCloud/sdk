@@ -53,9 +53,11 @@ async function add(id, email, role) {
  * @param {String} memberID Member ID
  * @returns {Promise<String>} Message
  */
-async function remove(id, memberID) {
+async function remove(id, confirm, memberID) {
     return new Promise(async (resolve, reject) => {
-        await request.delete(`/v1/workspaces/${id}/members/${memberID}`).then(response => {
+        await request.delete(`/v1/workspaces/${id}/members/${memberID}`, {
+            confirm: confirm
+        }).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))

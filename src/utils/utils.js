@@ -61,5 +61,6 @@ async function getRegions() {
 module.exports = {
     getStripePublicKey,
     getRegions,
-    getPlans
+    getPlans,
+    getInstances
 }

@@ -34,7 +34,7 @@
     "package.json",
     "README.md"
   ],
-  "author": "EveCloud Ltd",
+  "author": "EveCloud",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.26.1",

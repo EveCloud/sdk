@@ -5,7 +5,7 @@ const { request, APIError } = require('../request')
  * @param {Object} params Pagination parameters
  * @returns {Promise<Object>} Token List object
  */
-async function getTokens(params) {
+async function list(params) {
     return new Promise(async (resolve, reject) => {
         await request.get(`/v1/account/tokens`, {
             params: params || {}
@@ -22,7 +22,7 @@ async function getTokens(params) {
  * @param {String} id Token ID
  * @returns {Promise<Object>} Token object
  */
-async function getToken(id) {
+async function get(id) {
     return new Promise(async (resolve, reject) => {
         await request.get(`/v1/account/tokens/` + id).then(response => {
             resolve(response.data)
@@ -38,7 +38,7 @@ async function getToken(id) {
  * @param {String} label Token label
  * @returns {Promise<Object>} Token object
  */
-async function createToken(label, expiration) {
+async function create(label, expiration) {
     return new Promise(async (resolve, reject) => {
         await request.post(`/v1/account/tokens`, {
             label: label,
@@ -57,7 +57,7 @@ async function createToken(label, expiration) {
  * @param {String} label New token label
  * @returns {Promise<String>} Message
  */
-async function updateToken(id, label) {
+async function update(id, label) {
     return new Promise(async (resolve, reject) => {
         await request.put(`/v1/account/tokens`, {
             id: id,
@@ -75,7 +75,7 @@ async function updateToken(id, label) {
  * @param {String} id Token ID
  * @returns {Promise<String>} Message
  */
-async function deleteToken(id) {
+async function remove(id) {
     return new Promise(async (resolve, reject) => {
         await request.delete(`/v1/account/tokens/` + id).then(response => {
             resolve(response.data)
@@ -86,9 +86,9 @@ async function deleteToken(id) {
 }
 
 module.exports = {
-    getTokens,
-    getToken,
-    createToken,
-    updateToken,
-    deleteToken
+    list,
+    get,
+    create,
+    update,
+    remove
 }

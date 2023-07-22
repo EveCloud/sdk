@@ -2,6 +2,7 @@ const { request, APIError } = require('../request')
 
 /**
  * Get the current user's account information
+ * @link https://docs.evecloud.xyz/reference/rest-api#tag/Account/operation/Account.Get
  * @returns {Promise<Object>} User object
  */
 async function getInfo() {
@@ -16,6 +17,7 @@ async function getInfo() {
 
 /**
  * Update the current user's account information
+ * @link https://docs.evecloud.xyz/reference/rest-api#tag/Account/operation/Account.Update
  * @param {Object} data Information to update
  * @returns {Promise<Object>} User object
  */

@@ -1,11 +1,11 @@
 const { request, APIError } = require('../request')
 
-async function getDeployments(workspace, project, params) {
+async function list(id, service, workspaceID, params) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/projects/${project}/deployments`, {
+        await request.get(`/v1/projects/${id}/services/${service}/deployments`, {
             params: {
-                ...params,
-                workspaceID: workspace
+                workspaceID: workspaceID,
+                ...params
             },
         }).then(response => {
             resolve(response.data.data)
@@ -15,29 +15,6 @@ async function getDeployments(workspace, project, params) {
     })
 }
 
-async function getDeployment(project, service, deployment, environment) {
-    return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/projects/${project}/services/${service}/deployments/${deployment}`).then(response => {
-            resolve(response.data)
-        }).catch(error => {
-            reject(APIError(error))
-        })
-    })
-}
-
-async function createDeployment(project, service) {
-    return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/projects/${project}/services/${service}/deploy`).then(response => {
-            resolve(response.data)
-        }).catch(error => {
-            reject(APIError(error))
-        })
-    })
-}
-
-
 module.exports = {
-    getDeployments,
-    getDeployment,
-    createDeployment
+    list
 }

@@ -1,13 +1,12 @@
 const { request, APIError } = require('../request')
 
 /**
- * Get the workspace
- * @param {String} id Workspace ID
+ * List the workspaces
  * @returns {Promise<Object>} Workspace object
  */
-async function getWorkspace(id) {
+async function list() {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/workspaces/${id}`).then(response => {
+        await request.get(`/v1/workspaces`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -16,12 +15,13 @@ async function getWorkspace(id) {
 }
 
 /**
- * List the workspaces
+ * Get the workspace
+ * @param {String} id Workspace ID
  * @returns {Promise<Object>} Workspace object
  */
-async function listWorkspaces() {
+async function get(id) {
     return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/workspaces`).then(response => {
+        await request.get(`/v1/workspaces/${id}`).then(response => {
             resolve(response.data)
         }).catch(error => {
             reject(APIError(error))
@@ -35,7 +35,7 @@ async function listWorkspaces() {
  * @param {Object} data Workspace data
  * @returns {Promise<Object>} Workspace object
  */
-async function createWorkspace(data) {
+async function create(data) {
     return new Promise(async (resolve, reject) => {
         await request.post(`/v1/workspaces`, data).then(response => {
             resolve(response.data)
@@ -51,7 +51,7 @@ async function createWorkspace(data) {
  * @param {Object} data Workspace data
  * @returns {Promise<Object>} Workspace object
  */
-async function updateWorkspace(id, data) {
+async function update(id, data) {
     return new Promise(async (resolve, reject) => {
         await request.put(`/v1/workspaces/${id}`, data).then(response => {
             resolve(response.data)
@@ -61,25 +61,9 @@ async function updateWorkspace(id, data) {
     })
 }
 
-/**
- * Delete a workspace
- * @param {String} id Workspace ID
- * @returns {Promise<String>} Message
- */
-async function deleteWorkspace(id) {
-    return new Promise(async (resolve, reject) => {
-        await request.delete(`/v1/workspaces/${id}`).then(response => {
-            resolve(response.data)
-        }).catch(error => {
-            reject(APIError(error))
-        })
-    })
-}
-
 module.exports = {
-    getWorkspace,
-    listWorkspaces,
-    createWorkspace,
-    updateWorkspace,
-    deleteWorkspace
+    list,
+    get,
+    create,
+    update
 }

@@ -4,7 +4,7 @@ const { request, APIError } = require('../request')
  * Get the workspace payment methods
  * @returns {Promise<Object>} Payment Method List object
  */
-async function getPaymentMethods(id) {
+async function list(id) {
     return new Promise(async (resolve, reject) => {
         await request.get(`/v1/workspaces/${id}/payment-methods`).then(response => {
             resolve(response.data.data)
@@ -19,7 +19,7 @@ async function getPaymentMethods(id) {
  * @param {String} paymentID Payment Method ID
  * @returns {Promise<Object>} Payment Method object
  */
-async function getPaymentMethod(id, paymentID) {
+async function get(id, paymentID) {
     return new Promise(async (resolve, reject) => {
         await request.get(`/v1/workspaces/${id}/payment-methods/${paymentID}`).then(response => {
             resolve(response.data)
@@ -34,7 +34,7 @@ async function getPaymentMethod(id, paymentID) {
  * @param {String} paymentID Payment Method ID
  * @returns {Promise<String>} Message
  */
-async function makePaymentMethodDefault(id, paymentID) {
+async function makeDefault(id, paymentID) {
     return new Promise(async (resolve, reject) => {
         await request.post(`/v1/workspaces/${id}/payment-methods/${paymentID}/make-default`).then(response => {
             resolve(response.data)
@@ -49,7 +49,7 @@ async function makePaymentMethodDefault(id, paymentID) {
  * @private Manager Endpoint only
  * @returns {Promise<String>} Client Secret
  */
-async function addPaymentMethod(id) {
+async function add(id) {
     return new Promise(async (resolve, reject) => {
         await request.post(`/v1/workspaces/${id}/payment-methods`).then(response => {
             resolve(response.data)
@@ -64,7 +64,7 @@ async function addPaymentMethod(id) {
  * @param {String} paymentID Payment Method ID
  * @returns {Promise<String>} Message
  */
-async function deletePaymentMethod(id, paymentID) {
+async function remove(id, paymentID) {
     return new Promise(async (resolve, reject) => {
         await request.delete(`/v1/workspaces/${id}/payment-methods/` + paymentID).then(response => {
             resolve(response.data)
@@ -75,9 +75,9 @@ async function deletePaymentMethod(id, paymentID) {
 }
 
 module.exports = {
-    getPaymentMethods,
-    getPaymentMethod,
-    addPaymentMethod,
-    deletePaymentMethod,
-    makePaymentMethodDefault
+    list,
+    get,
+    makeDefault,
+    add,
+    remove
 }
