@@ -97,7 +97,7 @@ async function update (id, data, workspaceID) {
  * @name remove
  * @description Remove project
  * @namespace Projects
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Projects/operation/Projects.Remove
+ * @link https://docs.evecloud.xyz/reference/rest-api#tag/Projects/operation/Projects.Delete
  * @param {String} id Project ID
  * @param {Boolean} confirm Confirm removal
  * @param {String} workspaceID Workspace ID
