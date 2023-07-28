@@ -108,11 +108,10 @@ async function update (projectID, workspaceID, secretID, value) {
  * @name remove
  * @description Delete project secret
  * @namespace Projects
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Projects/operation/Secrets.Update
+ * @link https://docs.evecloud.xyz/reference/rest-api#tag/Projects/operation/Secrets.Delete
  * @param {String} projectID Project ID
  * @param {String} workspaceID Workspace ID
  * @param {String} secretID Secret ID
- * @param {String} value Secret value
  * @returns {Promise<Object>} Success message
  */
 async function remove (projectID, workspaceID, secretID) {
