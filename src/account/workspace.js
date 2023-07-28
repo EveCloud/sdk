@@ -1,7 +1,9 @@
 const { request, APIError } = require('../request')
 
 /**
- * Get the current workspace's
+ * @name getCurrent
+ * @description Get current workspace
+ * @namespace Account
  * @private For dashboard use only
  * @returns {Promise<Object>} Workspace object
  */
@@ -16,10 +18,11 @@ async function getCurrent () {
 }
 
 /**
- * Update the current workspace's
+ * @name updateCurrent
+ * @description Update current workspace
+ * @namespace Account
  * @private For dashboard use only
- * @param {String} id Workspace ID
- * @returns {Promise<String>} Message.
+ * @returns {Promise<Object>} Workspace object
  */
 async function updateCurrent (id) {
   return new Promise((resolve, reject) => {
@@ -32,9 +35,11 @@ async function updateCurrent (id) {
 }
 
 /**
- * Get all workspaces
+ * @name getAll
+ * @description Get all workspaces
+ * @namespace Account
  * @private For dashboard use only
- * @returns {Promise<Object>} Workspace object
+ * @returns {Promise<Object>} Workspaces
  */
 async function getAll () {
   return new Promise((resolve, reject) => {
