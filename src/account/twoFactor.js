@@ -23,7 +23,7 @@ async function create () {
  * @namespace Account
  * @link https://docs.evecloud.xyz/reference/rest-api#tag/Account/operation/TwoFactor.Enable
  * @param {String} code Two-factor authentication code
- * @returns {Promise<String>} Success message
+ * @returns {Promise<Array>} Recovery codes
  */
 async function enable (code) {
   return new Promise((resolve, reject) => {
