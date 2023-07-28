@@ -1,9 +1,13 @@
 const { request, APIError } = require('../request')
 
 /**
- * Get the user security events
- * @param {Object} params Pagination parameters
- * @returns {Promise<Object>} The user security events
+ * @name getEvents
+ * @description Get your authentication events
+ * @namespace Account
+ * @link https://docs.evecloud.xyz/reference/rest-api#tag/Account/operation/Security.GetEvents
+ * @param {String} code The code returned from GitHub
+ * @param {String} installationId The installation ID returned from GitHub
+ * @returns {Promise<Object>} Authentication events
  */
 async function getEvents(params) {
     return new Promise(async (resolve, reject) => {
