@@ -1,9 +1,12 @@
 const { request, APIError } = require('../request')
 
 /**
- * Get the current user's account tokens  
- * @param {Object} params Pagination parameters
- * @returns {Promise<Object>} Token List object
+ * @name list
+ * @description Get account tokens
+ * @namespace Account
+ * @link https://docs.evecloud.xyz/reference/rest-api#tag/Account/operation/Tokens.List
+ * @param {String} params Parameters
+ * @returns {Promise<Object>} Tokens
  */
 async function list(params) {
     return new Promise(async (resolve, reject) => {
@@ -18,9 +21,12 @@ async function list(params) {
 }
 
 /**
- * Get account token
+ * @name get
+ * @description Get account token
+ * @namespace Account
+ * @link https://docs.evecloud.xyz/reference/rest-api#tag/Account/operation/Tokens.Get
  * @param {String} id Token ID
- * @returns {Promise<Object>} Token object
+ * @returns {Promise<Object>} Token
  */
 async function get(id) {
     return new Promise(async (resolve, reject) => {
@@ -34,9 +40,13 @@ async function get(id) {
 
 
 /**
- * Create account token
+ * @name create
+ * @description Create account token
+ * @namespace Account
+ * @link https://docs.evecloud.xyz/reference/rest-api#tag/Account/operation/Tokens.Create
  * @param {String} label Token label
- * @returns {Promise<Object>} Token object
+ * @param {String} expiration Token expiration
+ * @returns {Promise<String>} Success message
  */
 async function create(label, expiration) {
     return new Promise(async (resolve, reject) => {
@@ -52,10 +62,13 @@ async function create(label, expiration) {
 }
 
 /**
- * Update account token
+ * @name update
+ * @description Update account token
+ * @namespace Account
+ * @link https://docs.evecloud.xyz/reference/rest-api#tag/Account/operation/Tokens.Update
  * @param {String} id Token ID
- * @param {String} label New token label
- * @returns {Promise<String>} Message
+ * @param {String} label Token label
+ * @returns {Promise<String>} Success message
  */
 async function update(id, label) {
     return new Promise(async (resolve, reject) => {
@@ -71,9 +84,12 @@ async function update(id, label) {
 }
 
 /**
- * Delete account token
+ * @name remove
+ * @description Remove account token 
+ * @namespace Account
+ * @link https://docs.evecloud.xyz/reference/rest-api#tag/Account/operation/Tokens.Delete
  * @param {String} id Token ID
- * @returns {Promise<String>} Message
+ * @returns {Promise<String>} Success message
  */
 async function remove(id) {
     return new Promise(async (resolve, reject) => {
