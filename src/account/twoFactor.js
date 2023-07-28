@@ -48,7 +48,9 @@ async function enable (code) {
 async function disable (code) {
   return new Promise((resolve, reject) => {
     request.delete('/v1/account/two-factor', {
-      code
+      data: {
+        code
+      }
     }).then(response => {
       resolve(response.data)
     }).catch(error => {
