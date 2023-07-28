@@ -8,16 +8,16 @@ const { request, APIError } = require('../request')
  * @param {String} params Parameters
  * @returns {Promise<Object>} Tokens
  */
-async function list(params) {
-    return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/account/tokens`, {
-            params: params || {}
-        }).then(response => {
-            resolve(response.data.data)
-        }).catch(error => {
-            reject(APIError(error))
-        })
+async function list (params) {
+  return new Promise((resolve, reject) => {
+    request.get('/v1/account/tokens', {
+      params: params || {}
+    }).then(response => {
+      resolve(response.data.data)
+    }).catch(error => {
+      reject(APIError(error))
     })
+  })
 }
 
 /**
@@ -28,16 +28,15 @@ async function list(params) {
  * @param {String} id Token ID
  * @returns {Promise<Object>} Token
  */
-async function get(id) {
-    return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/account/tokens/` + id).then(response => {
-            resolve(response.data)
-        }).catch(error => {
-            reject(APIError(error))
-        })
+async function get (id) {
+  return new Promise((resolve, reject) => {
+    request.get(`/v1/account/tokens/${id}`).then(response => {
+      resolve(response.data)
+    }).catch(error => {
+      reject(APIError(error))
     })
+  })
 }
-
 
 /**
  * @name create
@@ -48,17 +47,17 @@ async function get(id) {
  * @param {String} expiration Token expiration
  * @returns {Promise<String>} Success message
  */
-async function create(label, expiration) {
-    return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/account/tokens`, {
-            label: label,
-            expiration: expiration
-        }).then(response => {
-            resolve(response.data)
-        }).catch(error => {
-            reject(APIError(error))
-        })
+async function create (label, expiration) {
+  return new Promise((resolve, reject) => {
+    request.post('/v1/account/tokens', {
+      label,
+      expiration
+    }).then(response => {
+      resolve(response.data)
+    }).catch(error => {
+      reject(APIError(error))
     })
+  })
 }
 
 /**
@@ -70,41 +69,41 @@ async function create(label, expiration) {
  * @param {String} label Token label
  * @returns {Promise<String>} Success message
  */
-async function update(id, label) {
-    return new Promise(async (resolve, reject) => {
-        await request.put(`/v1/account/tokens`, {
-            id: id,
-            label: label
-        }).then(response => {
-            resolve(response.data)
-        }).catch(error => {
-            reject(APIError(error))
-        })
+async function update (id, label) {
+  return new Promise((resolve, reject) => {
+    request.put('/v1/account/tokens', {
+      id,
+      label
+    }).then(response => {
+      resolve(response.data)
+    }).catch(error => {
+      reject(APIError(error))
     })
+  })
 }
 
 /**
  * @name remove
- * @description Remove account token 
+ * @description Remove account token
  * @namespace Account
  * @link https://docs.evecloud.xyz/reference/rest-api#tag/Account/operation/Tokens.Delete
  * @param {String} id Token ID
  * @returns {Promise<String>} Success message
  */
-async function remove(id) {
-    return new Promise(async (resolve, reject) => {
-        await request.delete(`/v1/account/tokens/` + id).then(response => {
-            resolve(response.data)
-        }).catch(error => {
-            reject(APIError(error))
-        })
+async function remove (id) {
+  return new Promise((resolve, reject) => {
+    request.delete(`/v1/account/tokens/${id}`).then(response => {
+      resolve(response.data)
+    }).catch(error => {
+      reject(APIError(error))
     })
+  })
 }
 
 module.exports = {
-    list,
-    get,
-    create,
-    update,
-    remove
+  list,
+  get,
+  create,
+  update,
+  remove
 }
