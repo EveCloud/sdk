@@ -37,6 +37,29 @@ async function updateInfo (data) {
 }
 
 /**
+ * @name remove
+ * @description Delete the current user's account
+ * @namespace Account
+ * @link https://docs.evecloud.xyz/reference/rest-api#tag/Account/operation/Account.Delete
+ * @namespace Account
+ * @param {String} confirm Confirm account deletion
+ * @returns {Promise<Object>} Success message
+ */
+async function remove (confirm) {
+  return new Promise((resolve, reject) => {
+    request.get('/v1/account', {
+      data: {
+        confirm
+      }
+    }).then(response => {
+      resolve(response.data)
+    }).catch(error => {
+      reject(APIError(error))
+    })
+  })
+}
+
+/**
  * @name getPreferences
  * @description Get the current user's account preferences
  * @namespace Account
@@ -74,6 +97,7 @@ async function updatePreferences (data) {
 module.exports = {
   getInfo,
   updateInfo,
+  remove,
   getPreferences,
   updatePreferences
 }
