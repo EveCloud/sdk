@@ -1,83 +1,102 @@
 const { request, APIError } = require('../request')
 
 /**
- * Get the workspace payment methods
- * @returns {Promise<Object>} Payment Method List object
+ * @name list
+ * @description List workpaces payment methods
+ * @namespace Workspaces
+ * @link https://docs.evecloud.xyz/reference/rest-api#tag/Workspaces/operation/PaymentMethods.List
+ * @param {String} id Workspace ID
+ * @returns {Promise<Object>} Payment Methods
  */
-async function list(id) {
-    return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/workspaces/${id}/payment-methods`).then(response => {
-            resolve(response.data.data)
-        }).catch(error => {
-            reject(APIError(error))
-        })
+async function list (id) {
+  return new Promise((resolve, reject) => {
+    request.get(`/v1/workspaces/${id}/payment-methods`).then(response => {
+      resolve(response.data.data)
+    }).catch(error => {
+      reject(APIError(error))
     })
+  })
 }
 
 /**
- * Get payment method details
+ * @name get
+ * @description Get workpace payment method
+ * @namespace Workspaces
+ * @link https://docs.evecloud.xyz/reference/rest-api#tag/Workspaces/operation/PaymentMethods.Get
+ * @param {String} id Workspace ID
  * @param {String} paymentID Payment Method ID
- * @returns {Promise<Object>} Payment Method object
+ * @returns {Promise<Object>} Payment Method
  */
-async function get(id, paymentID) {
-    return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/workspaces/${id}/payment-methods/${paymentID}`).then(response => {
-            resolve(response.data)
-        }).catch(error => {
-            reject(APIError(error))
-        })
+async function get (id, paymentID) {
+  return new Promise((resolve, reject) => {
+    request.get(`/v1/workspaces/${id}/payment-methods/${paymentID}`).then(response => {
+      resolve(response.data)
+    }).catch(error => {
+      reject(APIError(error))
     })
+  })
 }
 
 /**
- * Make Payment Method Default
+ * @name makeDefault
+ * @description Make a payment method default
+ * @namespace Workspaces
+ * @link https://docs.evecloud.xyz/reference/rest-api#tag/Workspaces/operation/PaymentMethods.MakeDefault
+ * @param {String} id Workspace ID
  * @param {String} paymentID Payment Method ID
- * @returns {Promise<String>} Message
+ * @returns {Promise<Object>} Success Message
  */
-async function makeDefault(id, paymentID) {
-    return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/workspaces/${id}/payment-methods/${paymentID}/make-default`).then(response => {
-            resolve(response.data)
-        }).catch(error => {
-            reject(APIError(error))
-        })
+async function makeDefault (id, paymentID) {
+  return new Promise((resolve, reject) => {
+    request.post(`/v1/workspaces/${id}/payment-methods/${paymentID}/make-default`).then(response => {
+      resolve(response.data)
+    }).catch(error => {
+      reject(APIError(error))
     })
+  })
 }
 
 /**
- * Add a new payment method
- * @private Manager Endpoint only
- * @returns {Promise<String>} Client Secret
+ * @name add
+ * @description Add a payment method
+ * @namespace Workspaces
+ * @link https://docs.evecloud.xyz/reference/rest-api#tag/Workspaces/operation/PaymentMethods.Add
+ * @param {String} id Workspace ID
+ * @returns {Promise<Object>} Success Message
  */
-async function add(id) {
-    return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/workspaces/${id}/payment-methods`).then(response => {
-            resolve(response.data)
-        }).catch(error => {
-            reject(APIError(error))
-        })
+async function add (id) {
+  return new Promise((resolve, reject) => {
+    request.post(`/v1/workspaces/${id}/payment-methods`).then(response => {
+      resolve(response.data)
+    }).catch(error => {
+      reject(APIError(error))
     })
+  })
 }
 
 /**
- * Delete a payment method
+ * @name remove
+ * @description Remove a payment method
+ * @namespace Workspaces
+ * @link https://docs.evecloud.xyz/reference/rest-api#tag/Workspaces/operation/PaymentMethods.Remove
+ * @param {String} id Workspace ID
  * @param {String} paymentID Payment Method ID
- * @returns {Promise<String>} Message
+ * @returns {Promise<Object>} Success Message
  */
-async function remove(id, paymentID) {
-    return new Promise(async (resolve, reject) => {
-        await request.delete(`/v1/workspaces/${id}/payment-methods/` + paymentID).then(response => {
-            resolve(response.data)
-        }).catch(error => {
-            reject(APIError(error))
-        })
+async function remove (id, paymentID) {
+  return new Promise((resolve, reject) => {
+    request.delete(`/v1/workspaces/${id}/payment-methods/${paymentID}`).then(response => {
+      resolve(response.data)
+    }).catch(error => {
+      reject(APIError(error))
     })
+  })
 }
 
 module.exports = {
-    list,
-    get,
-    makeDefault,
-    add,
-    remove
+  list,
+  get,
+  makeDefault,
+  add,
+  remove
 }
