@@ -24,8 +24,8 @@ unpkg CDN:
 
 ## Usage
 
-Most endpoints require authentication, either with an Access Token or API Token.
-Once you have your token, authenticating involves adding an Authorization header to each request:
+Most endpoints require authentication, either with an Access Token or API Token. 
+EveCloud SDK provides a simple way to set the token for all requests.
 
 ```js
 const { setToken } = require('evecloud-sdk');
