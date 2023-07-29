@@ -1,69 +1,80 @@
 const { request, APIError } = require('../request')
 
 /**
- * List the workspaces
- * @returns {Promise<Object>} Workspace object
+ * @name list
+ * @description List workpaces
+ * @namespace Workspaces
+ * @link https://docs.evecloud.xyz/reference/rest-api#tag/Workspaces/operation/Workspaces.List
+ * @returns {Promise<Object>} Workspaces
  */
-async function list() {
-    return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/workspaces`).then(response => {
-            resolve(response.data)
-        }).catch(error => {
-            reject(APIError(error))
-        })
+async function list () {
+  return new Promise((resolve, reject) => {
+    request.get('/v1/workspaces').then(response => {
+      resolve(response.data)
+    }).catch(error => {
+      reject(APIError(error))
     })
+  })
 }
 
 /**
- * Get the workspace
+ * @name get
+ * @description Get workpace
+ * @namespace Workspaces
+ * @link https://docs.evecloud.xyz/reference/rest-api#tag/Workspaces/operation/Workspaces.Get
  * @param {String} id Workspace ID
- * @returns {Promise<Object>} Workspace object
+ * @returns {Promise<Object>} Workspace
  */
-async function get(id) {
-    return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/workspaces/${id}`).then(response => {
-            resolve(response.data)
-        }).catch(error => {
-            reject(APIError(error))
-        })
+async function get (id) {
+  return new Promise((resolve, reject) => {
+    request.get(`/v1/workspaces/${id}`).then(response => {
+      resolve(response.data)
+    }).catch(error => {
+      reject(APIError(error))
     })
+  })
 }
 
 /**
- * Create a workspace
- * @private For dashboard use only
- * @param {Object} data Workspace data
- * @returns {Promise<Object>} Workspace object
+ * @name create
+ * @description Create a workspace
+ * @namespace Workspaces
+ * @link https://docs.evecloud.xyz/reference/rest-api#tag/Workspaces/operation/Workspaces.Create
+ * @param {String} data Workspace data
+ * @returns {Promise<Object>} Success Message
  */
-async function create(data) {
-    return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/workspaces`, data).then(response => {
-            resolve(response.data)
-        }).catch(error => {
-            reject(APIError(error))
-        })
+async function create (data) {
+  return new Promise((resolve, reject) => {
+    request.post('/v1/workspaces', data).then(response => {
+      resolve(response.data)
+    }).catch(error => {
+      reject(APIError(error))
     })
+  })
 }
 
 /**
- * Update a workspace
+ * @name update
+ * @description Update a workspace
+ * @namespace Workspaces
+ * @link https://docs.evecloud.xyz/reference/rest-api#tag/Workspaces/operation/Workspaces.Update
  * @param {String} id Workspace ID
- * @param {Object} data Workspace data
- * @returns {Promise<Object>} Workspace object
+ * @param {String} data Workspace data
+ * @returns {Promise<Object>} Success Message
  */
-async function update(id, data) {
-    return new Promise(async (resolve, reject) => {
-        await request.put(`/v1/workspaces/${id}`, data).then(response => {
-            resolve(response.data)
-        }).catch(error => {
-            reject(APIError(error))
-        })
+async function update (id, data) {
+  return new Promise((resolve, reject) => {
+    request.put(`/v1/workspaces/${id}`, data).then(response => {
+      resolve(response.data)
+    }).catch(error => {
+      reject(APIError(error))
     })
+  })
 }
 
 module.exports = {
-    list,
-    get,
-    create,
-    update
+  list,
+  get,
+  create,
+  update
 }
