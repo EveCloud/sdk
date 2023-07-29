@@ -4,7 +4,7 @@ const { request, APIError } = require('../request')
  * @name list
  * @description List workpaces invoices
  * @namespace Workspaces
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Workspaces/operation/Invocies.List
+ * @link https://docs.evecloud.xyz/reference/rest-api#tag/Workspaces/operation/Invoices.List
  * @param {String} id Workspace ID
  * @returns {Promise<Object>} Invoices
  */
@@ -22,7 +22,7 @@ async function list (id) {
  * @name get
  * @description Get workpace invoice
  * @namespace Workspaces
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Workspaces/operation/Invocies.Get
+ * @link https://docs.evecloud.xyz/reference/rest-api#tag/Workspaces/operation/Invoices.Get
  * @param {String} id Workspace ID
  * @returns {Promise<Object>} Invoice
  */
