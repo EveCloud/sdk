@@ -41,6 +41,11 @@ const setURL = (url) => {
   })
 }
 
+/**
+ * API Error
+ * @param {String} error Axios Error
+ * @returns {String} Error message
+ */
 const APIError = (error) => {
   if (error.code === 'ECONNREFUSED') {
     return 'Internal Server Error'
@@ -55,7 +60,7 @@ const APIError = (error) => {
     return 'Bad Gateway'
   }
   if (error.response.status === 403) {
-    return error.response.data.message
+    return error.response.data
   }
   if (error.response.data.message) {
     return error.response.data.message
