@@ -72,9 +72,28 @@ async function update (id, data) {
   })
 }
 
+/**
+ * @name leave
+ * @description Leave a workspace
+ * @namespace Workspaces
+ * @link https://docs.evecloud.xyz/reference/rest-api#tag/Workspaces/operation/Workspaces.Leave
+ * @param {String} id Workspace ID
+ * @returns {Promise<Object>} Success Message
+ */
+async function leave (id) {
+  return new Promise((resolve, reject) => {
+    request.put(`/v1/workspaces/${id}/leave`).then(response => {
+      resolve(response.data)
+    }).catch(error => {
+      reject(APIError(error))
+    })
+  })
+}
+
 module.exports = {
   list,
   get,
   create,
-  update
+  update,
+  leave
 }
