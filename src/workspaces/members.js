@@ -1,73 +1,90 @@
 const { request, APIError } = require('../request')
 
 /**
- * Get the workspace members
- * @returns {Promise<Object>} Member List object
+ * @name list
+ * @description List workpaces members
+ * @namespace Workspaces
+ * @link https://docs.evecloud.xyz/reference/rest-api#tag/Workspaces/operation/Members.List
+ * @param {String} id Workspace ID
+ * @returns {Promise<Object>} Members
  */
-async function list(id) {
-    return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/workspaces/${id}/members`).then(response => {
-            resolve(response.data.data)
-        }).catch(error => {
-            reject(APIError(error))
-        })
+async function list (id) {
+  return new Promise((resolve, reject) => {
+    request.get(`/v1/workspaces/${id}/members`).then(response => {
+      resolve(response.data.data)
+    }).catch(error => {
+      reject(APIError(error))
     })
+  })
 }
 
 /**
- * Get member details
+ * @name get
+ * @description Get workpace member
+ * @namespace Workspaces
+ * @link https://docs.evecloud.xyz/reference/rest-api#tag/Workspaces/operation/Members.Get
+ * @param {String} id Workspace ID
  * @param {String} memberID Member ID
- * @returns {Promise<Object>} Member object
+ * @returns {Promise<Object>} Member
  */
-async function get(id, memberID) {
-    return new Promise(async (resolve, reject) => {
-        await request.get(`/v1/workspaces/${id}/members/${memberID}`).then(response => {
-            resolve(response.data)
-        }).catch(error => {
-            reject(APIError(error))
-        })
+async function get (id, memberID) {
+  return new Promise((resolve, reject) => {
+    request.get(`/v1/workspaces/${id}/members/${memberID}`).then(response => {
+      resolve(response.data)
+    }).catch(error => {
+      reject(APIError(error))
     })
+  })
 }
 
 /**
- * Add a new member
+ * @name add
+ * @description Add a member
+ * @namespace Workspaces
+ * @link https://docs.evecloud.xyz/reference/rest-api#tag/Workspaces/operation/Members.Add
+ * @param {String} id Workspace ID
  * @param {String} email Member Email
  * @param {String} role Member Role
- * @returns {Promise<String>} Message
+ * @returns {Promise<Object>} Success Message
  */
-async function add(id, email, role) {
-    return new Promise(async (resolve, reject) => {
-        await request.post(`/v1/workspaces/${id}/members`, {
-            email,
-            role
-        }).then(response => {
-            resolve(response.data)
-        }).catch(error => {
-            reject(APIError(error))
-        })
+async function add (id, email, role) {
+  return new Promise((resolve, reject) => {
+    request.post(`/v1/workspaces/${id}/members`, {
+      email,
+      role
+    }).then(response => {
+      resolve(response.data)
+    }).catch(error => {
+      reject(APIError(error))
     })
+  })
 }
 
 /**
- * Remove a member
+ * @name remove
+ * @description Remove a member
+ * @namespace Workspaces
+ * @link https://docs.evecloud.xyz/reference/rest-api#tag/Workspaces/operation/Members.Remove
+ * @param {String} id Workspace ID
  * @param {String} memberID Member ID
- * @returns {Promise<String>} Message
+ * @param {String} confirm Confirm
+ * @returns {Promise<Object>} Success Message
  */
-async function remove(id, confirm, memberID) {
-    return new Promise(async (resolve, reject) => {
-        await request.delete(`/v1/workspaces/${id}/members/${memberID}`, {
-            confirm: confirm
-        }).then(response => {
-            resolve(response.data)
-        }).catch(error => {
-            reject(APIError(error))
-        })
+async function remove (id, memberID, confirm) {
+  return new Promise((resolve, reject) => {
+    request.delete(`/v1/workspaces/${id}/members/${memberID}`, {
+      confirm
+    }).then(response => {
+      resolve(response.data)
+    }).catch(error => {
+      reject(APIError(error))
     })
+  })
 }
 
 module.exports = {
-    list,
-    get,
-    add,
-    remove
+  list,
+  get,
+  add,
+  remove
 }
