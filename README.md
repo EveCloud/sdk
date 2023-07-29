@@ -11,8 +11,8 @@ JavaScript client for the [EveCloud API](https://docs.evecloud.xyz/reference/res
 
 ### Node.js
 
-```
-$ npm install evecloud-sdk
+```bash
+npm install evecloud-sdk
 ```
 
 ### Browser
