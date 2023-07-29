@@ -26,7 +26,8 @@
   },
   "scripts": {
     "test": "node test/test.js",
-    "build": "npx webpack"
+    "build": "npx webpack",
+    "eslint": "eslint src/*.js"
   },
   "files": [
     "dist",
