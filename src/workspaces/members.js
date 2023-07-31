@@ -50,8 +50,10 @@ async function get (id, memberID) {
 async function add (id, email, role) {
   return new Promise((resolve, reject) => {
     request.post(`/v1/workspaces/${id}/members`, {
-      email,
-      role
+      data: {
+        email,
+        role
+      }
     }).then(response => {
       resolve(response.data)
     }).catch(error => {
@@ -73,7 +75,9 @@ async function add (id, email, role) {
 async function remove (id, memberID, confirm) {
   return new Promise((resolve, reject) => {
     request.delete(`/v1/workspaces/${id}/members/${memberID}`, {
-      confirm
+      data: {
+        confirm
+      }
     }).then(response => {
       resolve(response.data)
     }).catch(error => {
