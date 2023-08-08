@@ -35,19 +35,21 @@ async function build (id, service, deployment, workspaceID, params) {
  * @param {String} id Project ID
  * @param {String} service Service ID
  * @param {String} deployment Deployment ID
+ * @param {String} instanceID Instance ID
  * @param {String} workspaceID Workspace ID
  * @param {String} params Parameters
  * @returns {Promise<Object>} Logs
  */
-async function runtime (id, service, deployment, workspaceID, params) {
+async function runtime (id, service, deployment, instanceID, workspaceID, params) {
   return new Promise((resolve, reject) => {
     request.get(`/v1/projects/${id}/services/${service}/deployments/${deployment}/logs/runtime`, {
       params: {
         workspaceID,
+        instanceID,
         ...params
       }
     }).then(response => {
-      resolve(response.data.data)
+      resolve(response.data)
     }).catch(error => {
       reject(APIError(error))
     })
