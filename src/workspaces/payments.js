@@ -62,12 +62,12 @@ async function makeDefault (id, paymentID) {
  * @namespace Workspaces
  * @link https://docs.evecloud.xyz/reference/rest-api#tag/Workspaces/operation/PaymentMethods.Add
  * @param {String} id Workspace ID
- * @returns {Promise<Object>} Success Message
+ * @returns {Promise<Object>} Stripe Checkout URL
  */
 async function add (id) {
   return new Promise((resolve, reject) => {
     request.post(`/v1/workspaces/${id}/payment-methods`).then(response => {
-      resolve(response.data)
+      resolve(response.data.url)
     }).catch(error => {
       reject(APIError(error))
     })
