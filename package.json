@@ -6,6 +6,7 @@
   "unpkg": "./dist/bundle.js",
   "jsdelivr": "./dist/bundle.js",
   "browser": "./dist/bundle.js",
+  "types": "./types/index.d.ts",
   "homepage": "https://github.com/evecloud/sdk",
   "bugs": {
     "url": "https://github.com/evecloud/sdk/issues"
@@ -42,6 +43,7 @@
     "jquery": "^3.6.0"
   },
   "devDependencies": {
+    "@types/node": "^20.5.1",
     "eslint": "^8.45.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.28.0",
