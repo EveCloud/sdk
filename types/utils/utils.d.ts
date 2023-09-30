@@ -9,7 +9,7 @@ export function getStripePublicKey(): Promise<any>;
  * @name getRegions
  * @description Get Regions
  * @namespace Utils
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Utils/operation/Utils.Regions
+ * @link https://docs.evecloud.xyz/reference/api#tag/Utils/operation/Utils.Regions
  * @returns {Promise<Object>} Regions
  */
 export function getRegions(): Promise<any>;
@@ -17,7 +17,7 @@ export function getRegions(): Promise<any>;
  * @name getPlans
  * @description Get Plans
  * @namespace Utils
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Utils/operation/Utils.Plans
+ * @link https://docs.evecloud.xyz/reference/api#tag/Utils/operation/Utils.Plans
  * @returns {Promise<Object>} Plans
  */
 export function getPlans(): Promise<any>;
@@ -25,7 +25,7 @@ export function getPlans(): Promise<any>;
  * @name getInstances
  * @description Get Instances
  * @namespace Utils
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Utils/operation/Utils.Instances
+ * @link https://docs.evecloud.xyz/reference/api#tag/Utils/operation/Utils.Instances
  * @returns {Promise<Object>} Instances
  */
 export function getInstances(): Promise<any>;

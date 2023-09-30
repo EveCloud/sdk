@@ -4,7 +4,7 @@ const { request, APIError } = require('../request')
  * @name list
  * @description List workpaces payment methods
  * @namespace Workspaces
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Workspaces/operation/PaymentMethods.List
+ * @link https://docs.evecloud.xyz/reference/api#tag/Workspaces/operation/PaymentMethods.List
  * @param {String} id Workspace ID
  * @returns {Promise<Object>} Payment Methods
  */
@@ -22,7 +22,7 @@ async function list (id) {
  * @name get
  * @description Get workpace payment method
  * @namespace Workspaces
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Workspaces/operation/PaymentMethods.Get
+ * @link https://docs.evecloud.xyz/reference/api#tag/Workspaces/operation/PaymentMethods.Get
  * @param {String} id Workspace ID
  * @param {String} paymentID Payment Method ID
  * @returns {Promise<Object>} Payment Method
@@ -41,7 +41,7 @@ async function get (id, paymentID) {
  * @name makeDefault
  * @description Make a payment method default
  * @namespace Workspaces
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Workspaces/operation/PaymentMethods.MakeDefault
+ * @link https://docs.evecloud.xyz/reference/api#tag/Workspaces/operation/PaymentMethods.MakeDefault
  * @param {String} id Workspace ID
  * @param {String} paymentID Payment Method ID
  * @returns {Promise<Object>} Success Message
@@ -60,7 +60,7 @@ async function makeDefault (id, paymentID) {
  * @name add
  * @description Add a payment method
  * @namespace Workspaces
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Workspaces/operation/PaymentMethods.Add
+ * @link https://docs.evecloud.xyz/reference/api#tag/Workspaces/operation/PaymentMethods.Add
  * @param {String} id Workspace ID
  * @returns {Promise<Object>} Stripe Checkout URL
  */
@@ -78,7 +78,7 @@ async function add (id) {
  * @name remove
  * @description Remove a payment method
  * @namespace Workspaces
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Workspaces/operation/PaymentMethods.Remove
+ * @link https://docs.evecloud.xyz/reference/api#tag/Workspaces/operation/PaymentMethods.Remove
  * @param {String} id Workspace ID
  * @param {String} paymentID Payment Method ID
  * @returns {Promise<Object>} Success Message

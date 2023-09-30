@@ -4,7 +4,7 @@ const { request, APIError } = require('../request')
  * @name list
  * @description Get project secrets
  * @namespace Projects
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Projects/operation/Secrets.List
+ * @link https://docs.evecloud.xyz/reference/api#tag/Projects/operation/Secrets.List
  * @param {String} projectID Project ID
  * @param {String} workspaceID Workspace ID
  * @param {String} params Parameters
@@ -29,7 +29,7 @@ async function list (projectID, workspaceID, params) {
  * @name get
  * @description Get project secret
  * @namespace Projects
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Projects/operation/Secrets.Get
+ * @link https://docs.evecloud.xyz/reference/api#tag/Projects/operation/Secrets.Get
  * @param {String} projectID Project ID
  * @param {String} workspaceID Workspace ID
  * @param {String} secretID Secret ID
@@ -53,7 +53,7 @@ async function get (projectID, workspaceID, secretID) {
  * @name create
  * @description Create project secret
  * @namespace Projects
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Projects/operation/Secrets.Create
+ * @link https://docs.evecloud.xyz/reference/api#tag/Projects/operation/Secrets.Create
  * @param {String} projectID Project ID
  * @param {String} workspaceID Workspace ID
  * @param {String} key Secret key
@@ -81,7 +81,7 @@ async function create (projectID, workspaceID, key, value) {
  * @name update
  * @description Update project secret
  * @namespace Projects
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Projects/operation/Secrets.Update
+ * @link https://docs.evecloud.xyz/reference/api#tag/Projects/operation/Secrets.Update
  * @param {String} projectID Project ID
  * @param {String} workspaceID Workspace ID
  * @param {String} secretID Secret ID
@@ -108,7 +108,7 @@ async function update (projectID, workspaceID, secretID, value) {
  * @name remove
  * @description Delete project secret
  * @namespace Projects
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Projects/operation/Secrets.Delete
+ * @link https://docs.evecloud.xyz/reference/api#tag/Projects/operation/Secrets.Delete
  * @param {String} projectID Project ID
  * @param {String} workspaceID Workspace ID
  * @param {String} secretID Secret ID

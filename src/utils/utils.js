@@ -20,7 +20,7 @@ async function getStripePublicKey () {
  * @name getPlans
  * @description Get Plans
  * @namespace Utils
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Utils/operation/Utils.Plans
+ * @link https://docs.evecloud.xyz/reference/api#tag/Utils/operation/Utils.Plans
  * @returns {Promise<Object>} Plans
  */
 async function getPlans () {
@@ -37,7 +37,7 @@ async function getPlans () {
  * @name getInstances
  * @description Get Instances
  * @namespace Utils
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Utils/operation/Utils.Instances
+ * @link https://docs.evecloud.xyz/reference/api#tag/Utils/operation/Utils.Instances
  * @returns {Promise<Object>} Instances
  */
 async function getInstances () {
@@ -54,7 +54,7 @@ async function getInstances () {
  * @name getRegions
  * @description Get Regions
  * @namespace Utils
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Utils/operation/Utils.Regions
+ * @link https://docs.evecloud.xyz/reference/api#tag/Utils/operation/Utils.Regions
  * @returns {Promise<Object>} Regions
  */
 async function getRegions () {

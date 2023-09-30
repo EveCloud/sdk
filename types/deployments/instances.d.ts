@@ -2,7 +2,7 @@
  * @name list
  * @description List deployment instances
  * @namespace Deployments
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Deployments/operation/Instances.List
+ * @link https://docs.evecloud.xyz/reference/api#tag/Deployments/operation/Instances.List
  * @param {String} id Project ID
  * @param {String} service Service ID
  * @param {String} deployment Deployment ID
@@ -15,7 +15,7 @@ export function list(id: string, service: string, deployment: string, workspaceI
  * @name get
  * @description Get deployment instance
  * @namespace Deployments
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Deployments/operation/Instances.Get
+ * @link https://docs.evecloud.xyz/reference/api#tag/Deployments/operation/Instances.Get
  * @param {String} id Project ID
  * @param {String} service Service ID
  * @param {String} deployment Deployment ID

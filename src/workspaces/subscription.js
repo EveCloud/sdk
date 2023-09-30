@@ -4,7 +4,7 @@ const { request, APIError } = require('../request')
  * @name get
  * @description Get workspace subscription
  * @namespace Workspaces
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Workspaces/operation/Subscription.Get
+ * @link https://docs.evecloud.xyz/reference/api#tag/Workspaces/operation/Subscription.Get
  * @param {String} id Workspace ID
  * @returns {Promise<Object>} Subscription object
  */
@@ -22,7 +22,7 @@ async function get (id) {
  * @name update
  * @description Update workspace subscription
  * @namespace Workspaces
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Workspaces/operation/Subscription.Update
+ * @link https://docs.evecloud.xyz/reference/api#tag/Workspaces/operation/Subscription.Update
  * @param {String} id Workspace ID
  * @param {Boolean} confirm Confirm subscription
  * @returns {Promise<Object>} Success message

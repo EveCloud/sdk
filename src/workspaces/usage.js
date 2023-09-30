@@ -4,7 +4,7 @@ const { request, APIError } = require('../request')
  * @name get
  * @description Get workpace usage
  * @namespace Workspaces
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Workspaces/operation/Usage.Get
+ * @link https://docs.evecloud.xyz/reference/api#tag/Workspaces/operation/Usage.Get
  * @param {String} id Workspace ID
  * @param {String} month Month
  * @param {String} year Year

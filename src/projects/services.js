@@ -4,7 +4,7 @@ const { request, APIError } = require('../request')
  * @name list
  * @description List project services
  * @namespace Projects
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Projects/operation/Services.List
+ * @link https://docs.evecloud.xyz/reference/api#tag/Projects/operation/Services.List
  * @param {String} projectID Project ID
  * @param {String} workspaceID Workspace ID
  * @param {String} params Query parameters
@@ -29,7 +29,7 @@ async function list (projectID, workspaceID, params) {
  * @name get
  * @description Get project service
  * @namespace Projects
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Projects/operation/Services.Get
+ * @link https://docs.evecloud.xyz/reference/api#tag/Projects/operation/Services.Get
  * @param {String} projectID Project ID
  * @param {String} serviceID Service ID
  * @param {String} workspaceID Workspace ID
@@ -53,7 +53,7 @@ async function get (projectID, serviceID, workspaceID) {
  * @name redeploy
  * @description Redeploy project service
  * @namespace Projects
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Projects/operation/Services.Redeploy
+ * @link https://docs.evecloud.xyz/reference/api#tag/Projects/operation/Services.Redeploy
  * @param {String} projectID Project ID
  * @param {String} serviceID Service ID
  * @param {String} workspaceID Workspace ID
@@ -77,7 +77,7 @@ async function redeploy (projectID, serviceID, workspaceID) {
  * @name create
  * @description Create project service
  * @namespace Projects
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Projects/operation/Services.Create
+ * @link https://docs.evecloud.xyz/reference/api#tag/Projects/operation/Services.Create
  * @param {String} projectID Project ID
  * @param {Object} data Service data
  * @param {String} workspaceID Workspace ID
@@ -101,7 +101,7 @@ async function create (projectID, data, workspaceID) {
  * @name update
  * @description Update project service
  * @namespace Projects
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Projects/operation/Services.Update
+ * @link https://docs.evecloud.xyz/reference/api#tag/Projects/operation/Services.Update
  * @param {String} projectID Project ID
  * @param {String} serviceID Service ID
  * @param {Object} data Service data
@@ -126,7 +126,7 @@ async function update (projectID, serviceID, data, workspaceID) {
  * @name pause
  * @description Pause project service
  * @namespace Projects
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Projects/operation/Services.Pause
+ * @link https://docs.evecloud.xyz/reference/api#tag/Projects/operation/Services.Pause
  * @param {String} projectID Project ID
  * @param {String} serviceID Service ID
  * @param {String} workspaceID Workspace ID
@@ -150,7 +150,7 @@ async function pause (projectID, serviceID, workspaceID) {
  * @name resume
  * @description Resume project service
  * @namespace Projects
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Projects/operation/Services.Resume
+ * @link https://docs.evecloud.xyz/reference/api#tag/Projects/operation/Services.Resume
  * @param {String} projectID Project ID
  * @param {String} serviceID Service ID
  * @param {String} workspaceID Workspace ID
@@ -174,7 +174,7 @@ async function resume (projectID, serviceID, workspaceID) {
  * @name remove
  * @description Remove project service
  * @namespace Projects
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Projects/operation/Services.Delete
+ * @link https://docs.evecloud.xyz/reference/api#tag/Projects/operation/Services.Delete
  * @param {String} projectID Project ID
  * @param {String} serviceID Service ID
  * @param {String} workspaceID Workspace ID

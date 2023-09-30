@@ -2,7 +2,7 @@
  * @name build
  * @description Get deployment build logs
  * @namespace Deployments
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Deployments/operation/Logs.Build
+ * @link https://docs.evecloud.xyz/reference/api#tag/Deployments/operation/Logs.Build
  * @param {String} id Project ID
  * @param {String} service Service ID
  * @param {String} deployment Deployment ID
@@ -15,7 +15,7 @@ export function build(id: string, service: string, deployment: string, workspace
  * @name runtime
  * @description Get deployment runtime logs
  * @namespace Deployments
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Deployments/operation/Logs.Runtime
+ * @link https://docs.evecloud.xyz/reference/api#tag/Deployments/operation/Logs.Runtime
  * @param {String} id Project ID
  * @param {String} service Service ID
  * @param {String} deployment Deployment ID

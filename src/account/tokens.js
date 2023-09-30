@@ -4,7 +4,7 @@ const { request, APIError } = require('../request')
  * @name list
  * @description Get account tokens
  * @namespace Account
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Account/operation/Tokens.List
+ * @link https://docs.evecloud.xyz/reference/api#tag/Account/operation/Tokens.List
  * @param {String} params Parameters
  * @returns {Promise<Object>} Tokens
  */
@@ -24,7 +24,7 @@ async function list (params) {
  * @name get
  * @description Get account token
  * @namespace Account
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Account/operation/Tokens.Get
+ * @link https://docs.evecloud.xyz/reference/api#tag/Account/operation/Tokens.Get
  * @param {String} id Token ID
  * @returns {Promise<Object>} Token
  */
@@ -42,7 +42,7 @@ async function get (id) {
  * @name create
  * @description Create account token
  * @namespace Account
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Account/operation/Tokens.Create
+ * @link https://docs.evecloud.xyz/reference/api#tag/Account/operation/Tokens.Create
  * @param {String} label Token label
  * @param {String} expiration Token expiration
  * @returns {Promise<String>} Success message
@@ -64,7 +64,7 @@ async function create (label, expiration) {
  * @name update
  * @description Update account token
  * @namespace Account
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Account/operation/Tokens.Update
+ * @link https://docs.evecloud.xyz/reference/api#tag/Account/operation/Tokens.Update
  * @param {String} id Token ID
  * @param {String} label Token label
  * @returns {Promise<String>} Success message
@@ -86,7 +86,7 @@ async function update (id, label) {
  * @name remove
  * @description Remove account token
  * @namespace Account
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Account/operation/Tokens.Delete
+ * @link https://docs.evecloud.xyz/reference/api#tag/Account/operation/Tokens.Delete
  * @param {String} id Token ID
  * @returns {Promise<String>} Success message
  */

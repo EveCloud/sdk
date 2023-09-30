@@ -4,7 +4,7 @@ const { request, APIError } = require('../request')
  * @name create
  * @description Create two-factor authentication token
  * @namespace Account
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Account/operation/TwoFactor.Create
+ * @link https://docs.evecloud.xyz/reference/api#tag/Account/operation/TwoFactor.Create
  * @returns {Promise<String>} Success message
  */
 async function create () {
@@ -21,7 +21,7 @@ async function create () {
  * @name enable
  * @description Enable two-factor authentication
  * @namespace Account
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Account/operation/TwoFactor.Enable
+ * @link https://docs.evecloud.xyz/reference/api#tag/Account/operation/TwoFactor.Enable
  * @param {String} code Two-factor authentication code
  * @returns {Promise<Array>} Recovery codes
  */
@@ -41,7 +41,7 @@ async function enable (code) {
  * @name disable
  * @description Disable two-factor authentication
  * @namespace Account
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Account/operation/TwoFactor.Disable
+ * @link https://docs.evecloud.xyz/reference/api#tag/Account/operation/TwoFactor.Disable
  * @param {String} code Two-factor authentication code
  * @returns {Promise<String>} Success message
  */

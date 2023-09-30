@@ -4,7 +4,7 @@ const { request, APIError } = require('../request')
  * @name list
  * @description Get domains
  * @namespace Projects
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Projects/operation/Domains.List
+ * @link https://docs.evecloud.xyz/reference/api#tag/Projects/operation/Domains.List
  * @param {String} projectID Project ID
  * @param {String} workspaceID Workspace ID
  * @param {String} params Parameters
@@ -29,7 +29,7 @@ async function list (projectID, workspaceID, params) {
  * @name get
  * @description Get domain
  * @namespace Projects
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Projects/operation/Domains.Get
+ * @link https://docs.evecloud.xyz/reference/api#tag/Projects/operation/Domains.Get
  * @param {String} projectID Project ID
  * @param {String} workspaceID Workspace ID
  * @param {String} domainID Domain ID
@@ -53,7 +53,7 @@ async function get (projectID, workspaceID, domainID) {
  * @name refresh
  * @description Verify domain
  * @namespace Projects
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Projects/operation/Domains.Refresh
+ * @link https://docs.evecloud.xyz/reference/api#tag/Projects/operation/Domains.Refresh
  * @param {String} projectID Project ID
  * @param {String} workspaceID Workspace ID
  * @param {String} domainID Domain ID
@@ -77,7 +77,7 @@ async function refresh (projectID, workspaceID, domainID) {
  * @name create
  * @description Create domain
  * @namespace Projects
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Projects/operation/Domains.Create
+ * @link https://docs.evecloud.xyz/reference/api#tag/Projects/operation/Domains.Create
  * @param {String} projectID Project ID
  * @param {String} workspaceID Workspace ID
  * @param {String} domain Domain
@@ -105,7 +105,7 @@ async function create (projectID, workspaceID, domain, service) {
  * @name update
  * @description Update domain
  * @namespace Projects
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Projects/operation/Domains.Update
+ * @link https://docs.evecloud.xyz/reference/api#tag/Projects/operation/Domains.Update
  * @param {String} projectID Project ID
  * @param {String} workspaceID Workspace ID
  * @param {String} domainID Domain ID
@@ -132,7 +132,7 @@ async function update (projectID, workspaceID, domainID, serviceID) {
  * @name remove
  * @description Remove domain
  * @namespace Projects
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Projects/operation/Domains.Remove
+ * @link https://docs.evecloud.xyz/reference/api#tag/Projects/operation/Domains.Remove
  * @param {String} projectID Project ID
  * @param {String} workspaceID Workspace ID
  * @param {String} domainID Domain ID

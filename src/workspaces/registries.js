@@ -4,7 +4,7 @@ const { request, APIError } = require('../request')
  * @name list
  * @description List workpaces registries
  * @namespace Workspaces
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Workspaces/operation/Registries.List
+ * @link https://docs.evecloud.xyz/reference/api#tag/Workspaces/operation/Registries.List
  * @param {String} id Workspace ID
  * @returns {Promise<Object>} Registries
  */
@@ -22,7 +22,7 @@ async function list (id) {
  * @name get
  * @description Get workpace registry
  * @namespace Workspaces
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Workspaces/operation/Registries.Get
+ * @link https://docs.evecloud.xyz/reference/api#tag/Workspaces/operation/Registries.Get
  * @param {String} id Workspace ID
  * @param {String} registryID Registry ID
  * @returns {Promise<Object>} Registry
@@ -41,7 +41,7 @@ async function get (id, registryID) {
  * @name add
  * @description Add Registry
  * @namespace Workspaces
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Workspaces/operation/Registries.Add
+ * @link https://docs.evecloud.xyz/reference/api#tag/Workspaces/operation/Registries.Add
  * @param {String} id Workspace ID
  * @param {Object} data Registry Data
  * @returns {Promise<Object>} Success Message
@@ -60,7 +60,7 @@ async function add (id, data) {
  * @name remove
  * @description Remove Registry
  * @namespace Workspaces
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Workspaces/operation/Registries.Add
+ * @link https://docs.evecloud.xyz/reference/api#tag/Workspaces/operation/Registries.Add
  * @param {String} id Workspace ID
  * @param {String} registryID Registry ID
  * @returns {Promise<Object>} Success Message

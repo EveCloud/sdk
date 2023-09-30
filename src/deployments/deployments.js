@@ -4,7 +4,7 @@ const { request, APIError } = require('../request')
  * @name list
  * @description Get deployments
  * @namespace Deployments
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Deployments/operation/Deployments.List
+ * @link https://docs.evecloud.xyz/reference/api#tag/Deployments/operation/Deployments.List
  * @param {String} id Project ID
  * @param {String} service Service ID
  * @param {String} workspaceID Workspace ID
@@ -30,7 +30,7 @@ async function list (id, service, workspaceID, params) {
  * @name get
  * @description Get deployment
  * @namespace Deployments
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Deployments/operation/Deployments.Get
+ * @link https://docs.evecloud.xyz/reference/api#tag/Deployments/operation/Deployments.Get
  * @param {String} id Project ID
  * @param {String} service Service ID
  * @param {String} deployment Deployment ID
@@ -55,7 +55,7 @@ async function get (id, service, deployment, workspaceID) {
  * @name cancel
  * @description Cancel deployment
  * @namespace Deployments
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Deployments/operation/Deployments.Cancel
+ * @link https://docs.evecloud.xyz/reference/api#tag/Deployments/operation/Deployments.Cancel
  * @param {String} id Project ID
  * @param {String} service Service ID
  * @param {String} deployment Deployment ID
