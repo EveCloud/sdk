@@ -29,17 +29,17 @@ Most endpoints require authentication, either with an Access Token or API Token.
 EveCloud SDK provides a simple way to set the token for all requests.
 
 ```js
-const { setToken } = require('evecloud-sdk');
+const { setToken } = require('@evecloud/sdk');
 
-setToken('my-token');
+setToken('TOKEN');
 ```
 
 ```js
-const { setToken, Account } = require('evecloud-sdk');
+const { setToken, Account } = require('@evecloud/sdk');
 
-setToken('access-token');
+setToken('TOKEN');
 
 Account.getInfo().then((data) => {
-    console.log(data.username);
+    console.log(data);
 });
 ```
