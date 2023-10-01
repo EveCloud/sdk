@@ -1,13 +1,13 @@
 {
   "name": "@evecloud/sdk",
   "description": "A library for interacting with the EveCloud API",
-  "version": "develop",
+  "version": "0.0.1",
   "main": "src/index.js",
   "unpkg": "./dist/bundle.js",
   "jsdelivr": "./dist/bundle.js",
   "browser": "./dist/bundle.js",
   "types": "./types/index.d.ts",
-  "homepage": "https://github.com/evecloud/sdk",
+  "homepage": "https://docs.evecloud.xyz/reference/api",
   "bugs": {
     "url": "https://github.com/evecloud/sdk/issues"
   },
