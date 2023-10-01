@@ -12,7 +12,7 @@ JavaScript client for the [EveCloud API](https://docs.evecloud.xyz/reference/api
 ### Node.js
 
 ```bash
-npm install evecloud-sdk
+npm install npm.pkg.github.com/evecloud/sdk
 ```
 
 ### Browser
@@ -33,8 +33,6 @@ setToken('my-token');
 ```
 
 ```js
-/** index.js */
-
 const { setToken, Account } = require('evecloud-sdk');
 
 setToken('access-token');

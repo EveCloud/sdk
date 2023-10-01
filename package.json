@@ -15,6 +15,11 @@
     "type": "git",
     "url": "git+https://github.com/evecloud/sdk"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com/",
+    "tag": "develop"
+  },
   "keywords": [
     "evecloud",
     "cloud",
