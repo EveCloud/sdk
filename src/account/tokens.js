@@ -8,7 +8,7 @@ const { request, APIError } = require('../request')
  * @param {String} params Parameters
  * @returns {Promise<Object>} Tokens
  */
-async function list (params) {
+function list (params) {
   return new Promise((resolve, reject) => {
     request.get('/v1/account/tokens', {
       params: params || {}
@@ -28,7 +28,7 @@ async function list (params) {
  * @param {String} id Token ID
  * @returns {Promise<Object>} Token
  */
-async function get (id) {
+function get (id) {
   return new Promise((resolve, reject) => {
     request.get(`/v1/account/tokens/${id}`).then(response => {
       resolve(response.data)
@@ -47,7 +47,7 @@ async function get (id) {
  * @param {String} expiration Token expiration
  * @returns {Promise<String>} Success message
  */
-async function create (label, expiration) {
+function create (label, expiration) {
   return new Promise((resolve, reject) => {
     request.post('/v1/account/tokens', {
       label,
@@ -69,7 +69,7 @@ async function create (label, expiration) {
  * @param {String} label Token label
  * @returns {Promise<String>} Success message
  */
-async function update (id, label) {
+function update (id, label) {
   return new Promise((resolve, reject) => {
     request.put('/v1/account/tokens', {
       id,
@@ -90,7 +90,7 @@ async function update (id, label) {
  * @param {String} id Token ID
  * @returns {Promise<String>} Success message
  */
-async function remove (id) {
+function remove (id) {
   return new Promise((resolve, reject) => {
     request.delete(`/v1/account/tokens/${id}`).then(response => {
       resolve(response.data)

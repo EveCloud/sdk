@@ -1,4 +1,3 @@
-const webpack = require('webpack')
 const path = require('path')
 
 module.exports = {
@@ -8,11 +7,5 @@ module.exports = {
     filename: './dist/bundle.js',
     path: path.resolve(__dirname),
     libraryTarget: 'umd'
-  },
-  plugins: [
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery'
-    })
-  ]
+  }
 }

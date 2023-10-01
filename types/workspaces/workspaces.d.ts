@@ -43,3 +43,4 @@ export function update(id: string, data: string): Promise<any>;
  * @returns {Promise<Object>} Success Message
  */
 export function leave(id: string): Promise<any>;
+//# sourceMappingURL=workspaces.d.ts.map

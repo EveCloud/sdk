@@ -24,3 +24,4 @@ export function enable(code: string): Promise<any[]>;
  * @returns {Promise<String>} Success message
  */
 export function disable(code: string): Promise<string>;
+//# sourceMappingURL=twoFactor.d.ts.map

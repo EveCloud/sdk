@@ -8,7 +8,7 @@ const { request, APIError } = require('../request')
  * @param {String} id Workspace ID
  * @returns {Promise<Object>} Registries
  */
-async function list (id) {
+function list (id) {
   return new Promise((resolve, reject) => {
     request.get(`/v1/workspaces/${id}/registries`).then(response => {
       resolve(response.data.data)
@@ -27,7 +27,7 @@ async function list (id) {
  * @param {String} registryID Registry ID
  * @returns {Promise<Object>} Registry
  */
-async function get (id, registryID) {
+function get (id, registryID) {
   return new Promise((resolve, reject) => {
     request.get(`/v1/workspaces/${id}/registries/${registryID}`).then(response => {
       resolve(response.data)
@@ -46,9 +46,11 @@ async function get (id, registryID) {
  * @param {Object} data Registry Data
  * @returns {Promise<Object>} Success Message
  */
-async function add (id, data) {
+function add (id, data) {
   return new Promise((resolve, reject) => {
-    request.post(`/v1/workspaces/${id}/registries`).then(response => {
+    request.post(`/v1/workspaces/${id}/registries`, {
+      data
+    }).then(response => {
       resolve(response.data)
     }).catch(error => {
       reject(APIError(error))
@@ -65,7 +67,7 @@ async function add (id, data) {
  * @param {String} registryID Registry ID
  * @returns {Promise<Object>} Success Message
  */
-async function remove (id, registryID) {
+function remove (id, registryID) {
   return new Promise((resolve, reject) => {
     request.delete(`/v1/workspaces/${id}/registries/${registryID}`).then(response => {
       resolve(response.data)

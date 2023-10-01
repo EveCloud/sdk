@@ -46,3 +46,4 @@ export function add(id: string): Promise<any>;
  * @returns {Promise<Object>} Success Message
  */
 export function remove(id: string, paymentID: string): Promise<any>;
+//# sourceMappingURL=payments.d.ts.map

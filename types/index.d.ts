@@ -7,7 +7,6 @@ export let AccountTokens: typeof import("./account/tokens");
 export let AccountSecurity: typeof import("./account/security");
 export let AccountIntegrations: typeof import("./account/integrations");
 export let AccountTwoFactor: typeof import("./account/twoFactor");
-export let AccountWorkspaces: typeof import("./account/workspace");
 export let Workspace: typeof import("./workspaces/workspaces");
 export let WorkspacePayments: typeof import("./workspaces/payments");
 export let WorkspaceInvoices: typeof import("./workspaces/invoices");
@@ -23,3 +22,4 @@ export let Deployments: typeof import("./deployments/deployments");
 export let DeploymentLogs: typeof import("./deployments/logs");
 export let DeploymentInstances: typeof import("./deployments/instances");
 export let Utils: typeof import("./utils/utils");
+//# sourceMappingURL=index.d.ts.map

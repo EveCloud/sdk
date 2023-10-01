@@ -17,3 +17,4 @@ export function get(id: string): Promise<any>;
  * @returns {Promise<Object>} Success message
  */
 export function update(id: string, confirm: boolean): Promise<any>;
+//# sourceMappingURL=subscription.d.ts.map

@@ -2,29 +2,25 @@
 
 JavaScript client for the [EveCloud API](https://docs.evecloud.xyz/reference/api)
 
-![npm](https://img.shields.io/npm/v/evecloud-sdk)
+![Version](https://img.shields.io/github/package-json/v/evecloud/sdk)
 ![GitHub](https://img.shields.io/github/license/EveCloud/sdk)
-[![DeepSource](https://app.deepsource.com/gh/EveCloud/sdk.svg/?label=active+issues&token=_Vn3wXUTEY0WgVsyE3UOtrg8)](https://app.deepsource.com/gh/EveCloud/sdk/)
-![npm](https://img.shields.io/npm/dt/evecloud-sdk)
+[![DeepSource](https://app.deepsource.com/gh/EveCloud/sdk.svg/?label=Issues&token=_Vn3wXUTEY0WgVsyE3UOtrg8)](https://app.deepsource.com/gh/EveCloud/sdk/)
 
 ## Installation
 
 ### Node.js
 
+Our package is available on GitHub Packages, so you will need to authenticate with GitHub to install it.
+Check out the [GitHub Docs](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#authenticating-to-github-packages) for more information.
+
 ```bash
-npm install evecloud-sdk
+npm install @evecloud/sdk
 ```
 
 ### Browser
 
-EveCloud CDN:
 ```js
-<script src="https://cdn.evecloud.xyz/sdk/bundle.js"></script>
-```
-
-unpkg CDN:
-```js
-<script src="https://unpkg.com/evecloud-sdk@latest/dist/bundle.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/evecloud/sdk@latest/dist/bundle.js"></script>
 ```
 
 ## Usage
@@ -39,8 +35,6 @@ setToken('my-token');
 ```
 
 ```js
-/** index.js */
-
 const { setToken, Account } = require('evecloud-sdk');
 
 setToken('access-token');

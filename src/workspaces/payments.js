@@ -8,7 +8,7 @@ const { request, APIError } = require('../request')
  * @param {String} id Workspace ID
  * @returns {Promise<Object>} Payment Methods
  */
-async function list (id) {
+function list (id) {
   return new Promise((resolve, reject) => {
     request.get(`/v1/workspaces/${id}/payment-methods`).then(response => {
       resolve(response.data.data)
@@ -27,7 +27,7 @@ async function list (id) {
  * @param {String} paymentID Payment Method ID
  * @returns {Promise<Object>} Payment Method
  */
-async function get (id, paymentID) {
+function get (id, paymentID) {
   return new Promise((resolve, reject) => {
     request.get(`/v1/workspaces/${id}/payment-methods/${paymentID}`).then(response => {
       resolve(response.data)
@@ -46,7 +46,7 @@ async function get (id, paymentID) {
  * @param {String} paymentID Payment Method ID
  * @returns {Promise<Object>} Success Message
  */
-async function makeDefault (id, paymentID) {
+function makeDefault (id, paymentID) {
   return new Promise((resolve, reject) => {
     request.post(`/v1/workspaces/${id}/payment-methods/${paymentID}/make-default`).then(response => {
       resolve(response.data)
@@ -64,7 +64,7 @@ async function makeDefault (id, paymentID) {
  * @param {String} id Workspace ID
  * @returns {Promise<Object>} Stripe Checkout URL
  */
-async function add (id) {
+function add (id) {
   return new Promise((resolve, reject) => {
     request.post(`/v1/workspaces/${id}/payment-methods`).then(response => {
       resolve(response.data.url)
@@ -83,7 +83,7 @@ async function add (id) {
  * @param {String} paymentID Payment Method ID
  * @returns {Promise<Object>} Success Message
  */
-async function remove (id, paymentID) {
+function remove (id, paymentID) {
   return new Promise((resolve, reject) => {
     request.delete(`/v1/workspaces/${id}/payment-methods/${paymentID}`).then(response => {
       resolve(response.data)

@@ -8,7 +8,7 @@ const { request, APIError } = require('../request')
  * @param {String} params Parameters
  * @returns {Promise<Object>} Authentication events
  */
-async function getEvents (params) {
+function getEvents (params) {
   return new Promise((resolve, reject) => {
     request.get('/v1/account/security/events', {
       params: params || {}

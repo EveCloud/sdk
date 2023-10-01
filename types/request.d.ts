@@ -17,3 +17,4 @@ export function APIError(error: string): string;
  * @returns {void}
  */
 export function setURL(url: string): void;
+//# sourceMappingURL=request.d.ts.map

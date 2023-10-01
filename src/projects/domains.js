@@ -10,7 +10,7 @@ const { request, APIError } = require('../request')
  * @param {String} params Parameters
  * @returns {Promise<Object>} Domains
  */
-async function list (projectID, workspaceID, params) {
+function list (projectID, workspaceID, params) {
   return new Promise((resolve, reject) => {
     request.get(`/v1/projects/${projectID}/domains`, {
       params: {
@@ -35,7 +35,7 @@ async function list (projectID, workspaceID, params) {
  * @param {String} domainID Domain ID
  * @returns {Promise<Object>} Domain
  */
-async function get (projectID, workspaceID, domainID) {
+function get (projectID, workspaceID, domainID) {
   return new Promise((resolve, reject) => {
     request.get(`/v1/projects/${projectID}/domains/${domainID}`, {
       params: {
@@ -59,7 +59,7 @@ async function get (projectID, workspaceID, domainID) {
  * @param {String} domainID Domain ID
  * @returns {Promise<Object>} Success message
  */
-async function refresh (projectID, workspaceID, domainID) {
+function refresh (projectID, workspaceID, domainID) {
   return new Promise((resolve, reject) => {
     request.get(`/v1/projects/${projectID}/domains/${domainID}/refresh`, {
       params: {
@@ -84,7 +84,7 @@ async function refresh (projectID, workspaceID, domainID) {
  * @param {String} service Service ID
  * @returns {Promise<Object>} Success message
  */
-async function create (projectID, workspaceID, domain, service) {
+function create (projectID, workspaceID, domain, service) {
   return new Promise((resolve, reject) => {
     request.post(`/v1/projects/${projectID}/domains`, {
       params: {
@@ -112,7 +112,7 @@ async function create (projectID, workspaceID, domain, service) {
  * @param {String} serviceID Service ID
  * @returns {Promise<Object>} Success message
  */
-async function update (projectID, workspaceID, domainID, serviceID) {
+function update (projectID, workspaceID, domainID, serviceID) {
   return new Promise((resolve, reject) => {
     request.put(`/v1/projects/${projectID}/domains/${domainID}`, {
       params: {
@@ -138,7 +138,7 @@ async function update (projectID, workspaceID, domainID, serviceID) {
  * @param {String} domainID Domain ID
  * @returns {Promise<Object>} Success message
  */
-async function remove (projectID, workspaceID, domainID) {
+function remove (projectID, workspaceID, domainID) {
   return new Promise((resolve, reject) => {
     request.delete(`/v1/projects/${projectID}/domains/${domainID}`, {
       params: {

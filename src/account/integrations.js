@@ -7,7 +7,7 @@ const { request, APIError } = require('../request')
  * @link https://docs.evecloud.xyz/reference/api#tag/Account/operation/Integrations.GitHub.Repositories
  * @returns {Promise<Object>} GitHub repositories
  */
-async function getGitHubRepositories () {
+function getGitHubRepositories () {
   return new Promise((resolve, reject) => {
     request.get('/v1/account/integrations/github/repositories').then(response => {
       resolve(response.data)
@@ -26,7 +26,7 @@ async function getGitHubRepositories () {
  * @param {String} installationId The installation ID returned from GitHub
  * @returns {Promise<String>} Success message
  */
-async function connectGitHub (code, installationId) {
+function connectGitHub (code, installationId) {
   return new Promise((resolve, reject) => {
     request.post('/v1/account/integrations/github/connect', {
       code,

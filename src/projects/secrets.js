@@ -10,7 +10,7 @@ const { request, APIError } = require('../request')
  * @param {String} params Parameters
  * @returns {Promise<Object>} Secrets
  */
-async function list (projectID, workspaceID, params) {
+function list (projectID, workspaceID, params) {
   return new Promise((resolve, reject) => {
     request.get(`/v1/projects/${projectID}/secrets`, {
       params: {
@@ -35,7 +35,7 @@ async function list (projectID, workspaceID, params) {
  * @param {String} secretID Secret ID
  * @returns {Promise<Object>} Secret
  */
-async function get (projectID, workspaceID, secretID) {
+function get (projectID, workspaceID, secretID) {
   return new Promise((resolve, reject) => {
     request.get(`/v1/projects/${projectID}/secrets/${secretID}`, {
       params: {
@@ -60,7 +60,7 @@ async function get (projectID, workspaceID, secretID) {
  * @param {String} value Secret value
  * @returns {Promise<Object>} Success message
  */
-async function create (projectID, workspaceID, key, value) {
+function create (projectID, workspaceID, key, value) {
   return new Promise((resolve, reject) => {
     request.post(`/v1/projects/${projectID}/secrets`, {
       params: {
@@ -88,7 +88,7 @@ async function create (projectID, workspaceID, key, value) {
  * @param {String} value Secret value
  * @returns {Promise<Object>} Success message
  */
-async function update (projectID, workspaceID, secretID, value) {
+function update (projectID, workspaceID, secretID, value) {
   return new Promise((resolve, reject) => {
     request.put(`/v1/projects/${projectID}/secrets/${secretID}`, {
       params: {
@@ -114,7 +114,7 @@ async function update (projectID, workspaceID, secretID, value) {
  * @param {String} secretID Secret ID
  * @returns {Promise<Object>} Success message
  */
-async function remove (projectID, workspaceID, secretID) {
+function remove (projectID, workspaceID, secretID) {
   return new Promise((resolve, reject) => {
     request.delete(`/v1/projects/${projectID}/secrets/${secretID}`, {
       params: {

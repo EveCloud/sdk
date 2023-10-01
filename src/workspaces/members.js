@@ -8,7 +8,7 @@ const { request, APIError } = require('../request')
  * @param {String} id Workspace ID
  * @returns {Promise<Object>} Members
  */
-async function list (id) {
+function list (id) {
   return new Promise((resolve, reject) => {
     request.get(`/v1/workspaces/${id}/members`).then(response => {
       resolve(response.data.data)
@@ -27,7 +27,7 @@ async function list (id) {
  * @param {String} memberID Member ID
  * @returns {Promise<Object>} Member
  */
-async function get (id, memberID) {
+function get (id, memberID) {
   return new Promise((resolve, reject) => {
     request.get(`/v1/workspaces/${id}/members/${memberID}`).then(response => {
       resolve(response.data)
@@ -47,7 +47,7 @@ async function get (id, memberID) {
  * @param {String} role Member Role
  * @returns {Promise<Object>} Success Message
  */
-async function add (id, email, role) {
+function add (id, email, role) {
   return new Promise((resolve, reject) => {
     request.post(`/v1/workspaces/${id}/members`, {
       data: {
@@ -72,7 +72,7 @@ async function add (id, email, role) {
  * @param {String} confirm Confirm
  * @returns {Promise<Object>} Success Message
  */
-async function remove (id, memberID, confirm) {
+function remove (id, memberID, confirm) {
   return new Promise((resolve, reject) => {
     request.delete(`/v1/workspaces/${id}/members/${memberID}`, {
       data: {

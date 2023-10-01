@@ -9,3 +9,4 @@
  * @returns {Promise<Object>} Usage
  */
 export function get(id: string, month: string, year: string): Promise<any>;
+//# sourceMappingURL=usage.d.ts.map
