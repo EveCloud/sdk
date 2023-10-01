@@ -1,7 +1,7 @@
 {
   "name": "@evecloud/sdk",
   "description": "A library for interacting with the EveCloud API",
-  "version": "3.0.5",
+  "version": "develop",
   "main": "src/index.js",
   "unpkg": "./dist/bundle.js",
   "jsdelivr": "./dist/bundle.js",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/evecloud/sdk"
+    "url": "git+https://github.com/evecloud/sdk.git"
   },
   "publishConfig": {
     "access": "public",
