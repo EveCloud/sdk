@@ -1,6 +1,6 @@
 # EveCloud JavaScript SDK
 
-JavaScript client for the [EveCloud API](https://docs.evecloud.xyz/reference/api)
+JavaScript client to interact with the [EveCloud API](https://docs.evecloud.xyz/reference/api)
 
 ![Version](https://img.shields.io/github/package-json/v/evecloud/sdk)
 ![GitHub](https://img.shields.io/github/license/EveCloud/sdk)
