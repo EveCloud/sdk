@@ -1,6 +1,6 @@
 # EveCloud JavaScript SDK
 
-JavaScript client for the [EveCloud API](https://docs.evecloud.xyz/reference/api)
+JavaScript client to interact with the [EveCloud API](https://docs.evecloud.xyz/reference/api)
 
 ![Version](https://img.shields.io/github/package-json/v/evecloud/sdk)
 ![GitHub](https://img.shields.io/github/license/EveCloud/sdk)
@@ -10,8 +10,8 @@ JavaScript client for the [EveCloud API](https://docs.evecloud.xyz/reference/api
 
 ### Node.js
 
-Our package is available on GitHub Packages, so you will need to authenticate with GitHub to install it.
-Check out the [GitHub Docs](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#authenticating-to-github-packages) for more information.
+Check out the [GitHub Documentation
+](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#authenticating-to-github-packages) for more information on authenticating to GitHub Packages.
 
 ```bash
 npm install @evecloud/sdk
@@ -29,17 +29,17 @@ Most endpoints require authentication, either with an Access Token or API Token.
 EveCloud SDK provides a simple way to set the token for all requests.
 
 ```js
-const { setToken } = require('evecloud-sdk');
+const { setToken } = require('@evecloud/sdk');
 
-setToken('my-token');
+setToken('TOKEN');
 ```
 
 ```js
-const { setToken, Account } = require('evecloud-sdk');
+const { setToken, Account } = require('@evecloud/sdk');
 
-setToken('access-token');
+setToken('TOKEN');
 
 Account.getInfo().then((data) => {
-    console.log(data.username);
+    console.log(data);
 });
 ```
