@@ -1,5 +1,5 @@
 {
-  "name": "evecloud-sdk",
+  "name": "@evecloud/sdk",
   "description": "A library for interacting with the EveCloud API",
   "version": "3.0.4",
   "main": "src/index.js",
