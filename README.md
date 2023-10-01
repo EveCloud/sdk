@@ -10,8 +10,8 @@ JavaScript client for the [EveCloud API](https://docs.evecloud.xyz/reference/api
 
 ### Node.js
 
-Our package is available on GitHub Packages, so you will need to authenticate with GitHub to install it.
-Check out the [GitHub Docs](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#authenticating-to-github-packages) for more information.
+Check out the [GitHub Documentation
+](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#authenticating-to-github-packages) for more information on authenticating to GitHub Packages.
 
 ```bash
 npm install @evecloud/sdk
