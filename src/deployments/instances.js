@@ -12,7 +12,7 @@ const { request, APIError } = require('../request')
  * @param {String} params Parameters
  * @returns {Promise<Object>} Instances
  */
-async function list (id, service, deployment, workspaceID, params) {
+function list (id, service, deployment, workspaceID, params) {
   return new Promise((resolve, reject) => {
     request.get(`/v1/projects/${id}/services/${service}/deployments/${deployment}/instances`, {
       params: {
@@ -39,7 +39,7 @@ async function list (id, service, deployment, workspaceID, params) {
  * @param {String} workspaceID Workspace ID
  * @returns {Promise<Object>} Instance
  */
-async function get (id, service, deployment, instance, workspaceID, params) {
+function get (id, service, deployment, instance, workspaceID, params) {
   return new Promise((resolve, reject) => {
     request.get(`/v1/projects/${id}/services/${service}/deployments/${deployment}/instances/${instance}`, {
       params: {

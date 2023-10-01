@@ -39,3 +39,4 @@ export function add(id: string, email: string, role: string): Promise<any>;
  * @returns {Promise<Object>} Success Message
  */
 export function remove(id: string, memberID: string, confirm: string): Promise<any>;
+//# sourceMappingURL=members.d.ts.map

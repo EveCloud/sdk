@@ -8,7 +8,7 @@ const { request, APIError } = require('../request')
  * @namespace Account
  * @returns {Promise<Object>} User object
  */
-async function getInfo () {
+function getInfo () {
   return new Promise((resolve, reject) => {
     request.get('/v1/account').then(response => {
       resolve(response.data)
@@ -26,7 +26,7 @@ async function getInfo () {
  * @param {Object} data Information to update
  * @returns {Promise<Object>} User object
  */
-async function updateInfo (data) {
+function updateInfo (data) {
   return new Promise((resolve, reject) => {
     request.put('/v1/account', data).then(response => {
       resolve(response.data)
@@ -45,7 +45,7 @@ async function updateInfo (data) {
  * @param {String} confirm Confirm account deletion
  * @returns {Promise<Object>} Success message
  */
-async function remove (confirm) {
+function remove (confirm) {
   return new Promise((resolve, reject) => {
     request.get('/v1/account', {
       data: {
@@ -66,7 +66,7 @@ async function remove (confirm) {
  * @link https://docs.evecloud.xyz/reference/api#tag/Account/operation/Preferences.Get
  * @returns {Promise<Object>} User preferences object
  */
-async function getPreferences () {
+function getPreferences () {
   return new Promise((resolve, reject) => {
     request.get('/v1/account/preferences').then(response => {
       resolve(response.data)
@@ -84,7 +84,7 @@ async function getPreferences () {
  * @param {Object} data Information to update
  * @returns {Promise<String>} Message.
  */
-async function updatePreferences (data) {
+function updatePreferences (data) {
   return new Promise((resolve, reject) => {
     request.put('/v1/account/preferences', data).then(response => {
       resolve(response.data)

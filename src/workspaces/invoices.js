@@ -8,7 +8,7 @@ const { request, APIError } = require('../request')
  * @param {String} id Workspace ID
  * @returns {Promise<Object>} Invoices
  */
-async function list (id) {
+function list (id) {
   return new Promise((resolve, reject) => {
     request.get(`/v1/workspaces/${id}/invoices`).then(response => {
       resolve(response.data.data)
@@ -26,9 +26,9 @@ async function list (id) {
  * @param {String} id Workspace ID
  * @returns {Promise<Object>} Invoice
  */
-async function get (id, invoiceID) {
+function get (id, invoiceID) {
   return new Promise((resolve, reject) => {
-    request.get(`/v1/workspaces/${id}/invoices/` + invoiceID).then(response => {
+    request.get(`/v1/workspaces/${id}/invoices/${invoiceID}`).then(response => {
       resolve(response.data)
     }).catch(error => {
       reject(APIError(error))

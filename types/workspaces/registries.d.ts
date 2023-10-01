@@ -37,3 +37,4 @@ export function add(id: string, data: any): Promise<any>;
  * @returns {Promise<Object>} Success Message
  */
 export function remove(id: string, registryID: string): Promise<any>;
+//# sourceMappingURL=registries.d.ts.map

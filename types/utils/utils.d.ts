@@ -1,11 +1,4 @@
 /**
- * @name getStripePublicKey
- * @description Get Stripe Public Key
- * @namespace Utils
- * @returns {Promise<Object>} Stripe Public Key
- */
-export function getStripePublicKey(): Promise<any>;
-/**
  * @name getRegions
  * @description Get Regions
  * @namespace Utils
@@ -29,3 +22,4 @@ export function getPlans(): Promise<any>;
  * @returns {Promise<Object>} Instances
  */
 export function getInstances(): Promise<any>;
+//# sourceMappingURL=utils.d.ts.map

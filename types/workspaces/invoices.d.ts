@@ -16,3 +16,4 @@ export function list(id: string): Promise<any>;
  * @returns {Promise<Object>} Invoice
  */
 export function get(id: string, invoiceID: any): Promise<any>;
+//# sourceMappingURL=invoices.d.ts.map

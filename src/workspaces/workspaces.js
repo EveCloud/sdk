@@ -7,7 +7,7 @@ const { request, APIError } = require('../request')
  * @link https://docs.evecloud.xyz/reference/api#tag/Workspaces/operation/Workspaces.List
  * @returns {Promise<Object>} Workspaces
  */
-async function list () {
+function list () {
   return new Promise((resolve, reject) => {
     request.get('/v1/workspaces').then(response => {
       resolve(response.data)
@@ -25,7 +25,7 @@ async function list () {
  * @param {String} id Workspace ID
  * @returns {Promise<Object>} Workspace
  */
-async function get (id) {
+function get (id) {
   return new Promise((resolve, reject) => {
     request.get(`/v1/workspaces/${id}`).then(response => {
       resolve(response.data)
@@ -43,7 +43,7 @@ async function get (id) {
  * @param {String} data Workspace data
  * @returns {Promise<Object>} Success Message
  */
-async function create (data) {
+function create (data) {
   return new Promise((resolve, reject) => {
     request.post('/v1/workspaces', data).then(response => {
       resolve(response.data)
@@ -62,7 +62,7 @@ async function create (data) {
  * @param {String} data Workspace data
  * @returns {Promise<Object>} Success Message
  */
-async function update (id, data) {
+function update (id, data) {
   return new Promise((resolve, reject) => {
     request.put(`/v1/workspaces/${id}`, data).then(response => {
       resolve(response.data)
@@ -80,7 +80,7 @@ async function update (id, data) {
  * @param {String} id Workspace ID
  * @returns {Promise<Object>} Success Message
  */
-async function leave (id) {
+function leave (id) {
   return new Promise((resolve, reject) => {
     request.put(`/v1/workspaces/${id}/leave`).then(response => {
       resolve(response.data)

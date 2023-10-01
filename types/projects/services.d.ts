@@ -87,3 +87,4 @@ export function pause(projectID: string, serviceID: string, workspaceID: string)
  * @returns {Promise<Object>} Success Message
  */
 export function resume(projectID: string, serviceID: string, workspaceID: string): Promise<any>;
+//# sourceMappingURL=services.d.ts.map

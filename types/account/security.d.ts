@@ -7,3 +7,4 @@
  * @returns {Promise<Object>} Authentication events
  */
 export function getEvents(params: string): Promise<any>;
+//# sourceMappingURL=security.d.ts.map

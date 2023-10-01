@@ -10,7 +10,7 @@ const { request, APIError } = require('../request')
  * @param {String} year Year
  * @returns {Promise<Object>} Usage
  */
-async function get (id, month, year) {
+function get (id, month, year) {
   return new Promise((resolve, reject) => {
     request.get(`/v1/workspaces/${id}/usage`, {
       params: {

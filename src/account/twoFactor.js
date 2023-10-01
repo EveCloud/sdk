@@ -7,7 +7,7 @@ const { request, APIError } = require('../request')
  * @link https://docs.evecloud.xyz/reference/api#tag/Account/operation/TwoFactor.Create
  * @returns {Promise<String>} Success message
  */
-async function create () {
+function create () {
   return new Promise((resolve, reject) => {
     request.post('/v1/account/two-factor').then(response => {
       resolve(response.data)
@@ -25,7 +25,7 @@ async function create () {
  * @param {String} code Two-factor authentication code
  * @returns {Promise<Array>} Recovery codes
  */
-async function enable (code) {
+function enable (code) {
   return new Promise((resolve, reject) => {
     request.put('/v1/account/two-factor', {
       code
@@ -45,7 +45,7 @@ async function enable (code) {
  * @param {String} code Two-factor authentication code
  * @returns {Promise<String>} Success message
  */
-async function disable (code) {
+function disable (code) {
   return new Promise((resolve, reject) => {
     request.delete('/v1/account/two-factor', {
       data: {

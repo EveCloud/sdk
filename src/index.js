@@ -10,7 +10,6 @@ module.exports = {
   AccountSecurity: require('./account/security'),
   AccountIntegrations: require('./account/integrations'),
   AccountTwoFactor: require('./account/twoFactor'),
-  AccountWorkspaces: require('./account/workspace'),
   // Workspaces
   Workspace: require('./workspaces/workspaces'),
   WorkspacePayments: require('./workspaces/payments'),

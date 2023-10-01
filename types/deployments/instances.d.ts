@@ -24,3 +24,4 @@ export function list(id: string, service: string, deployment: string, workspaceI
  * @returns {Promise<Object>} Instance
  */
 export function get(id: string, service: string, deployment: string, instance: string, workspaceID: string, params: any): Promise<any>;
+//# sourceMappingURL=instances.d.ts.map

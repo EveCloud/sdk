@@ -34,3 +34,4 @@ export function get(id: string, service: string, deployment: string, workspaceID
  * @returns {Promise<Object>} Deployments
  */
 export function cancel(id: string, service: string, deployment: string, workspaceID: string): Promise<any>;
+//# sourceMappingURL=deployments.d.ts.map

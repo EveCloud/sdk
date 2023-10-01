@@ -8,7 +8,7 @@ const { request, APIError } = require('../request')
  * @param {String} workspaceID Workspace ID
  * @returns {Promise<Object>} Projects
  */
-async function list (workspaceID, params) {
+function list (workspaceID, params) {
   return new Promise((resolve, reject) => {
     request.get('/v1/projects', {
       params: {
@@ -32,7 +32,7 @@ async function list (workspaceID, params) {
  * @param {String} workspaceID Workspace ID
  * @returns {Promise<Object>} Project
  */
-async function get (id, workspaceID) {
+function get (id, workspaceID) {
   return new Promise((resolve, reject) => {
     request.get(`/v1/projects/${id}`, {
       params: {
@@ -55,7 +55,7 @@ async function get (id, workspaceID) {
  * @param {Object} data Project data
  * @returns {Promise<Object>} Project
  */
-async function create (workspaceID, data) {
+function create (workspaceID, data) {
   return new Promise((resolve, reject) => {
     request.post('/v1/projects/', data, {
       params: {
@@ -79,7 +79,7 @@ async function create (workspaceID, data) {
  * @param {String} workspaceID Workspace ID
  * @returns {Promise<Object>} Project
  */
-async function update (id, data, workspaceID) {
+function update (id, data, workspaceID) {
   return new Promise((resolve, reject) => {
     request.put(`/v1/projects/${id}`, data, {
       params: {
@@ -103,7 +103,7 @@ async function update (id, data, workspaceID) {
  * @param {String} workspaceID Workspace ID
  * @returns {Promise<Object>} Success message
  */
-async function remove (id, confirm, workspaceID) {
+function remove (id, confirm, workspaceID) {
   return new Promise((resolve, reject) => {
     request.delete(`/v1/projects/${id}`, {
       confirm

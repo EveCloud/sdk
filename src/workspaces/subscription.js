@@ -8,7 +8,7 @@ const { request, APIError } = require('../request')
  * @param {String} id Workspace ID
  * @returns {Promise<Object>} Subscription object
  */
-async function get (id) {
+function get (id) {
   return new Promise((resolve, reject) => {
     request.get(`/v1/workspaces/${id}/subscription`).then(response => {
       resolve(response.data)
@@ -27,7 +27,7 @@ async function get (id) {
  * @param {Boolean} confirm Confirm subscription
  * @returns {Promise<Object>} Success message
  */
-async function update (id, confirm) {
+function update (id, confirm) {
   return new Promise((resolve, reject) => {
     request.put(`/v1/workspaces/${id}/subscription`, {
       confirm

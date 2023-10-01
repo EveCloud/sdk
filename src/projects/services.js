@@ -10,7 +10,7 @@ const { request, APIError } = require('../request')
  * @param {String} params Query parameters
  * @returns {Promise<Object>} Services
  */
-async function list (projectID, workspaceID, params) {
+function list (projectID, workspaceID, params) {
   return new Promise((resolve, reject) => {
     request.get(`/v1/projects/${projectID}/services`, {
       params: {
@@ -35,7 +35,7 @@ async function list (projectID, workspaceID, params) {
  * @param {String} workspaceID Workspace ID
  * @returns {Promise<Object>} Service
  */
-async function get (projectID, serviceID, workspaceID) {
+function get (projectID, serviceID, workspaceID) {
   return new Promise((resolve, reject) => {
     request.get(`/v1/projects/${projectID}/services/${serviceID}`, {
       params: {
@@ -59,7 +59,7 @@ async function get (projectID, serviceID, workspaceID) {
  * @param {String} workspaceID Workspace ID
  * @returns {Promise<Object>} Success Message
  */
-async function redeploy (projectID, serviceID, workspaceID) {
+function redeploy (projectID, serviceID, workspaceID) {
   return new Promise((resolve, reject) => {
     request.post(`/v1/projects/${projectID}/services/${serviceID}/redeploy`, {
       params: {
@@ -83,7 +83,7 @@ async function redeploy (projectID, serviceID, workspaceID) {
  * @param {String} workspaceID Workspace ID
  * @returns {Promise<Object>} Success Message
  */
-async function create (projectID, data, workspaceID) {
+function create (projectID, data, workspaceID) {
   return new Promise((resolve, reject) => {
     request.post(`/v1/projects/${projectID}/services`, {
       params: {
@@ -108,7 +108,7 @@ async function create (projectID, data, workspaceID) {
  * @param {String} workspaceID Workspace ID
  * @returns {Promise<Object>} Success Message
  */
-async function update (projectID, serviceID, data, workspaceID) {
+function update (projectID, serviceID, data, workspaceID) {
   return new Promise((resolve, reject) => {
     request.put(`/v1/projects/${projectID}/services/${serviceID}`, {
       params: {
@@ -132,7 +132,7 @@ async function update (projectID, serviceID, data, workspaceID) {
  * @param {String} workspaceID Workspace ID
  * @returns {Promise<Object>} Success Message
  */
-async function pause (projectID, serviceID, workspaceID) {
+function pause (projectID, serviceID, workspaceID) {
   return new Promise((resolve, reject) => {
     request.put(`/v1/projects/${projectID}/services/${serviceID}/pause`, {
       params: {
@@ -156,7 +156,7 @@ async function pause (projectID, serviceID, workspaceID) {
  * @param {String} workspaceID Workspace ID
  * @returns {Promise<Object>} Success Message
  */
-async function resume (projectID, serviceID, workspaceID) {
+function resume (projectID, serviceID, workspaceID) {
   return new Promise((resolve, reject) => {
     request.put(`/v1/projects/${projectID}/services/${serviceID}/resume`, {
       params: {
@@ -180,7 +180,7 @@ async function resume (projectID, serviceID, workspaceID) {
  * @param {String} workspaceID Workspace ID
  * @returns {Promise<Object>} Success Message
  */
-async function remove (projectID, serviceID, confirm, workspaceID) {
+function remove (projectID, serviceID, confirm, workspaceID) {
   return new Promise((resolve, reject) => {
     request.delete(`/v1/projects/${projectID}/services/${serviceID}`, {
       params: {

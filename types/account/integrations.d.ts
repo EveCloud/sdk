@@ -16,3 +16,4 @@ export function getGitHubRepositories(): Promise<any>;
  * @returns {Promise<String>} Success message
  */
 export function connectGitHub(code: string, installationId: string): Promise<string>;
+//# sourceMappingURL=integrations.d.ts.map

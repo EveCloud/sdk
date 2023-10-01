@@ -55,3 +55,4 @@ export function update(projectID: string, workspaceID: string, secretID: string,
  * @returns {Promise<Object>} Success message
  */
 export function remove(projectID: string, workspaceID: string, secretID: string): Promise<any>;
+//# sourceMappingURL=secrets.d.ts.map

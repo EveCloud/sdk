@@ -45,3 +45,4 @@ export function update(id: string, label: string): Promise<string>;
  * @returns {Promise<String>} Success message
  */
 export function remove(id: string): Promise<string>;
+//# sourceMappingURL=tokens.d.ts.map

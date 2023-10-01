@@ -25,3 +25,4 @@ export function build(id: string, service: string, deployment: string, workspace
  * @returns {Promise<Object>} Logs
  */
 export function runtime(id: string, service: string, deployment: string, instanceID: string, workspaceID: string, params: string): Promise<any>;
+//# sourceMappingURL=logs.d.ts.map
