@@ -17,12 +17,6 @@ npm install evecloud-sdk
 
 ### Browser
 
-jsDelivr CDN:
-```js
-<script src="https://cdn.jsdelivr.net/npm/evecloud-sdk@latest/dist/bundle.js"></script>
-```
-
-unpkg CDN:
 ```js
 <script src="https://unpkg.com/evecloud-sdk@latest/dist/bundle.js"></script>
 ```
