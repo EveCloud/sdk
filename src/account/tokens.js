@@ -3,8 +3,8 @@ const { request, APIError } = require('../request')
 /**
  * @name list
  * @description Get account tokens
- * @namespace Account
- * @link https://docs.evecloud.xyz/reference/api#tag/Account/operation/Tokens.List
+ * @namespace Tokens
+ * @link https://docs.evecloud.xyz/api/account/tokens/list
  * @param {String} params Parameters
  * @returns {Promise<Object>} Tokens
  */
@@ -13,7 +13,7 @@ function list (params) {
     request.get('/v1/account/tokens', {
       params: params || {}
     }).then(response => {
-      resolve(response.data.data)
+      resolve(response.data)
     }).catch(error => {
       reject(APIError(error))
     })
@@ -23,14 +23,14 @@ function list (params) {
 /**
  * @name get
  * @description Get account token
- * @namespace Account
- * @link https://docs.evecloud.xyz/reference/api#tag/Account/operation/Tokens.Get
- * @param {String} id Token ID
+ * @namespace Tokens
+ * @link https://docs.evecloud.xyz/api/account/tokens/view
+ * @param {String} tokenID Token ID
  * @returns {Promise<Object>} Token
  */
-function get (id) {
+function get (tokenID) {
   return new Promise((resolve, reject) => {
-    request.get(`/v1/account/tokens/${id}`).then(response => {
+    request.get(`/v1/account/tokens/${tokenID}`).then(response => {
       resolve(response.data)
     }).catch(error => {
       reject(APIError(error))
@@ -41,8 +41,8 @@ function get (id) {
 /**
  * @name create
  * @description Create account token
- * @namespace Account
- * @link https://docs.evecloud.xyz/reference/api#tag/Account/operation/Tokens.Create
+ * @namespace Token
+ * @link https://docs.evecloud.xyz/api/account/tokens/create
  * @param {String} label Token label
  * @param {String} expiration Token expiration
  * @returns {Promise<String>} Success message
@@ -61,38 +61,16 @@ function create (label, expiration) {
 }
 
 /**
- * @name update
- * @description Update account token
- * @namespace Account
- * @link https://docs.evecloud.xyz/reference/api#tag/Account/operation/Tokens.Update
- * @param {String} id Token ID
- * @param {String} label Token label
- * @returns {Promise<String>} Success message
- */
-function update (id, label) {
-  return new Promise((resolve, reject) => {
-    request.put('/v1/account/tokens', {
-      id,
-      label
-    }).then(response => {
-      resolve(response.data)
-    }).catch(error => {
-      reject(APIError(error))
-    })
-  })
-}
-
-/**
  * @name remove
  * @description Remove account token
- * @namespace Account
- * @link https://docs.evecloud.xyz/reference/api#tag/Account/operation/Tokens.Delete
- * @param {String} id Token ID
+ * @namespace Token
+ * @link https://docs.evecloud.xyz/api/account/tokens/delete
+ * @param {String} tokenID Token ID
  * @returns {Promise<String>} Success message
  */
-function remove (id) {
+function remove (tokenID) {
   return new Promise((resolve, reject) => {
-    request.delete(`/v1/account/tokens/${id}`).then(response => {
+    request.delete(`/v1/account/tokens/${tokenID}`).then(response => {
       resolve(response.data)
     }).catch(error => {
       reject(APIError(error))
@@ -104,6 +82,5 @@ module.exports = {
   list,
   get,
   create,
-  update,
   remove
 }

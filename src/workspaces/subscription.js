@@ -3,14 +3,14 @@ const { request, APIError } = require('../request')
 /**
  * @name get
  * @description Get workspace subscription
- * @namespace Workspaces
- * @link https://docs.evecloud.xyz/reference/api#tag/Workspaces/operation/Subscription.Get
- * @param {String} id Workspace ID
+ * @namespace Subscription
+ * @link https://docs.evecloud.xyz/api/workspaces/subscription/view
+ * @param {String} workspaceID Workspace ID
  * @returns {Promise<Object>} Subscription object
  */
-function get (id) {
+function get (workspaceID) {
   return new Promise((resolve, reject) => {
-    request.get(`/v1/workspaces/${id}/subscription`).then(response => {
+    request.get(`/v1/workspaces/${workspaceID}/subscription`).then(response => {
       resolve(response.data)
     }).catch(error => {
       reject(APIError(error))
@@ -21,15 +21,15 @@ function get (id) {
 /**
  * @name update
  * @description Update workspace subscription
- * @namespace Workspaces
- * @link https://docs.evecloud.xyz/reference/api#tag/Workspaces/operation/Subscription.Update
- * @param {String} id Workspace ID
+ * @namespace Subscription
+ * @link https://docs.evecloud.xyz/api/workspaces/subscription/update
+ * @param {String} workspaceID Workspace ID
  * @param {Boolean} confirm Confirm subscription
  * @returns {Promise<Object>} Success message
  */
-function update (id, confirm) {
+function update (workspaceID, confirm) {
   return new Promise((resolve, reject) => {
-    request.put(`/v1/workspaces/${id}/subscription`, {
+    request.put(`/v1/workspaces/${workspaceID}/subscription`, {
       confirm
     }).then(response => {
       resolve(response.data)

@@ -4,19 +4,17 @@ const { request, APIError } = require('../request')
  * @name list
  * @description Get projects
  * @namespace Projects
- * @link https://docs.evecloud.xyz/reference/api#tag/Projects/operation/Projects.List
- * @param {String} workspaceID Workspace ID
+ * @link https://docs.evecloud.xyz/api/projects/list
  * @returns {Promise<Object>} Projects
  */
-function list (workspaceID, params) {
+function list (params) {
   return new Promise((resolve, reject) => {
     request.get('/v1/projects', {
       params: {
-        workspaceID,
         ...params
       }
     }).then(response => {
-      resolve(response.data.data)
+      resolve(response.data)
     }).catch(error => {
       reject(APIError(error))
     })
@@ -27,18 +25,13 @@ function list (workspaceID, params) {
  * @name get
  * @description Get project
  * @namespace Projects
- * @link https://docs.evecloud.xyz/reference/api#tag/Projects/operation/Projects.Get
- * @param {String} id Project ID
- * @param {String} workspaceID Workspace ID
+ * @link https://docs.evecloud.xyz/api/projects/view
+ * @param {String} projectID Project ID
  * @returns {Promise<Object>} Project
  */
-function get (id, workspaceID) {
+function get (projectID) {
   return new Promise((resolve, reject) => {
-    request.get(`/v1/projects/${id}`, {
-      params: {
-        workspaceID
-      }
-    }).then(response => {
+    request.get(`/v1/projects/${projectID}`).then(response => {
       resolve(response.data)
     }).catch(error => {
       reject(APIError(error))
@@ -50,18 +43,13 @@ function get (id, workspaceID) {
  * @name create
  * @description Create project
  * @namespace Projects
- * @link https://docs.evecloud.xyz/reference/api#tag/Projects/operation/Projects.Create
- * @param {String} workspaceID Workspace ID
+ * @link https://docs.evecloud.xyz/api/projects/create
  * @param {Object} data Project data
  * @returns {Promise<Object>} Project
  */
-function create (workspaceID, data) {
+function create (data) {
   return new Promise((resolve, reject) => {
-    request.post('/v1/projects/', data, {
-      params: {
-        workspaceID
-      }
-    }).then(response => {
+    request.post('/v1/projects/', data).then(response => {
       resolve(response.data)
     }).catch(error => {
       reject(APIError(error))
@@ -73,19 +61,14 @@ function create (workspaceID, data) {
  * @name update
  * @description Update project
  * @namespace Projects
- * @link https://docs.evecloud.xyz/reference/api#tag/Projects/operation/Projects.Update
- * @param {String} id Project ID
+ * @link https://docs.evecloud.xyz/api/projects/update
+ * @param {String} projectID Project ID
  * @param {Object} data Project data
- * @param {String} workspaceID Workspace ID
  * @returns {Promise<Object>} Project
  */
-function update (id, data, workspaceID) {
+function update (projectID, data) {
   return new Promise((resolve, reject) => {
-    request.put(`/v1/projects/${id}`, data, {
-      params: {
-        workspaceID
-      }
-    }).then(response => {
+    request.put(`/v1/projects/${projectID}`, data).then(response => {
       resolve(response.data)
     }).catch(error => {
       reject(APIError(error))
@@ -97,20 +80,15 @@ function update (id, data, workspaceID) {
  * @name remove
  * @description Remove project
  * @namespace Projects
- * @link https://docs.evecloud.xyz/reference/api#tag/Projects/operation/Projects.Delete
- * @param {String} id Project ID
+ * @link https://docs.evecloud.xyz/api/projects/delete
+ * @param {String} projectID Project ID
  * @param {Boolean} confirm Confirm removal
- * @param {String} workspaceID Workspace ID
  * @returns {Promise<Object>} Success message
  */
-function remove (id, confirm, workspaceID) {
+function remove (projectID, confirm) {
   return new Promise((resolve, reject) => {
-    request.delete(`/v1/projects/${id}`, {
+    request.delete(`/v1/projects/${projectID}`, {
       confirm
-    }, {
-      params: {
-        workspaceID
-      }
     }).then(response => {
       resolve(response.data)
     }).catch(error => {

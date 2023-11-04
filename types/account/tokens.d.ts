@@ -1,8 +1,8 @@
 /**
  * @name list
  * @description Get account tokens
- * @namespace Account
- * @link https://docs.evecloud.xyz/reference/api#tag/Account/operation/Tokens.List
+ * @namespace Tokens
+ * @link https://docs.evecloud.xyz/api/account/tokens/list
  * @param {String} params Parameters
  * @returns {Promise<Object>} Tokens
  */
@@ -10,39 +10,29 @@ export function list(params: string): Promise<any>;
 /**
  * @name get
  * @description Get account token
- * @namespace Account
- * @link https://docs.evecloud.xyz/reference/api#tag/Account/operation/Tokens.Get
- * @param {String} id Token ID
+ * @namespace Tokens
+ * @link https://docs.evecloud.xyz/api/account/tokens/view
+ * @param {String} tokenID Token ID
  * @returns {Promise<Object>} Token
  */
-export function get(id: string): Promise<any>;
+export function get(tokenID: string): Promise<any>;
 /**
  * @name create
  * @description Create account token
- * @namespace Account
- * @link https://docs.evecloud.xyz/reference/api#tag/Account/operation/Tokens.Create
+ * @namespace Token
+ * @link https://docs.evecloud.xyz/api/account/tokens/create
  * @param {String} label Token label
  * @param {String} expiration Token expiration
  * @returns {Promise<String>} Success message
  */
 export function create(label: string, expiration: string): Promise<string>;
 /**
- * @name update
- * @description Update account token
- * @namespace Account
- * @link https://docs.evecloud.xyz/reference/api#tag/Account/operation/Tokens.Update
- * @param {String} id Token ID
- * @param {String} label Token label
- * @returns {Promise<String>} Success message
- */
-export function update(id: string, label: string): Promise<string>;
-/**
  * @name remove
  * @description Remove account token
- * @namespace Account
- * @link https://docs.evecloud.xyz/reference/api#tag/Account/operation/Tokens.Delete
- * @param {String} id Token ID
+ * @namespace Token
+ * @link https://docs.evecloud.xyz/api/account/tokens/delete
+ * @param {String} tokenID Token ID
  * @returns {Promise<String>} Success message
  */
-export function remove(id: string): Promise<string>;
+export function remove(tokenID: string): Promise<string>;
 //# sourceMappingURL=tokens.d.ts.map

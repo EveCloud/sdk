@@ -2,7 +2,7 @@
  * @name list
  * @description List workpaces
  * @namespace Workspaces
- * @link https://docs.evecloud.xyz/reference/api#tag/Workspaces/operation/Workspaces.List
+ * @link https://docs.evecloud.xyz/api/workspaces/list
  * @returns {Promise<Object>} Workspaces
  */
 export function list(): Promise<any>;
@@ -10,7 +10,7 @@ export function list(): Promise<any>;
  * @name get
  * @description Get workpace
  * @namespace Workspaces
- * @link https://docs.evecloud.xyz/reference/api#tag/Workspaces/operation/Workspaces.Get
+ * @link https://docs.evecloud.xyz/api/workspaces/view
  * @param {String} id Workspace ID
  * @returns {Promise<Object>} Workspace
  */
@@ -19,28 +19,39 @@ export function get(id: string): Promise<any>;
  * @name create
  * @description Create a workspace
  * @namespace Workspaces
- * @link https://docs.evecloud.xyz/reference/api#tag/Workspaces/operation/Workspaces.Create
- * @param {String} data Workspace data
+ * @link https://docs.evecloud.xyz/api/workspaces/create
+ * @param {String} name Workspace name
  * @returns {Promise<Object>} Success Message
  */
-export function create(data: string): Promise<any>;
+export function create(name: string): Promise<any>;
 /**
  * @name update
  * @description Update a workspace
  * @namespace Workspaces
- * @link https://docs.evecloud.xyz/reference/api#tag/Workspaces/operation/Workspaces.Update
+ * @link https://docs.evecloud.xyz/api/workspaces/update
  * @param {String} id Workspace ID
  * @param {String} data Workspace data
- * @returns {Promise<Object>} Success Message
+ * @returns {Promise<String>} Success Message
  */
-export function update(id: string, data: string): Promise<any>;
+export function update(id: string, data: string): Promise<string>;
+/**
+ * @name remove
+ * @description Remove a workspace
+ * @namespace Workspaces
+ * @link https://docs.evecloud.xyz/api/workspaces/remove
+ * @param {String} id Workspace ID
+ * @param {Boolean} confirm Confirm removal
+ * @returns {Promise<String>} Success Message
+ */
+export function remove(id: string, confirm: boolean): Promise<string>;
 /**
  * @name leave
  * @description Leave a workspace
  * @namespace Workspaces
- * @link https://docs.evecloud.xyz/reference/api#tag/Workspaces/operation/Workspaces.Leave
+ * @link https://docs.evecloud.xyz/api/workspaces/leave
  * @param {String} id Workspace ID
- * @returns {Promise<Object>} Success Message
+ * @param {Boolean} confirm Confirm removal
+ * @returns {Promise<String>} Success Message
  */
-export function leave(id: string): Promise<any>;
+export function leave(id: string, confirm: boolean): Promise<string>;
 //# sourceMappingURL=workspaces.d.ts.map

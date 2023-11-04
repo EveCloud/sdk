@@ -6,6 +6,12 @@ export const request: import("axios").AxiosInstance;
  */
 export function setToken(token: string): void;
 /**
+ * Set Workspace ID
+ * @param {String} workspaceID Workspace ID
+ * @returns {void}
+ */
+export function setWorkspace(workspaceID: string): void;
+/**
  * API Error
  * @param {String} error Axios Error
  * @returns {String} Error message

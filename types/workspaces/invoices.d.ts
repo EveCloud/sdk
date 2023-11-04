@@ -1,19 +1,19 @@
 /**
  * @name list
  * @description List workpaces invoices
- * @namespace Workspaces
- * @link https://docs.evecloud.xyz/reference/api#tag/Workspaces/operation/Invoices.List
- * @param {String} id Workspace ID
+ * @namespace Invoices
+ * @link https://docs.evecloud.xyz/api/workspaces/invoices/list
+ * @param {String} workspaceID Workspace ID
  * @returns {Promise<Object>} Invoices
  */
-export function list(id: string): Promise<any>;
+export function list(id: any): Promise<any>;
 /**
  * @name get
  * @description Get workpace invoice
- * @namespace Workspaces
- * @link https://docs.evecloud.xyz/reference/api#tag/Workspaces/operation/Invoices.Get
- * @param {String} id Workspace ID
+ * @namespace Invoices
+ * @link https://docs.evecloud.xyz/api/workspaces/invoices/list
+ * @param {String} workspaceID Workspace ID
  * @returns {Promise<Object>} Invoice
  */
-export function get(id: string, invoiceID: any): Promise<any>;
+export function get(workspaceID: string, invoiceID: any): Promise<any>;
 //# sourceMappingURL=invoices.d.ts.map

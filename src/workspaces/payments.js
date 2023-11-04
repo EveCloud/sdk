@@ -3,15 +3,15 @@ const { request, APIError } = require('../request')
 /**
  * @name list
  * @description List workpaces payment methods
- * @namespace Workspaces
- * @link https://docs.evecloud.xyz/reference/api#tag/Workspaces/operation/PaymentMethods.List
- * @param {String} id Workspace ID
+ * @namespace PaymentMethods
+ * @link https://docs.evecloud.xyz/api/workspaces/payment-methods/list
+ * @param {String} workspaceID Workspace ID
  * @returns {Promise<Object>} Payment Methods
  */
-function list (id) {
+function list (workspaceID) {
   return new Promise((resolve, reject) => {
-    request.get(`/v1/workspaces/${id}/payment-methods`).then(response => {
-      resolve(response.data.data)
+    request.get(`/v1/workspaces/${workspaceID}/payment-methods`).then(response => {
+      resolve(response.data)
     }).catch(error => {
       reject(APIError(error))
     })
@@ -21,9 +21,9 @@ function list (id) {
 /**
  * @name get
  * @description Get workpace payment method
- * @namespace Workspaces
- * @link https://docs.evecloud.xyz/reference/api#tag/Workspaces/operation/PaymentMethods.Get
- * @param {String} id Workspace ID
+ * @namespace PaymentMethods
+ * @link https://docs.evecloud.xyz/api/workspaces/payment-methods/view
+ * @param {String} workspaceID Workspace ID
  * @param {String} paymentID Payment Method ID
  * @returns {Promise<Object>} Payment Method
  */
@@ -40,9 +40,9 @@ function get (id, paymentID) {
 /**
  * @name makeDefault
  * @description Make a payment method default
- * @namespace Workspaces
- * @link https://docs.evecloud.xyz/reference/api#tag/Workspaces/operation/PaymentMethods.MakeDefault
- * @param {String} id Workspace ID
+ * @namespace PaymentMethods
+ * @link https://docs.evecloud.xyz/api/workspaces/payment-methods/make-default
+ * @param {String} workspaceID Workspace ID
  * @param {String} paymentID Payment Method ID
  * @returns {Promise<Object>} Success Message
  */
@@ -59,9 +59,9 @@ function makeDefault (id, paymentID) {
 /**
  * @name add
  * @description Add a payment method
- * @namespace Workspaces
- * @link https://docs.evecloud.xyz/reference/api#tag/Workspaces/operation/PaymentMethods.Add
- * @param {String} id Workspace ID
+ * @namespace PaymentMethods
+ * @link https://docs.evecloud.xyz/api/workspaces/payment-methods/add
+ * @param {String} workspaceID Workspace ID
  * @returns {Promise<Object>} Stripe Checkout URL
  */
 function add (id) {
@@ -77,9 +77,9 @@ function add (id) {
 /**
  * @name remove
  * @description Remove a payment method
- * @namespace Workspaces
- * @link https://docs.evecloud.xyz/reference/api#tag/Workspaces/operation/PaymentMethods.Remove
- * @param {String} id Workspace ID
+ * @namespace PaymentMethods
+ * @link https://docs.evecloud.xyz/api/workspaces/payment-methods/delete
+ * @param {String} workspaceID Workspace ID
  * @param {String} paymentID Payment Method ID
  * @returns {Promise<Object>} Success Message
  */
