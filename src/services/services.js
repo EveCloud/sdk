@@ -3,22 +3,39 @@ const { request, APIError } = require('../request')
 /**
  * @name list
  * @description List project services
- * @namespace Projects
- * @link https://docs.evecloud.xyz/reference/api#tag/Projects/operation/Services.List
+ * @namespace Services
+ * @link https://docs.evecloud.xyz/api/services/list
  * @param {String} projectID Project ID
- * @param {String} workspaceID Workspace ID
  * @param {String} params Query parameters
  * @returns {Promise<Object>} Services
  */
-function list (projectID, workspaceID, params) {
+function list (projectID, params) {
   return new Promise((resolve, reject) => {
     request.get(`/v1/projects/${projectID}/services`, {
       params: {
-        workspaceID,
         ...params
       }
     }).then(response => {
-      resolve(response.data.data)
+      resolve(response.data)
+    }).catch(error => {
+      reject(APIError(error))
+    })
+  })
+}
+
+/**
+ * @name create
+ * @description Create project service
+ * @namespace Services
+ * @link https://docs.evecloud.xyz/api/services/create
+ * @param {String} projectID Project ID
+ * @param {Object} data Service data
+ * @returns {Promise<Object>} Success Message
+ */
+function create (projectID, data) {
+  return new Promise((resolve, reject) => {
+    request.post(`/v1/projects/${projectID}/services`, data).then(response => {
+      resolve(response.data)
     }).catch(error => {
       reject(APIError(error))
     })
@@ -28,20 +45,73 @@ function list (projectID, workspaceID, params) {
 /**
  * @name get
  * @description Get project service
- * @namespace Projects
- * @link https://docs.evecloud.xyz/reference/api#tag/Projects/operation/Services.Get
+ * @namespace Services
+ * @link https://docs.evecloud.xyz/api/services/view
  * @param {String} projectID Project ID
  * @param {String} serviceID Service ID
- * @param {String} workspaceID Workspace ID
  * @returns {Promise<Object>} Service
  */
-function get (projectID, serviceID, workspaceID) {
+function get (projectID, serviceID) {
   return new Promise((resolve, reject) => {
-    request.get(`/v1/projects/${projectID}/services/${serviceID}`, {
-      params: {
-        workspaceID
-      }
-    }).then(response => {
+    request.get(`/v1/projects/${projectID}/services/${serviceID}`).then(response => {
+      resolve(response.data)
+    }).catch(error => {
+      reject(APIError(error))
+    })
+  })
+}
+
+/**
+ * @name update
+ * @description Update project service
+ * @namespace Services
+ * @link https://docs.evecloud.xyz/api/services/update
+ * @param {String} projectID Project ID
+ * @param {String} serviceID Service ID
+ * @param {Object} data Service data
+ * @returns {Promise<Object>} Success Message
+ */
+function update (projectID, serviceID, data) {
+  return new Promise((resolve, reject) => {
+    request.put(`/v1/projects/${projectID}/services/${serviceID}`, data).then(response => {
+      resolve(response.data)
+    }).catch(error => {
+      reject(APIError(error))
+    })
+  })
+}
+
+/**
+ * @name pause
+ * @description Pause project service
+ * @namespace Services
+ * @link https://docs.evecloud.xyz/api/services/pause
+ * @param {String} projectID Project ID
+ * @param {String} serviceID Service ID
+ * @returns {Promise<Object>} Success Message
+ */
+function pause (projectID, serviceID) {
+  return new Promise((resolve, reject) => {
+    request.post(`/v1/projects/${projectID}/services/${serviceID}/pause`).then(response => {
+      resolve(response.data)
+    }).catch(error => {
+      reject(APIError(error))
+    })
+  })
+}
+
+/**
+ * @name resume
+ * @description Resume project service
+ * @namespace Services
+ * @link https://docs.evecloud.xyz/api/services/resume
+ * @param {String} projectID Project ID
+ * @param {String} serviceID Service ID
+ * @returns {Promise<Object>} Success Message
+ */
+function resume (projectID, serviceID) {
+  return new Promise((resolve, reject) => {
+    request.post(`/v1/projects/${projectID}/services/${serviceID}/resume`).then(response => {
       resolve(response.data)
     }).catch(error => {
       reject(APIError(error))
@@ -62,103 +132,6 @@ function get (projectID, serviceID, workspaceID) {
 function redeploy (projectID, serviceID, workspaceID) {
   return new Promise((resolve, reject) => {
     request.post(`/v1/projects/${projectID}/services/${serviceID}/redeploy`, {
-      params: {
-        workspaceID
-      }
-    }).then(response => {
-      resolve(response.data)
-    }).catch(error => {
-      reject(APIError(error))
-    })
-  })
-}
-
-/**
- * @name create
- * @description Create project service
- * @namespace Projects
- * @link https://docs.evecloud.xyz/reference/api#tag/Projects/operation/Services.Create
- * @param {String} projectID Project ID
- * @param {Object} data Service data
- * @param {String} workspaceID Workspace ID
- * @returns {Promise<Object>} Success Message
- */
-function create (projectID, data, workspaceID) {
-  return new Promise((resolve, reject) => {
-    request.post(`/v1/projects/${projectID}/services`, {
-      params: {
-        workspaceID
-      }
-    }, data).then(response => {
-      resolve(response.data)
-    }).catch(error => {
-      reject(APIError(error))
-    })
-  })
-}
-
-/**
- * @name update
- * @description Update project service
- * @namespace Projects
- * @link https://docs.evecloud.xyz/reference/api#tag/Projects/operation/Services.Update
- * @param {String} projectID Project ID
- * @param {String} serviceID Service ID
- * @param {Object} data Service data
- * @param {String} workspaceID Workspace ID
- * @returns {Promise<Object>} Success Message
- */
-function update (projectID, serviceID, data, workspaceID) {
-  return new Promise((resolve, reject) => {
-    request.put(`/v1/projects/${projectID}/services/${serviceID}`, {
-      params: {
-        workspaceID
-      }
-    }, data).then(response => {
-      resolve(response.data)
-    }).catch(error => {
-      reject(APIError(error))
-    })
-  })
-}
-
-/**
- * @name pause
- * @description Pause project service
- * @namespace Projects
- * @link https://docs.evecloud.xyz/reference/api#tag/Projects/operation/Services.Pause
- * @param {String} projectID Project ID
- * @param {String} serviceID Service ID
- * @param {String} workspaceID Workspace ID
- * @returns {Promise<Object>} Success Message
- */
-function pause (projectID, serviceID, workspaceID) {
-  return new Promise((resolve, reject) => {
-    request.put(`/v1/projects/${projectID}/services/${serviceID}/pause`, {
-      params: {
-        workspaceID
-      }
-    }).then(response => {
-      resolve(response.data)
-    }).catch(error => {
-      reject(APIError(error))
-    })
-  })
-}
-
-/**
- * @name resume
- * @description Resume project service
- * @namespace Projects
- * @link https://docs.evecloud.xyz/reference/api#tag/Projects/operation/Services.Resume
- * @param {String} projectID Project ID
- * @param {String} serviceID Service ID
- * @param {String} workspaceID Workspace ID
- * @returns {Promise<Object>} Success Message
- */
-function resume (projectID, serviceID, workspaceID) {
-  return new Promise((resolve, reject) => {
-    request.put(`/v1/projects/${projectID}/services/${serviceID}/resume`, {
       params: {
         workspaceID
       }

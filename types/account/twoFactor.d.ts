@@ -1,16 +1,16 @@
 /**
  * @name create
  * @description Create two-factor authentication token
- * @namespace Account
- * @link https://docs.evecloud.xyz/reference/api#tag/Account/operation/TwoFactor.Create
+ * @namespace TwoFactor
+ * @link https://docs.evecloud.xyz/api/account/tfa/create
  * @returns {Promise<String>} Success message
  */
 export function create(): Promise<string>;
 /**
  * @name enable
  * @description Enable two-factor authentication
- * @namespace Account
- * @link https://docs.evecloud.xyz/reference/api#tag/Account/operation/TwoFactor.Enable
+ * @namespace TwoFactor
+ * @link https://docs.evecloud.xyz/api/account/tfa/enable
  * @param {String} code Two-factor authentication code
  * @returns {Promise<Array>} Recovery codes
  */
@@ -18,8 +18,8 @@ export function enable(code: string): Promise<any[]>;
 /**
  * @name disable
  * @description Disable two-factor authentication
- * @namespace Account
- * @link https://docs.evecloud.xyz/reference/api#tag/Account/operation/TwoFactor.Disable
+ * @namespace TwoFactor
+ * @link https://docs.evecloud.xyz/api/account/tfa/disable
  * @param {String} code Two-factor authentication code
  * @returns {Promise<String>} Success message
  */

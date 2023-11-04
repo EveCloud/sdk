@@ -1,14 +1,13 @@
 const { request, APIError } = require('../request')
 
 /**
- * @name getInfo
+ * @name get
  * @description Get the current user's account information
  * @namespace Account
- * @link https://docs.evecloud.xyz/reference/api#tag/Account/operation/Account.Get
- * @namespace Account
+ * @link https://docs.evecloud.xyz/api/account/view
  * @returns {Promise<Object>} User object
  */
-function getInfo () {
+function get () {
   return new Promise((resolve, reject) => {
     request.get('/v1/account').then(response => {
       resolve(response.data)
@@ -19,14 +18,14 @@ function getInfo () {
 }
 
 /**
- * @name updateInfo
+ * @name findOneAndUpdate
  * @description Update the current user's account information
  * @namespace Account
- * @link https://docs.evecloud.xyz/reference/api#tag/Account/operation/Account.Update
+ * @link https://docs.evecloud.xyz/api/account/update
  * @param {Object} data Information to update
  * @returns {Promise<Object>} User object
  */
-function updateInfo (data) {
+function update (data) {
   return new Promise((resolve, reject) => {
     request.put('/v1/account', data).then(response => {
       resolve(response.data)
@@ -40,17 +39,14 @@ function updateInfo (data) {
  * @name remove
  * @description Delete the current user's account
  * @namespace Account
- * @link https://docs.evecloud.xyz/reference/api#tag/Account/operation/Account.Delete
- * @namespace Account
+ * @link https://docs.evecloud.xyz/api/account/delete
  * @param {String} confirm Confirm account deletion
- * @returns {Promise<Object>} Success message
+ * @returns {Promise<String>} Success message
  */
 function remove (confirm) {
   return new Promise((resolve, reject) => {
     request.get('/v1/account', {
-      data: {
-        confirm
-      }
+      confirm
     }).then(response => {
       resolve(response.data)
     }).catch(error => {
@@ -59,45 +55,8 @@ function remove (confirm) {
   })
 }
 
-/**
- * @name getPreferences
- * @description Get the current user's account preferences
- * @namespace Account
- * @link https://docs.evecloud.xyz/reference/api#tag/Account/operation/Preferences.Get
- * @returns {Promise<Object>} User preferences object
- */
-function getPreferences () {
-  return new Promise((resolve, reject) => {
-    request.get('/v1/account/preferences').then(response => {
-      resolve(response.data)
-    }).catch(error => {
-      reject(APIError(error))
-    })
-  })
-}
-
-/**
- * @name updatePreferences
- * @description Update the current user's account preferences
- * @namespace Account
- * @link https://docs.evecloud.xyz/reference/rest-api#tag/Account/operation/Preferences.Update
- * @param {Object} data Information to update
- * @returns {Promise<String>} Message.
- */
-function updatePreferences (data) {
-  return new Promise((resolve, reject) => {
-    request.put('/v1/account/preferences', data).then(response => {
-      resolve(response.data)
-    }).catch(error => {
-      reject(APIError(error))
-    })
-  })
-}
-
 module.exports = {
-  getInfo,
-  updateInfo,
-  remove,
-  getPreferences,
-  updatePreferences
+  get,
+  update,
+  remove
 }

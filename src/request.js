@@ -42,6 +42,23 @@ const setURL = (url) => {
 }
 
 /**
+ * Set Workspace ID
+ * @param {String} workspaceID Workspace ID
+ * @returns {void}
+ */
+const setWorkspace = (workspaceID) => {
+  return request.interceptors.request.use((config) => {
+    return {
+      ...config,
+      params: {
+        ...config.params,
+        workspaceID
+      }
+    }
+  })
+}
+
+/**
  * API Error
  * @param {String} error Axios Error
  * @returns {String} Error message
@@ -59,7 +76,7 @@ const APIError = (error) => {
   if (error.response.status === 502) {
     return 'Bad Gateway'
   }
-  if (error.response.status === 403) {
+  if (error.response.status === 401) {
     return error.response.data
   }
   if (error.response.data.message) {
@@ -71,6 +88,7 @@ const APIError = (error) => {
 module.exports = {
   request,
   setToken,
+  setWorkspace,
   APIError,
   setURL
 }

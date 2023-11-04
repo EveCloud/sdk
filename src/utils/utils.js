@@ -1,13 +1,13 @@
 const { request, APIError } = require('../request')
 
 /**
- * @name getPlans
+ * @name plans
  * @description Get Plans
  * @namespace Utils
- * @link https://docs.evecloud.xyz/reference/api#tag/Utils/operation/Utils.Plans
+ * @link https://docs.evecloud.xyz/api/utils/plans
  * @returns {Promise<Object>} Plans
  */
-function getPlans () {
+function plans () {
   return new Promise((resolve, reject) => {
     request.get('/plans').then(response => {
       resolve(response.data)
@@ -18,15 +18,18 @@ function getPlans () {
 }
 
 /**
- * @name getInstances
+ * @name instances
  * @description Get Instances
  * @namespace Utils
- * @link https://docs.evecloud.xyz/reference/api#tag/Utils/operation/Utils.Instances
+ * @link https://docs.evecloud.xyz/api/utils/instances
+ * @param {String} params Parameters
  * @returns {Promise<Object>} Instances
  */
-function getInstances () {
+function instances (params) {
   return new Promise((resolve, reject) => {
-    request.get('/instances').then(response => {
+    request.get('/instances', {
+      params: params || {}
+    }).then(response => {
       resolve(response.data)
     }).catch(error => {
       reject(APIError(error))
@@ -35,15 +38,17 @@ function getInstances () {
 }
 
 /**
- * @name getRegions
+ * @name regions
  * @description Get Regions
  * @namespace Utils
- * @link https://docs.evecloud.xyz/reference/api#tag/Utils/operation/Utils.Regions
+ * @link https://docs.evecloud.xyz/api/utils/regions
  * @returns {Promise<Object>} Regions
  */
-function getRegions () {
+function regions (params) {
   return new Promise((resolve, reject) => {
-    request.get('/regions').then(response => {
+    request.get('/regions', {
+      params: params || {}
+    }).then(response => {
       resolve(response.data)
     }).catch(error => {
       reject(APIError(error))
@@ -52,7 +57,7 @@ function getRegions () {
 }
 
 module.exports = {
-  getRegions,
-  getPlans,
-  getInstances
+  plans,
+  instances,
+  regions
 }

@@ -3,16 +3,16 @@ const { request, APIError } = require('../request')
 /**
  * @name get
  * @description Get workpace usage
- * @namespace Workspaces
- * @link https://docs.evecloud.xyz/reference/api#tag/Workspaces/operation/Usage.Get
- * @param {String} id Workspace ID
+ * @namespace Usage
+ * @link https://docs.evecloud.xyz/api/workspaces/usage/view
+ * @param {String} workspaceID Workspace ID
  * @param {String} month Month
  * @param {String} year Year
  * @returns {Promise<Object>} Usage
  */
-function get (id, month, year) {
+function get (workspaceID, month, year) {
   return new Promise((resolve, reject) => {
-    request.get(`/v1/workspaces/${id}/usage`, {
+    request.get(`/v1/workspaces/${workspaceID}/usage`, {
       params: {
         month,
         year

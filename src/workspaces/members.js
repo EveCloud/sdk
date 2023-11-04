@@ -3,15 +3,15 @@ const { request, APIError } = require('../request')
 /**
  * @name list
  * @description List workpaces members
- * @namespace Workspaces
- * @link https://docs.evecloud.xyz/reference/api#tag/Workspaces/operation/Members.List
- * @param {String} id Workspace ID
+ * @namespace Members
+ * @link https://docs.evecloud.xyz/api/workspaces/members/list
+ * @param {String} workspaceID Workspace ID
  * @returns {Promise<Object>} Members
  */
-function list (id) {
+function list (workspaceID) {
   return new Promise((resolve, reject) => {
-    request.get(`/v1/workspaces/${id}/members`).then(response => {
-      resolve(response.data.data)
+    request.get(`/v1/workspaces/${workspaceID}/members`).then(response => {
+      resolve(response.data)
     }).catch(error => {
       reject(APIError(error))
     })
@@ -21,15 +21,15 @@ function list (id) {
 /**
  * @name get
  * @description Get workpace member
- * @namespace Workspaces
- * @link https://docs.evecloud.xyz/reference/api#tag/Workspaces/operation/Members.Get
- * @param {String} id Workspace ID
+ * @namespace Members
+ * @link https://docs.evecloud.xyz/api/workspaces/members/view
+ * @param {String} workspaceID Workspace ID
  * @param {String} memberID Member ID
  * @returns {Promise<Object>} Member
  */
-function get (id, memberID) {
+function get (workspaceID, memberID) {
   return new Promise((resolve, reject) => {
-    request.get(`/v1/workspaces/${id}/members/${memberID}`).then(response => {
+    request.get(`/v1/workspaces/${workspaceID}/members/${memberID}`).then(response => {
       resolve(response.data)
     }).catch(error => {
       reject(APIError(error))
@@ -40,20 +40,18 @@ function get (id, memberID) {
 /**
  * @name add
  * @description Add a member
- * @namespace Workspaces
- * @link https://docs.evecloud.xyz/reference/api#tag/Workspaces/operation/Members.Add
- * @param {String} id Workspace ID
+ * @namespace Members
+ * @link https://docs.evecloud.xyz/api/workspaces/members/add
+ * @param {String} workspaceID Workspace ID
  * @param {String} email Member Email
  * @param {String} role Member Role
  * @returns {Promise<Object>} Success Message
  */
-function add (id, email, role) {
+function add (workspaceID, email, role) {
   return new Promise((resolve, reject) => {
-    request.post(`/v1/workspaces/${id}/members`, {
-      data: {
-        email,
-        role
-      }
+    request.post(`/v1/workspaces/${workspaceID}/members`, {
+      email,
+      role
     }).then(response => {
       resolve(response.data)
     }).catch(error => {
@@ -65,19 +63,17 @@ function add (id, email, role) {
 /**
  * @name remove
  * @description Remove a member
- * @namespace Workspaces
- * @link https://docs.evecloud.xyz/reference/api#tag/Workspaces/operation/Members.Remove
- * @param {String} id Workspace ID
+ * @namespace Members
+ * @link https://docs.evecloud.xyz/api/workspaces/members/remove
+ * @param {String} workspaceID Workspace ID
  * @param {String} memberID Member ID
  * @param {String} confirm Confirm
  * @returns {Promise<Object>} Success Message
  */
-function remove (id, memberID, confirm) {
+function remove (workspaceID, memberID, confirm) {
   return new Promise((resolve, reject) => {
-    request.delete(`/v1/workspaces/${id}/members/${memberID}`, {
-      data: {
-        confirm
-      }
+    request.delete(`/v1/workspaces/${workspaceID}/members/${memberID}`, {
+      confirm
     }).then(response => {
       resolve(response.data)
     }).catch(error => {
