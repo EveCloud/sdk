@@ -4,7 +4,7 @@ const { request, APIError } = require('../request')
  * @name list
  * @description Get projects
  * @namespace Projects
- * @link https://docs.evecloud.xyz/api/projects/list
+ * @link https://docs.evecloud.xyz/reference/api/projects/list
  * @returns {Promise<Object>} Projects
  */
 function list (params) {
@@ -25,7 +25,7 @@ function list (params) {
  * @name get
  * @description Get project
  * @namespace Projects
- * @link https://docs.evecloud.xyz/api/projects/view
+ * @link https://docs.evecloud.xyz/reference/api/projects/view
  * @param {String} projectID Project ID
  * @returns {Promise<Object>} Project
  */
@@ -43,7 +43,7 @@ function get (projectID) {
  * @name create
  * @description Create project
  * @namespace Projects
- * @link https://docs.evecloud.xyz/api/projects/create
+ * @link https://docs.evecloud.xyz/reference/api/projects/create
  * @param {Object} data Project data
  * @returns {Promise<Object>} Project
  */
@@ -61,7 +61,7 @@ function create (data) {
  * @name update
  * @description Update project
  * @namespace Projects
- * @link https://docs.evecloud.xyz/api/projects/update
+ * @link https://docs.evecloud.xyz/reference/api/projects/update
  * @param {String} projectID Project ID
  * @param {Object} data Project data
  * @returns {Promise<Object>} Project
@@ -80,12 +80,11 @@ function update (projectID, data) {
  * @name remove
  * @description Remove project
  * @namespace Projects
- * @link https://docs.evecloud.xyz/api/projects/delete
+ * @link https://docs.evecloud.xyz/reference/api/projects/delete
  * @param {String} projectID Project ID
- * @param {Boolean} confirm Confirm removal
  * @returns {Promise<Object>} Success message
  */
-function remove (projectID, confirm) {
+function remove (projectID) {
   return new Promise((resolve, reject) => {
     request.delete(`/v1/projects/${projectID}`, {
       confirm

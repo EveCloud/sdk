@@ -4,7 +4,7 @@ const { request, APIError } = require('../request')
  * @name get
  * @description Get the current user's account information
  * @namespace Account
- * @link https://docs.evecloud.xyz/api/account/view
+ * @link https://docs.evecloud.xyz/reference/api/account/view
  * @returns {Promise<Object>} User object
  */
 function get () {
@@ -21,7 +21,7 @@ function get () {
  * @name findOneAndUpdate
  * @description Update the current user's account information
  * @namespace Account
- * @link https://docs.evecloud.xyz/api/account/update
+ * @link https://docs.evecloud.xyz/reference/api/account/update
  * @param {Object} data Information to update
  * @returns {Promise<Object>} User object
  */
@@ -39,15 +39,12 @@ function update (data) {
  * @name remove
  * @description Delete the current user's account
  * @namespace Account
- * @link https://docs.evecloud.xyz/api/account/delete
- * @param {String} confirm Confirm account deletion
+ * @link https://docs.evecloud.xyz/reference/api/account/delete
  * @returns {Promise<String>} Success message
  */
-function remove (confirm) {
+function remove () {
   return new Promise((resolve, reject) => {
-    request.get('/v1/account', {
-      confirm
-    }).then(response => {
+    request.delete('/v1/account').then(response => {
       resolve(response.data)
     }).catch(error => {
       reject(APIError(error))

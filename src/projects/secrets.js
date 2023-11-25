@@ -4,7 +4,7 @@ const { request, APIError } = require('../request')
  * @name list
  * @description Get project secrets
  * @namespace Secrets
- * @link https://docs.evecloud.xyz/api/projects/secrets/list
+ * @link https://docs.evecloud.xyz/reference/api/projects/secrets/list
  * @param {String} projectID Project ID
  * @param {String} params Parameters
  * @returns {Promise<Object>} Secrets
@@ -27,7 +27,7 @@ function list (projectID, params) {
  * @name get
  * @description Get project secret
  * @namespace Secrets
- * @link https://docs.evecloud.xyz/api/projects/secrets/view
+ * @link https://docs.evecloud.xyz/reference/api/projects/secrets/view
  * @param {String} projectID Project ID
  * @param {String} secretID Secret ID
  * @returns {Promise<Object>} Secret
@@ -46,7 +46,7 @@ function get (projectID, secretID) {
  * @name create
  * @description Create project secret
  * @namespace Secrets
- * @link https://docs.evecloud.xyz/api/projects/secrets/create
+ * @link https://docs.evecloud.xyz/reference/api/projects/secrets/create
  * @param {String} projectID Project ID
  * @param {String} key Secret key
  * @param {String} value Secret value
@@ -69,7 +69,7 @@ function create (projectID, key, value) {
  * @name update
  * @description Update project secret
  * @namespace Secrets
- * @link https://docs.evecloud.xyz/api/projects/secrets/update
+ * @link https://docs.evecloud.xyz/reference/api/projects/secrets/update
  * @param {String} projectID Project ID
  * @param {String} secretID Secret ID
  * @param {String} value Secret value
@@ -91,7 +91,7 @@ function update (projectID, secretID, value) {
  * @name remove
  * @description Delete project secret
  * @namespace Secrets
- * @link https://docs.evecloud.xyz/api/projects/secrets/delete
+ * @link https://docs.evecloud.xyz/reference/api/projects/secrets/delete
  * @param {String} projectID Project ID
  * @param {String} secretID Secret ID
  * @returns {Promise<Object>} Success message

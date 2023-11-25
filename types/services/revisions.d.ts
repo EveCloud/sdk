@@ -2,7 +2,7 @@
  * @name list
  * @description List service revisions
  * @namespace Services
- * @link https://docs.evecloud.xyz/api/services/revisions/list
+ * @link https://docs.evecloud.xyz/reference/api/services/revisions/list
  * @param {String} projectID Project ID
  * @param {String} serviceID Service ID
  * @param {String} params Query parameters

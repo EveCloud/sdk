@@ -2,7 +2,7 @@
  * @name list
  * @description Get GitHub repositories
  * @namespace Integrations
- * @link https://docs.evecloud.xyz/api/account/integrations/github/repositories
+ * @link https://docs.evecloud.xyz/reference/api/account/integrations/github/repositories
  * @returns {Promise<Object>} GitHub repositories
  */
 declare function listRepositories(): Promise<any>;
@@ -10,7 +10,7 @@ declare function listRepositories(): Promise<any>;
  * @name connect
  * @description Connect GitHub to your account
  * @namespace Integrations
- * @link https://docs.evecloud.xyz/api/account/integrations/github/connect
+ * @link https://docs.evecloud.xyz/reference/api/account/integrations/github/connect
  * @param {String} code The code returned from GitHub
  * @param {String} installationId The installation ID returned from GitHub
  * @returns {Promise<String>} Success message

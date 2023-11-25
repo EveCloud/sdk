@@ -4,7 +4,7 @@ const { request, APIError } = require('../request')
  * @name plans
  * @description Get Plans
  * @namespace Utils
- * @link https://docs.evecloud.xyz/api/utils/plans
+ * @link https://docs.evecloud.xyz/reference/api/utils/plans
  * @returns {Promise<Object>} Plans
  */
 function plans () {
@@ -21,7 +21,7 @@ function plans () {
  * @name instances
  * @description Get Instances
  * @namespace Utils
- * @link https://docs.evecloud.xyz/api/utils/instances
+ * @link https://docs.evecloud.xyz/reference/api/utils/instances
  * @param {String} params Parameters
  * @returns {Promise<Object>} Instances
  */
@@ -41,7 +41,7 @@ function instances (params) {
  * @name regions
  * @description Get Regions
  * @namespace Utils
- * @link https://docs.evecloud.xyz/api/utils/regions
+ * @link https://docs.evecloud.xyz/reference/api/utils/regions
  * @returns {Promise<Object>} Regions
  */
 function regions (params) {

@@ -4,7 +4,7 @@ const { request, APIError } = require('../request')
  * @name list
  * @description List workpaces registries
  * @namespace Registries
- * @link https://docs.evecloud.xyz/api/workspaces/registries/list
+ * @link https://docs.evecloud.xyz/reference/api/workspaces/registries/list
  * @param {String} workspaceID Workspace ID
  * @returns {Promise<Object>} Registries
  */
@@ -22,7 +22,7 @@ function list (workspaceID) {
  * @name get
  * @description Get workpace registry
  * @namespace Registries
- * @link https://docs.evecloud.xyz/api/workspaces/registries/view
+ * @link https://docs.evecloud.xyz/reference/api/workspaces/registries/view
  * @param {String} workspaceID Workspace ID
  * @param {String} registryID Registry ID
  * @returns {Promise<Object>} Registry
@@ -41,7 +41,7 @@ function get (workspaceID, registryID) {
  * @name add
  * @description Add Registry
  * @namespace Registries
- * @link https://docs.evecloud.xyz/api/workspaces/registries/add
+ * @link https://docs.evecloud.xyz/reference/api/workspaces/registries/add
  * @param {String} workspaceID Workspace ID
  * @param {Object} data Registry Data
  * @returns {Promise<Object>} Success Message
@@ -62,7 +62,7 @@ function add (workspaceID, data) {
  * @name remove
  * @description Remove Registry
  * @namespace Registries
- * @link https://docs.evecloud.xyz/api/workspaces/registries/remove
+ * @link https://docs.evecloud.xyz/reference/api/workspaces/registries/remove
  * @param {String} workspaceID Workspace ID
  * @param {String} registryID Registry ID
  * @returns {Promise<Object>} Success Message

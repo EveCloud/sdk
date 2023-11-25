@@ -2,7 +2,7 @@
  * @name plans
  * @description Get Plans
  * @namespace Utils
- * @link https://docs.evecloud.xyz/api/utils/plans
+ * @link https://docs.evecloud.xyz/reference/api/utils/plans
  * @returns {Promise<Object>} Plans
  */
 export function plans(): Promise<any>;
@@ -10,7 +10,7 @@ export function plans(): Promise<any>;
  * @name instances
  * @description Get Instances
  * @namespace Utils
- * @link https://docs.evecloud.xyz/api/utils/instances
+ * @link https://docs.evecloud.xyz/reference/api/utils/instances
  * @param {String} params Parameters
  * @returns {Promise<Object>} Instances
  */
@@ -19,7 +19,7 @@ export function instances(params: string): Promise<any>;
  * @name regions
  * @description Get Regions
  * @namespace Utils
- * @link https://docs.evecloud.xyz/api/utils/regions
+ * @link https://docs.evecloud.xyz/reference/api/utils/regions
  * @returns {Promise<Object>} Regions
  */
 export function regions(params: any): Promise<any>;

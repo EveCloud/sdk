@@ -4,7 +4,7 @@ const { request, APIError } = require('../request')
  * @name list
  * @description Get your authentication events from the last 30 days.
  * @namespace Security
- * @link https://docs.evecloud.xyz/api/account/security/events
+ * @link https://docs.evecloud.xyz/reference/api/account/security/events
  * @param {String} params Parameters
  * @returns {Promise<Object>} Authentication events
  */
